@@ -1,3 +1,4 @@
+from comentario import COMENTARIO
 class PERSONA:
     Listapersonas=[]  
     def __init__(self, correo, contraseña, nombre, cell):
