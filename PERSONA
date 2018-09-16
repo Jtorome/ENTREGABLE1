@@ -9,7 +9,7 @@ class PERSONA:
          self._cell'''
         
         self._ListaComentarios=[]
-        self._Listapersonas = []
+        self._ListaPersonas = []
         self.setContraseña(contraseña)
         self.set_correo(correo)
         self.setNombre(nombre)
