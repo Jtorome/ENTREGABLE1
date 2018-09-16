@@ -1,4 +1,5 @@
 from comentario import COMENTARIO
+
 class PERSONA:
     Listapersonas=[]  
     def __init__(self, correo, contraseña, nombre, cell):
@@ -6,17 +7,17 @@ class PERSONA:
          self._correo
          self._contraseña
          self._nombre
-         self._cell'''
+         self._cell
+         self._Listapersonas'''
         
         self._ListaComentarios=[]
-        self._ListaPersonas = []
         self.setContraseña(contraseña)
         self.set_correo(correo)
         self.setNombre(nombre)
-        self.setPreci(precio)
-        PERSONA.Listapersonas=[]
+        self.setcell(cell)
+        PERSONA.Listapersonas.append(self)
         
-    def setcorreo(self, correo):
+    def set_correo(self, correo):
         self._correo=correo 
 
     def get_correo(self):
@@ -37,6 +38,5 @@ class PERSONA:
     def setContraseña(self, contraseña):
         self._contraseña= contraseña
     
-    def getContraseña(self, contraseña):
+    def getContraseña(self):
         return(self.contraseña)
-        
