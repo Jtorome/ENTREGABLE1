@@ -1,1 +1,39 @@
+class PERSONA:
+    Listapersonas=[]  
+    def __init__(self, correo, contraseña, nombre, cell):
+         '''ATRIBUTOS
+         self._correo
+         self._contraseña
+         self._nombre
+         self._cell'''
+         
+        self._Listapersonas = []
+        self.setContraseña(contraseña)
+        self.set_correo(correo)
+        self.setNombre(nombre)
+        self.setPreci(precio)
+        
+    def setcorreo(self, correo):
+        self._correo=correo 
 
+    def get_correo(self):
+        return (self._correo)      
+         
+    def setNombre(self, nombre):
+        self._nombre=nombre
+        
+    def getNombre(self):
+        return (self.nombre)
+       
+    def setCell(self, celular):
+        self._cell= celular
+
+    def getCell(self):
+        return (self.cell)    
+    
+    def setContraseña(self, contraseña):
+        self._contraseña= contraseña
+    
+    def getContraseña(self, contraseña):
+        return(self.contraseña)
+        
