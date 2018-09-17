@@ -1,1 +1,71 @@
+from pasajero import PASAJERO
+from conductor import CONDUCTOR
+from calificacion import CALIFICACION
 
+class SERVICIO:
+
+    listaServicios=[]
+    
+    def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, PromedioCalificacion, Conductor):
+        
+        '''ATRIBUTOS
+        self._HoraEncuentro
+        self._SitioEncuentro
+        self._LugarInicio
+        self._Lugarfin
+        self._AsientosDisponibles
+        self._PromedioCalificacion
+        self._Conductor
+        self._listaPasajeros
+        self._listaCalificaciones
+        '''
+        
+        self.setHoraEncuentro(horaEncuentro)
+        self.setSitioEncuentro(sitioEncuentro)
+        self.setLugarInicio(lugarInicio)
+        self.setLugarFin(lugarFin)
+        self.setAsientosDisponibles(asientosDisponibles)
+        self.setPromedioCalificacion(promedioCalificacion)
+        self.setConductor(conductor)
+        self._listaPasajeros=[]
+        self._listaCalificaciones=[]
+
+    def setHoraEncuentro(self, horaEncuentro):
+        self._HoraEncuentro=horaEncuentro
+    
+    def getHoraEncuentro(self):
+        return self._HoraEncuentro
+        
+    def setSitioEncuentro(self, sitioEncuentro):
+        self._SitioEncuentro=sitioEncuentro
+        
+    def getSitioEncuentro(self):
+        return self._SitioEncuentro
+        
+    def setLugarInicio(self, lugarInicio):
+        self._LugarInicio=lugarInicio
+        
+    def getLugarInicio(self):
+        return self._LugarInicio
+        
+    def setLugarFin(self, lugarFin):
+        self._LugarFin=lugarFin
+        
+    def getLugarFin(self):
+        return self._LugarFin
+        
+    def setAsientosDisponibles(self, asientosDisponibles):
+        self._AsientosDisponibles=asientosDisponibles
+        
+    def getAsientosDisponibles(self):
+        return self._AsientosDisponibles
+        
+    def setPromedioCalificacion(self, promedioCalificacion):
+        self._PromedioCalificacion=promedioCalificacion
+        
+    def getPromedioCalificacion(self):
+        return self._PromedioCalificacion
+        
+    def setConductor(self, conductor):
+        self._Conductor=conductor
+        conductor.setVehiculo(self)
