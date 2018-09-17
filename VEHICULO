@@ -19,7 +19,7 @@ class VEHICULO:
          self.setCantidadAsientos(CantidadAsientos)
          VEHICULO.ListaVehiculos.append(self)
          
-    def etPlaca(self,Placa):
+    def SetPlaca(self,Placa):
         self._Placa=Placa
         
     def getPlaca(self):
