@@ -1,1 +1,21 @@
+from calificacion import CALIFICACION
+from servicio import SERVICIO
 
+class PASAJERO:
+
+    ListaPasajero=[]
+    
+
+    def __init__(self, CalificacionPromedio):
+    
+        '''ATRIBUTOS
+        self._CalificacionPromedio
+        '''
+         
+        self.setCalificacionPromedio(CalificacionPromedio)
+        PASAJERO.ListaPasajeros.append(self)
+        self._ListaServicio=[]
+        self._ListaCalificacion=[]
+        
+    def getCalificacionPromedio(self):
+        return(CalificacionPromedio)
