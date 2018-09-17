@@ -1,1 +1,28 @@
+from servicio import SERVICIO
+from vehiculo import VEHICULO
+from calificacion import CALIFICACION
 
+class CONDUCTOR:
+
+    ListaConductores=[]
+        
+    def __init__(self,NumeroDeServicios=0, AcumuladoDeCalificacion=5.0):
+    
+         '''ATRIBUTOS
+         self.setNumeroDeServicios
+         self.setAcumuladoDeCalificacion
+         '''
+         self._listaVehiculos = []
+         self._listaServicios = []
+         self.setNumeroDeServicios(NumeroDeServicios)
+         self.setAcumuladoDeCalificacion(AcumuladoDeCalificacion)
+         CONDUCTOR.ListaConductores.append(self)
+    
+    def setNumeroDeServicios(self):
+        self._NumeroDeServicios=NumeroDeServicios+1
+        
+    def getNumeroDeServicios(self):
+        return(NumeroDeServicios)
+        
+    def getAcumuladoDeCalificacion(self):
+        return(AcumuladoDeCalificacion)
