@@ -1,53 +1,53 @@
 from conductor import CONDUCTOR
 
 class VEHICULO:
-
-     ListaVehiculos=[]
+       
+    ListaVehiculos=[]
      
-     def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, conductor):
+    def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, Conductor):
      
-          '''ATRIBUTOS
-         self._Placa
-         self._Color
-         self._TipoVehiculos
-         self._CantidadAsientos
-         self._conductor
-         '''
+         '''ATRIBUTOS
+        self._Placa
+        self._Color
+        self._TipoVehiculos
+        self._CantidadAsientos
+        self._Conductor
+        '''
          
-         self.setPlaca(Placa)
-         self.setColor(Color)
-         self.setTipoVehiculos(TipoVehiculos)
-         self.setCantidadAsientos(CantidadAsientos)
-         self.setConductor(conductor)
-         VEHICULO.ListaVehiculos.append(self)
+        self.setPlaca(Placa)
+        self.setColor(Color)
+        self.setTipoVehiculos(TipoVehiculos)
+        self.setCantidadAsientos(CantidadAsientos)
+        self.setConductor(conductor)
+        VEHICULO.ListaVehiculos.append(self)
          
-    def SetPlaca(self,placa):
-        self._Placa=placa
+   def SetPlaca(self,placa):
+       self._Placa=placa
         
-    def getPlaca(self):
-        return self._Placa
+   def getPlaca(self):
+       return self._Placa
     
-    def setColor(self,color):
-        self._Color=color
+   def setColor(self,color):
+       self._Color=color
         
-    def getColor(self):
-        return self._Color
+   def getColor(self):
+       return self._Color
         
-    def SetTipoVehiculo(self,TipoVehiculo):
-        self._TipoVehiculo=TipoVehiculo
+   def SetTipoVehiculo(self, tipoVehiculo):
+       self._TipoVehiculo=TipoVehiculo
         
-    def getTipoVehiculo(self):
-        return self._TipoVehiculo
+   def getTipoVehiculo(self):
+       return self._TipoVehiculo
         
-    def SetCantidadAsientos(self, CantidadAsientos):
-        self._CantidadAsientos=CantidadAsientos
+   def SetCantidadAsientos(self, cantidadAsientos):
+       self._CantidadAsientos=CantidadAsientos
         
-    def getCantidadAsientos(self):
-        return self._CantidadAsientos
+   def getCantidadAsientos(self):
+       return self._CantidadAsientos
         
-    def setConductor(self, conductor):
-        self._Conductor=conductor
-        conductor.setVehiculo(self)
+   def setConductor(self, conductor):
+       self._Conductor=conductor
+       conductor.setVehiculo(self)
         
-    def getConductor(self):
-        return self._conductor
+   def getConductor(self):
+       return self._conductor
