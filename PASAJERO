@@ -12,10 +12,30 @@ class PASAJERO:
         self._CalificacionPromedio
         '''
          
+        self._listaServicio=[]
+        self._listaCalificacion=[]
         self.setCalificacionPromedio(CalificacionPromedio)
         PASAJERO.ListaPasajeros.append(self)
-        self._ListaServicio=[]
-        self._ListaCalificacion=[]
+        
+    def setCalificacionPromedio(pasajero):
+        if(len(pasajero)==0):
+            return ("Pasajero nuevo")
+        sum=0
+        for cal in pasajero:
+            sum=sum+cal.getPuntuacion()
+        self._CalificacionPromedio(sum/(len(pasajero)))
         
     def getCalificacionPromedio(self):
-        return(CalificacionPromedio)
+        return self._CalificacionPromedio
+    
+    def setServicios(self, servicios):
+        self._listaServicios.append(servicios)
+        
+    def getServicios(self):
+        return self._listaServicios
+        
+    def setCalificacion(self, calificacion):
+        self._listaCalificacion(calificacion)
+        
+    def getCalificacion(self):
+        return self._listaCalificacion
