@@ -21,14 +21,14 @@ class VEHICULO:
          self.setConductor(conductor)
          VEHICULO.ListaVehiculos.append(self)
          
-    def SetPlaca(self,Placa):
-        self._Placa=Placa
+    def SetPlaca(self,placa):
+        self._Placa=placa
         
     def getPlaca(self):
         return self._Placa
     
-    def setColor(self,Color):
-        self._Color=Color
+    def setColor(self,color):
+        self._Color=color
         
     def getColor(self):
         return self._Color
@@ -47,6 +47,7 @@ class VEHICULO:
         
     def setConductor(self, conductor):
         self._Conductor=conductor
+        conductor.setVehiculo(self)
         
     def getConductor(self):
         return self._conductor
