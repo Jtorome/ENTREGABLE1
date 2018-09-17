@@ -1,1 +1,47 @@
+from conductor import CONDUCTOR
 
+class VEHICULO:
+
+     ListaVehiculos=[]
+     
+     def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos):
+     
+          '''ATRIBUTOS
+         self._Placa
+         self._Color
+         self._TipoVehiculos
+         self._CantidadAsientos'''
+         
+         self._Conductor=[]
+         self.setPlaca(Placa)
+         self.setColor(Color)
+         self.setTipoVehiculos(TipoVehiculos)
+         self.setCantidadAsientos(CantidadAsientos)
+         VEHICULO.ListaVehiculos.append(self)
+         
+    def etPlaca(self,Placa):
+        self._Placa=Placa
+        
+    def getPlaca(self):
+        return(Placa)
+    
+    def setColor(self,Color):
+        self._Color=Color
+        
+    def getColor(self):
+        return(Color)
+        
+    def SetTipoVehiculo(self,TipoVehiculo):
+        self._TipoVehiculo=TipoVehiculo
+        
+    def getTipoVehiculo(self):
+        return(TipoVehiculo)
+        
+    def SetCantidadAsientos(self, CantidadAsientos):
+        self._CantidadAsientos=CantidadAsientos
+        
+    def getCantidadAsientos(self):
+        return(CantidadAsientos)
+        
+    def setConductor(self, conductor):
+        self._Conductor=conductor
