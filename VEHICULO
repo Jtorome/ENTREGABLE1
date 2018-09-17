@@ -4,7 +4,7 @@ class VEHICULO:
 
      ListaVehiculos=[]
      
-     def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos):
+     def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, conductor):
      
           '''ATRIBUTOS
          self._Placa
@@ -12,36 +12,39 @@ class VEHICULO:
          self._TipoVehiculos
          self._CantidadAsientos'''
          
-         self._Conductor=[]
          self.setPlaca(Placa)
          self.setColor(Color)
          self.setTipoVehiculos(TipoVehiculos)
          self.setCantidadAsientos(CantidadAsientos)
+         self.setConductor(conductor)
          VEHICULO.ListaVehiculos.append(self)
          
     def SetPlaca(self,Placa):
         self._Placa=Placa
         
     def getPlaca(self):
-        return(Placa)
+        return self._Placa
     
     def setColor(self,Color):
         self._Color=Color
         
     def getColor(self):
-        return(Color)
+        return self._Color
         
     def SetTipoVehiculo(self,TipoVehiculo):
         self._TipoVehiculo=TipoVehiculo
         
     def getTipoVehiculo(self):
-        return(TipoVehiculo)
+        return self._TipoVehiculo
         
     def SetCantidadAsientos(self, CantidadAsientos):
         self._CantidadAsientos=CantidadAsientos
         
     def getCantidadAsientos(self):
-        return(CantidadAsientos)
+        return self._CantidadAsientos
         
     def setConductor(self, conductor):
         self._Conductor=conductor
+        
+    def getConductor(self):
+        return self._conductor
