@@ -68,4 +68,19 @@ class SERVICIO:
         
     def setConductor(self, conductor):
         self._Conductor=conductor
-        conductor.setVehiculo(self)
+        conductor.setServicio(self)
+        
+    def getConductor(self):
+        return self._Conductor
+        
+    def setPasajeros(self, pasajeros):
+        self._listaPasajeros.append(pasajeros)
+        
+    def getPasajeros(self):
+        return self._listaPasajeros
+        
+    def setCalificaciones(self, calificaciones):
+        self._listaCalificaciones.append(calificaciones)
+        
+    def getCalificaciones(self):
+        return self._listaCalificaciones
