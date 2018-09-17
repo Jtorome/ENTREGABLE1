@@ -10,7 +10,9 @@ class VEHICULO:
          self._Placa
          self._Color
          self._TipoVehiculos
-         self._CantidadAsientos'''
+         self._CantidadAsientos
+         self._conductor
+         '''
          
          self.setPlaca(Placa)
          self.setColor(Color)
