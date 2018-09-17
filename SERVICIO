@@ -4,7 +4,7 @@ from calificacion import CALIFICACION
 
 class SERVICIO:
 
-    listaServicios=[]
+    ListaServicios=[]
     
     def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, PromedioCalificacion, Conductor):
         
@@ -29,6 +29,7 @@ class SERVICIO:
         self.setConductor(conductor)
         self._listaPasajeros=[]
         self._listaCalificaciones=[]
+        SERVICIO.ListaServicios.append(self)
 
     def setHoraEncuentro(self, horaEncuentro):
         self._HoraEncuentro=horaEncuentro
