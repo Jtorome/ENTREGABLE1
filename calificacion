@@ -15,13 +15,13 @@ class CALIFICACION:
 		'''
 		
 		self.setCalificacion(calificacion)
-		self.setDescripcion(descriocion)
+		self.setDescripcion(descripcion)
 		self.setConductor(conductor)
 		self.setPasajero(pasajero)
 		self.setServicio(servicio)
 		
 		def setCalificacion(self, calificacion):
-			self._Calificacion=calificacion
+			self._Calificacion=int(calificacion)
 			
 		def getCalificacion(self):
 			return self._Calificacion
@@ -36,21 +36,21 @@ class CALIFICACION:
 			
 		def setConductor(self, conductor):
 			self._Conductor=conductor
-			conductor.setCalificaciones(self)
+			conductor.setCalificacionesCon(self)
 			
 		def getConductor(self):
 			return self._Conductor
 			
 		def setPasajero(self, pasajero):
 			self._Pasajero(pasajero)
-			pasajero.setCalificaciones(self)
+			pasajero.setCalificacionesPa(self)
 			
 		def getPasajero(self):
 			return self._Pasajero
 			
 		def setServicio(self, servicio):
 			self._Servicio=servicio
-			servicio.setCalificaciones(self)
+			servicio.setCalificacionesSer(self)
 			
 		def getServicio(self):
 			return self._Servicio
