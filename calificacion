@@ -33,24 +33,30 @@ class CALIFICACION:
 		@staticmethod	
 		def getDescripcion(self):
 			return self._Descripcion
-			
+		
+		@staticmethod
 		def setConductor(self, conductor):
 			self._Conductor=conductor
 			conductor.setCalificacionesCon(self)
-			
+		
+		@staticmethod
 		def getConductor(self):
 			return self._Conductor
 			
+        @staticmethod
 		def setPasajero(self, pasajero):
 			self._Pasajero(pasajero)
 			pasajero.setCalificacionesPa(self)
 			
+        @staticmethod    
 		def getPasajero(self):
 			return self._Pasajero
-			
+            
+	    @staticmethod
 		def setServicio(self, servicio):
 			self._Servicio=servicio
 			servicio.setCalificacionesSer(self)
 			
+        @staticmethod
 		def getServicio(self):
 			return self._Servicio
