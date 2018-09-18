@@ -14,20 +14,20 @@ class VEHICULO:
         self._Conductor
         '''
          
-        self.setPlaca(Placa)
-        self.setColor(Color)
-        self.setTipoVehiculos(TipoVehiculos)
-        self.setCantidadAsientos(CantidadAsientos)
+        self.setPlaca(placa)
+        self.setColor(color)
+        self.setTipoVehiculos(tipoVehiculos)
+        self.setCantidadAsientos(cantidadAsientos)
         self.setConductor(conductor)
         VEHICULO.ListaVehiculos.append(self)
          
-   def SetPlaca(self,placa):
+   def setPlaca(self, placa):
        self._Placa=placa
         
    def getPlaca(self):
        return self._Placa
     
-   def setColor(self,color):
+   def setColor(self, color):
        self._Color=color
         
    def getColor(self):
@@ -40,14 +40,16 @@ class VEHICULO:
        return self._TipoVehiculo
         
    def SetCantidadAsientos(self, cantidadAsientos):
-       self._CantidadAsientos=CantidadAsientos
+       self._CantidadAsientos=int(CantidadAsientos)
         
    def getCantidadAsientos(self):
        return self._CantidadAsientos
         
+   @staticmethod
    def setConductor(self, conductor):
        self._Conductor=conductor
        conductor.setVehiculo(self)
         
+   @staticmethod
    def getConductor(self):
        return self._conductor
