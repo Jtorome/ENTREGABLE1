@@ -2,4 +2,53 @@ from conductor import CONDUCTOR
 from pasajero import PASAJERO
 from servicio import SERVICIO
 
-class CALIFICACION
+class CALIFICACION:
+
+	def __init__(self, Calificacion, Descripcion, Conductor, Pasajero, Servicio):
+		
+		'''ATRIBUTO
+		self._Calificacion
+		self._Descripcion
+		self._Conductor
+		self._Pasajero
+		self._Servicio
+		'''
+		
+		self.setCalificacion(calificacion)
+		self.setDescripcion(descriocion)
+		self.setConductor(conductor)
+		self.setPasajero(pasajero)
+		self.setServicio(servicio)
+		
+		def setCalificacion(self, calificacion):
+			self._Calificacion=calificacion
+			
+		def getCalificacion(self):
+			return self._Calificacion
+			
+		def setDescripcion(self, descripcion):
+			self._Descripcion=descripcion
+			
+		def getDescripcion(self):
+			return self._Descripcion
+			
+		def setConductor(self, conductor):
+			self._Conductor=conductor
+			conductor.setCalificaciones(self)
+			
+		def getConductor(self):
+			return self._Conductor
+			
+		def setPasajero(self, pasajero):
+			self._Pasajero(pasajero)
+			pasajero.setCalificaciones(self)
+			
+		def getPasajero(self):
+			return self._Pasajero
+			
+		def setServicio(self, servicio):
+			self._Servicio=servicio
+			servicio.setCalificaciones(self)
+			
+		def getServicio(self):
+			return self._Servicio
