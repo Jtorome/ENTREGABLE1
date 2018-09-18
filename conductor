@@ -13,11 +13,11 @@ class CONDUCTOR:
          self._AcumuladoDeCalificacion
          self._listaVehiculos
          self._listaServicios
-         self._listaCalificaciones
+         self._listaCalificacionesCon
          '''
          self._listaVehiculos = []
-         self._listaServicios = []
-         self._listaCalificaciones=[]
+         self._listaServiciosCon = []
+         self._listaCalificacionesCon=[]
          self.setNumeroDeServicios(numeroDeServicios)
          self.setAcumuladoDeCalificacion(acumuladoDeCalificacion)
          CONDUCTOR.ListaConductores.append(self)
@@ -37,15 +37,15 @@ class CONDUCTOR:
     def getVehiculos(self):
         return self._listaVehiculos
         
-    def setServicios(self, servicios):
-        self._listaServicios.appen(servicios)
+    def setServiciosCon(self, servicios):
+        self._listaServiciosCon.appen(servicios)
         
-    def getServicios(self):
-        return self._listaServicios
+    def getServiciosCon(self):
+        return self._listaServiciosCon
         
-    def setCalificaciones(self, calificaciones):
-        self._listaCalificaciones(calificaciones)
+    def setCalificacionesCon(self, calificaciones):
+        self._listaCalificacionesCon(calificaciones)
         
-    def getCalificaciones(self):
-        return self._listaCalificaciones
+    def getCalificacionesCon(self):
+        return self._listaCalificacionesCon
         
