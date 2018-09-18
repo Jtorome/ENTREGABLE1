@@ -12,7 +12,7 @@ class SERVICIO:
         self._HoraEncuentro
         self._SitioEncuentro
         self._LugarInicio
-        self._Lugarfin
+        self._LugarFin
         self._AsientosDisponibles
         self._PromedioCalificacion
         self._Conductor
@@ -56,32 +56,37 @@ class SERVICIO:
         return self._LugarFin
         
     def setAsientosDisponibles(self, asientosDisponibles):
-        self._AsientosDisponibles=asientosDisponibles
+        self._AsientosDisponibles=int(asientosDisponibles)
         
     def getAsientosDisponibles(self):
         return self._AsientosDisponibles
         
     def setPromedioCalificacion(self, promedioCalificacion):
+        # Falta hacerlo
         self._PromedioCalificacion=promedioCalificacion
         
     def getPromedioCalificacion(self):
         return self._PromedioCalificacion
-        
+    
+    @staticmethod
     def setConductor(self, conductor):
         self._Conductor=conductor
         conductor.setServicio(self)
         
+    @staticmethod
     def getConductor(self):
         return self._Conductor
         
+    @staticmethod
     def setPasajeros(self, pasajeros):
         self._listaPasajeros.append(pasajeros)
-        
+    
+    @staticmethod
     def getPasajeros(self):
         return self._listaPasajeros
         
     def setCalificacionesSer(self, calificaciones):
         self._listaCalificacionesSer.append(calificaciones)
-        
+    
     def getCalificacionesSer(self):
         return self._listaCalificacionesSer
