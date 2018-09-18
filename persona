@@ -3,6 +3,7 @@ from comentario import COMENTARIO
 class PERSONA:
     Listapersonas=[]  
     def __init__(self, Correo, Contraseña, Nombre, Cell):
+    
          '''ATRIBUTOS
          self._Correo
          self._Contraseña
@@ -41,8 +42,10 @@ class PERSONA:
     def getContraseña(self):
         return self.Contraseña
         
+    @staticmethod
     def setComentarios(self, comentarios):
         self._listaComentarios.append(comentarios)
         
+    @staticmethod
     def getComentarios(self):
         return self._listaComentarios
