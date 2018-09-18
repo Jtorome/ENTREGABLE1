@@ -28,7 +28,7 @@ class SERVICIO:
         self.setPromedioCalificacion(promedioCalificacion)
         self.setConductor(conductor)
         self._listaPasajeros=[]
-        self._listaCalificaciones=[]
+        self._listaCalificacionesSer=[]
         SERVICIO.ListaServicios.append(self)
 
     def setHoraEncuentro(self, horaEncuentro):
@@ -80,8 +80,8 @@ class SERVICIO:
     def getPasajeros(self):
         return self._listaPasajeros
         
-    def setCalificaciones(self, calificaciones):
-        self._listaCalificaciones.append(calificaciones)
+    def setCalificacionesSer(self, calificaciones):
+        self._listaCalificacionesSer.append(calificaciones)
         
-    def getCalificaciones(self):
-        return self._listaCalificaciones
+    def getCalificacionesSer(self):
+        return self._listaCalificacionesSer
