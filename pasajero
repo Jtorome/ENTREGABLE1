@@ -10,12 +10,12 @@ class PASAJERO:
     
         '''ATRIBUTOS
         self._CalificacionPromedio
-		self._listaServicio
-		self._litaCalificacion
+		self._listaServiciosPa
+		self._litaCalificacionPa
         '''
          
-        self._listaServicio=[]
-        self._listaCalificacion=[]
+        self._listaServiciosPa=[]
+        self._listaCalificacionPa=[]
         self.setCalificacionPromedio(CalificacionPromedio)
         PASAJERO.listaPasajeros.append(self)
         
@@ -30,14 +30,14 @@ class PASAJERO:
     def getCalificacionPromedio(self):
         return self._CalificacionPromedio
     
-    def setServicios(self, servicios):
-        self._listaServicios.append(servicios)
+    def setServiciosPa(self, servicios):
+        self._listaServiciosPa.append(servicios)
         
-    def getServicios(self):
-        return self._listaServicios
+    def getServiciosPa(self):
+        return self._listaServiciosPa
         
-    def setCalificacion(self, calificacion):
-        self._listaCalificacion(calificacion)
+    def setCalificacionPa(self, calificacion):
+        self._listaCalificacionPa(calificacion)
         
-    def getCalificacion(self):
-        return self._listaCalificacion
+    def getCalificacionPa(self):
+        return self._listaCalificacionPa
