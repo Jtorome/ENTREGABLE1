@@ -22,10 +22,12 @@ class COMENTARIO:
 				
 			def getFechaHora(self):
 				return self._FechaHora
-				
+			
+			@staticmethod
 			def setDescripcion(self, descricion):
 				self._Descripcion=descripcion
 				
+			@staticmethod
 			def getDescripcion(self):
 				return self._Descripcion
 				
