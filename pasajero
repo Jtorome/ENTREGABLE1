@@ -3,19 +3,21 @@ from servicio import SERVICIO
 
 class PASAJERO:
 
-    ListaPasajero=[]
+    listaPasajero=[]
     
 
     def __init__(self, CalificacionPromedio):
     
         '''ATRIBUTOS
         self._CalificacionPromedio
+		self._listaServicio
+		self._litaCalificacion
         '''
          
         self._listaServicio=[]
         self._listaCalificacion=[]
         self.setCalificacionPromedio(CalificacionPromedio)
-        PASAJERO.ListaPasajeros.append(self)
+        PASAJERO.listaPasajeros.append(self)
         
     def setCalificacionPromedio(pasajero):
         if(len(pasajero)==0):
