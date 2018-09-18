@@ -12,7 +12,7 @@ class CONDUCTOR:
          self._NumeroDeServicios
          self._AcumuladoDeCalificacion
          self._listaVehiculos
-         self._listaServicios
+         self._listaServiciosCon
          self._listaCalificacionesCon
          '''
          self._listaVehiculos = []
