@@ -30,11 +30,13 @@ class COMENTARIO:
 			@staticmethod
 			def getDescripcion(self):
 				return self._Descripcion
-				
+			
+            @staticmethod
 			def setPersona(self, persona):
 				self._Persona=persona
 				persona.setComentario(self)
 				
+            @staticmethod
 			def getPersona(self):
 				return self._Persona 
 
