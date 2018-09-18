@@ -25,9 +25,11 @@ class CALIFICACION:
 			
 		def getCalificacion(self):
 			return self._Calificacion
+			
 		@staticmethod
 		def setDescripcion(self, descripcion):
 			self._Descripcion=descripcion
+			
 		@staticmethod	
 		def getDescripcion(self):
 			return self._Descripcion
