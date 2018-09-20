@@ -28,8 +28,13 @@ class CONDUCTOR:
     def getNumeroServicios(self):
         return self._NumeroServicios
         
-    def setAcumuladoCalificacion(self, con):
-        
+    def setAcumuladoCalificacion(self):
+        if len(listaServiciosCon)==0:
+            return "Es conductor nuevo"
+        sum=0
+        for cal in listasServiciosCon:
+            sum=sum+(cal.getPromedioCalificacion)
+        self._AcumuladoCalificacion=float(sum)
         
     def getAcumuladoCalificacion(self):
         return self._AcumuladoCalificacion
