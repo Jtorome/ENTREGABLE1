@@ -6,7 +6,7 @@ class SERVICIO:
 
     ListaServicios=[]
     
-    def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, PromedioCalificacion, Conductor):
+    def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, CalificacionPromedioSer, Conductor):
         
         '''ATRIBUTOS
         self._HoraEncuentro
@@ -14,7 +14,7 @@ class SERVICIO:
         self._LugarInicio
         self._LugarFin
         self._AsientosDisponibles
-        self._PromedioCalificacion
+        self._CalificacionPromedioSer
         self._Conductor
         self._listaPasajeros
         self._listaCalificaciones
@@ -25,7 +25,7 @@ class SERVICIO:
         self.setLugarInicio(lugarInicio)
         self.setLugarFin(lugarFin)
         self.setAsientosDisponibles(asientosDisponibles)
-        self.setPromedioCalificacion(self)
+        self.setCalificacionPromedioSer(self)
         self.setConductor(conductor)
         self._listaPasajeros=[]
         self._listaCalificacionesSer=[]
@@ -61,14 +61,14 @@ class SERVICIO:
     def getAsientosDisponibles(self):
         return self._AsientosDisponibles
         
-    def setPromedioCalificacion(self):
+    def setCalificacionPromedioSer(self):
         sum=0
         for ca in listaCalificacionesSer:
             sum=sum+(ca.getCalificacion())
-        self._PromedioCalificacion=float(sum/(len(listaCalificacionesSer)))
+        self._CalificacionPromedioSer=float(sum/(len(listaCalificacionesSer)))
         
-    def getPromedioCalificacion(self):
-        return self._PromedioCalificacion
+    def getCalificacionPromedioSer(self):
+        return self._CalificacionPromedioSer
     
     @staticmethod
     def setConductor(self, conductor):
