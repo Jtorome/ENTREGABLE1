@@ -73,7 +73,7 @@ class SERVICIO:
     @staticmethod
     def setConductor(self, conductor):
         self._Conductor=conductor
-        conductor.setServicio(self)
+        conductor.setServiciosCon(self)
         
     @staticmethod
     def getConductor(self):
