@@ -33,7 +33,7 @@ class CONDUCTOR:
             return "Es conductor nuevo"
         sum=0
         for cal in listasServiciosCon:
-            sum=sum+(cal.getPromedioCalificacion)
+            sum=sum+(cal.getCalificacionPromedioSer)
         self._AcumuladoCalificacion=float(sum)
         
     def getAcumuladoCalificacion(self):
