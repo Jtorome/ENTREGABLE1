@@ -61,9 +61,11 @@ class SERVICIO:
     def getAsientosDisponibles(self):
         return self._AsientosDisponibles
         
-    def setPromedioCalificacion(self, promedioCalificacion):
-        # Falta hacerlo
-        self._PromedioCalificacion=promedioCalificacion
+    def setPromedioCalificacion(self, ser):
+        sum=0
+        for ca in listaCalificacionesSer:
+            sum=sum+ca.getCalificacion()
+        return (sum/(len(listaCalificacionesSer)))
         
     def getPromedioCalificacion(self):
         return self._PromedioCalificacion
