@@ -20,12 +20,13 @@ class PASAJERO:
         PASAJERO.listaPasajeros.append(self)
         
     def setCalificacionPromedio(pasajero):
-        if(len(pasajero)==0):
+        pasa=pasajero.getCalificacionPa()
+        if(len(pasa)==0):
             return ("Pasajero nuevo")
         sum=0
-        for cal in pasajero:
+        for cal in pasa:
             sum=sum+cal.getPuntuacion()
-        self._CalificacionPromedio(sum/(len(pasajero)))
+        self._CalificacionPromedio(sum/(len(pasa)))
         
     def getCalificacionPromedio(self):
         return self._CalificacionPromedio
