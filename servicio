@@ -25,7 +25,7 @@ class SERVICIO:
         self.setLugarInicio(lugarInicio)
         self.setLugarFin(lugarFin)
         self.setAsientosDisponibles(asientosDisponibles)
-        self.setPromedioCalificacion(promedioCalificacion)
+        self.setPromedioCalificacion(self)
         self.setConductor(conductor)
         self._listaPasajeros=[]
         self._listaCalificacionesSer=[]
@@ -61,11 +61,11 @@ class SERVICIO:
     def getAsientosDisponibles(self):
         return self._AsientosDisponibles
         
-    def setPromedioCalificacion(self, ser):
+    def setPromedioCalificacion(self):
         sum=0
         for ca in listaCalificacionesSer:
-            sum=sum+ca.getCalificacion()
-        return (sum/(len(listaCalificacionesSer)))
+            sum=sum+(ca.getCalificacion())
+        self._PromedioCalificacion=float(sum/(len(listaCalificacionesSer)))
         
     def getPromedioCalificacion(self):
         return self._PromedioCalificacion
