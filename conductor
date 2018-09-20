@@ -28,7 +28,7 @@ class CONDUCTOR:
     def getNumeroServicios(self):
         return self._NumeroServicios
         
-    def setAcumuladoCalificacion(self):
+    def setAcumuladoCalificacion(self, con):
         
         
     def getAcumuladoCalificacion(self):
