@@ -38,6 +38,7 @@ class CALIFICACION:
 		def setConductor(self, conductor):
 			self._Conductor=conductor
 			conductor.setCalificacionesCon(self)
+            conductor.AcumuladoCalificaciones(self)
 		
 		@staticmethod
 		def getConductor(self):
@@ -47,6 +48,7 @@ class CALIFICACION:
 		def setPasajero(self, pasajero):
 			self._Pasajero(pasajero)
 			pasajero.setCalificacionesPa(self)
+            pasajero.setCalificacionPromedio(self)
 			
         @staticmethod    
 		def getPasajero(self):
@@ -56,6 +58,7 @@ class CALIFICACION:
 		def setServicio(self, servicio):
 			self._Servicio=servicio
 			servicio.setCalificacionesSer(self)
+            servicio.setCalificacionPromedioSer(self)
 			
         @staticmethod
 		def getServicio(self):
