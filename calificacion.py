@@ -2,7 +2,7 @@ from conductor import CONDUCTOR
 from servicio import SERVICIO
 class CALIFICACION:
 
-	def __init__(self, Calificacion, Descripcion, Conductor= None, Pasajero=None, Servicio):
+	def __init__(self, Calificacion, Descripcion, Conductor, Pasajero, Servicio):
 
 		'''ATRIBUTO
 		self._Calificacion
