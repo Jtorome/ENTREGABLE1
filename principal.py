@@ -22,7 +22,7 @@ class PRINCIPAL:
         self.choices2={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        #"3": self.CrearComentario,
+        "3": self.CrearComentario,
         #"4": self.AgregarDatosFicticios,
         "5": self.Salir
             }
@@ -81,9 +81,6 @@ class PRINCIPAL:
         print(MENSAJE.men.get("salir"))
         os._exit(0)
 
-    #@staticmethod
-    #def 
-
     def run1(self):
 
         PRINCIPAL.idiomaMensajes()
@@ -97,7 +94,7 @@ class PRINCIPAL:
                 action()
             else:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion==1 or opcion==2:
+            if opcion=="1" or opcion=="2":
                 self.run2()
                 os._exit(0)
             else:
@@ -115,7 +112,7 @@ class PRINCIPAL:
                 action()
             else:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion==4:
+            if opcion=="4":
                 self.runt3()
                 os._exit(0)
 

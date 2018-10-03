@@ -40,7 +40,9 @@ class MENSAJE:
     "IngresarNombre": "Ingrese su nombre:",
     "IngresarCell": "Ingrese su celular:",
     "Antes@": "Por favor escriba su usuario antes del @",
-    "Salir": "Chaito"
+    "Salir": "Chaito",
+    "IngresarDescripcion": "Por favor ingrese la descripcion: ",
+    "PersonaNoExiste": "Persona no existente."
     }
     
 
