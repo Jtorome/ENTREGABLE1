@@ -1,13 +1,13 @@
 class MENSAJE:
     Mensaje = {
     "textoIdioma" : """ 
-                1. Español(spanish)
+                1. Espanol(spanish)
                 2. Ingles(english)
                 """,
     "SeleccioneIdioma":"Seleccione una opcion / Select an option: "
               }
 
-    español = {
+    espanol = {
     "Menu1" : """
             1. Agregar conductor
             2. Agregar pasajero
@@ -36,7 +36,7 @@ class MENSAJE:
     "Opcion":"Ingrese la opcion: ",
     "OpcionIncorrecta":"{0} no es una opcion valida.",
     "IngresarCorreo":"Ingrese su correo: ",
-    "IngresarContraseña": "Ingrese su Contraseña: ",
+    "IngresarContrasena": "Ingrese su Contrasena: ",
     "IngresarNombre": "Ingrese su nombre:",
     "IngresarCell": "Ingrese su celular:",
     "Antes@": "Por favor escriba su usuario antes del @",
@@ -72,7 +72,7 @@ class MENSAJE:
     "Opcion": "Select an option:",
     "OpcionIncorrecta": "{0} is not a valid choice.",
     "IngresarCorreo":"Enter your mail: ",
-    "IngresarContraseña": "Enter your password: ",
+    "IngresarContrasena": "Enter your password: ",
     "IngresarNombre":"Enter your name: ",
     "IngresarCell": "Enter your cellphone: ",
     "Antes@": "Plase enter your user before that @",

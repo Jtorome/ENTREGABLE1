@@ -15,25 +15,25 @@ class PRINCIPAL:
         self.choices1={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        "3": self.AgregarDatosFicticios,
+        #"3": self.AgregarDatosFicticios,
         "4": self.Salir
             }
 
         self.choices2={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        "3": self.CrearComentario,
-        "4": self.AgregarDatosFicticios,
+        #"3": self.CrearComentario,
+        #"4": self.AgregarDatosFicticios,
         "5": self.Salir
             }
 
         self.choices3={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        "3": self.CrearComentario,
-        "4": self.Calificar,
-        "5": self.CrearServicio,
-        "6": self.AgregarVehiculo,
+        #"3": self.CrearComentario,
+        #"4": self.Calificar,
+        #"5": self.CrearServicio,
+        #"6": self.AgregarVehiculo,
         "7": self.Salir
             }
 
@@ -54,7 +54,7 @@ class PRINCIPAL:
         print(MENSAJE.Mensaje.get("textoIdioma"))
         idioma = input(MENSAJE.Mensaje.get("SeleccioneIdioma"))
         if idioma =="1":
-            MENSAJE.men = MENSAJE.español
+            MENSAJE.men = MENSAJE.espanol
         else:
             MENSAJE.men = MENSAJE.ingles
             
@@ -62,19 +62,19 @@ class PRINCIPAL:
     def AgregarConductor():
         print(MENSAJE.men.get("Antes@"))
         Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
-        Contraseña=input(MENSAJE.men.get("IngresarContraseña"))
+        Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=input(MENSAJE.men.get("IngresarNombre"))
         Cell=input(MENSAJE.men.get("IngresarCell"))
-        CONDUCTOR(Correo, Contraseña, Nombre, Cell)
+        CONDUCTOR(Correo, Contrasena, Nombre, Cell)
 
     @staticmethod
     def AgregarPasajero():
         print(MENSAJE.men.get("Antes@"))
         Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
-        Contraseña=input(MENSAJE.men.get("IngresarContraseña"))
+        Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=input(MENSAJE.men.get("IngresarNombre"))
         Cell=input(MENSAJE.men.get("IngresarCell"))
-        PASAJERO(Correo, Contraseña, Nombre, Cell)
+        PASAJERO(Correo, Contrasena, Nombre, Cell)
 
     @staticmethod
     def Salir():

@@ -5,9 +5,9 @@ class PASAJERO(PERSONA):
 
     listaPasajeros=[]
 
-    def __init__(self, Correo, Contraseña, Nombre, Cell, CalificacionPromedio=0):
+    def __init__(self, Correo, Contrasena, Nombre, Cell, CalificacionPromedio=0):
 
-        PERSONA.__init__(self, Correo, Contraseña, Nombre, Cell)
+        PERSONA.__init__(self, Correo, Contrasena, Nombre, Cell)
 
         '''ATRIBUTOS
         self._CalificacionPromedio

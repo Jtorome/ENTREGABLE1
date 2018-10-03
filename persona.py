@@ -2,11 +2,11 @@ class PERSONA():
 
     listaPersonas=[]
 
-    def __init__(self, Correo, Contraseña, Nombre, Cell):
+    def __init__(self, Correo, Contrasena, Nombre, Cell):
 
         '''ATRIBUTOS
         self._Correo
-        self._Contraseña
+        self._Contrasena
         self._Nombre
         self._Cell
         self._listaComentarios
@@ -14,7 +14,7 @@ class PERSONA():
 
         self._listaComentarios=[]
         self.setCorreo(Correo)
-        self.setContraseña(Contraseña)
+        self.setContrasena(Contrasena)
         self.setNombre(Nombre)
         self.setCell(Cell)
         PERSONA.listaPersonas.append(self)
@@ -37,11 +37,11 @@ class PERSONA():
     def getCell(self):
         return self._Cell
 
-    def setContraseña(self, contraseña):
-        self._Contraseña= contraseña
+    def setContrasena(self, contrasena):
+        self._Contrasena= contrasena
 
-    def getContraseña(self):
-        return self.Contraseña
+    def getContrasena(self):
+        return self.Contrasena
 
     def setComentarios(self, comentarios):
         self._listaComentarios.append(comentarios)

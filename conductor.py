@@ -4,9 +4,9 @@ class CONDUCTOR(PERSONA):
 
     ListaConductores=[]
 
-    def __init__(self, Correo, Contraseña, Nombre, Cell, NumeroServicios=0, AcumuladoCalificacion=0):
+    def __init__(self, Correo, Contrasena, Nombre, Cell, NumeroServicios=0, AcumuladoCalificacion=0):
 
-        PERSONA.__init__(self, Correo, Contraseña, Nombre, Cell)
+        PERSONA.__init__(self, Correo, Contrasena, Nombre, Cell)
 
         '''ATRIBUTOS
         self._NumeroServicios
