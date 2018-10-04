@@ -59,3 +59,9 @@ class CONDUCTOR(PERSONA):
 
     def getCalificacionesCon(self):
         return self._listaCalificacionesCon
+
+    
+
+
+
+

@@ -10,9 +10,9 @@ class MENSAJE:
     espanol = {
 
     "MenuInicial" :"""
-            1.Iniciar Sesion
-            2.Registrarme
-            3.Salir
+            1. Iniciar Sesion
+            2. Registrarme
+            3. Salir
             """,
 
     "MenuIniciarSesion" :"""
@@ -20,7 +20,14 @@ class MENSAJE:
             1. Conductor
             2. Pasajero
             3. Administrador
-            4. Salir
+            4. Atras
+            """,
+            
+    "MenuRegistrarme" :"""
+                    Registrarme como:
+            1. Conductor
+            2. Pasajero
+            3. Atras
             """,
             
     "Opcion":"Ingrese la opcion: ",
@@ -32,11 +39,29 @@ class MENSAJE:
     "Antes@": "Por favor escriba su usuario antes del @",
     "Salir": "Chaito",
     "IngresarDescripcion": "Por favor ingrese la descripcion: ",
-    "PersonaNoExiste": "Persona no existente."
+    "CorreoInvalido": "Correo existente por favor ingrese otro: "
     }
     
 
     ingles = {
+   "MenuInicial" :"""
+            1. Log in
+            2. Sign in 
+            3. Exit
+            """,
+    "MenuIniciarSesion" :"""
+                    Log in as: 
+            1. Driver
+            2. Passenger
+            3. Administrator
+            4. Back
+            """,
+    "MenuRegistrarme" :"""
+                    Sign in as:
+            1. Driver
+            2. Passenger
+            3. Back
+            """,
 
     "Opcion": "Select an option:",
     "OpcionIncorrecta": "{0} is not a valid choice.",

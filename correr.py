@@ -8,11 +8,19 @@ from comentario import COMENTARIO
 
 class CORRER:
 
-	pasajero1 = PASAJERO()
-	conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
-	servicio1 = SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
-	calificacion1 = CALIFICACION(3.0, "NO JODA CARE MONDÁ", conductor1, pasajero1, servicio1)
-	calificacion2 = CALIFICACION(4.0, "NO JODA CARE MONDÁ", conductor1, pasajero1, servicio1)
+	archivo=open("registro.txt", "a")
+	#X=(b'jtorom@unal.edu.co' in b'archivo')
+	
+	archivo=open("registro.txt", "r")
+	for line in archivo:
+		if "scabrera" in line:
+			if "PASAJERO" in line:
+				print line
+	#pasajero1 = PASAJERO()
+	#conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
+	#servicio1 = SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
+	#calificacion1 = CALIFICACION(3.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
+	#calificacion2 = CALIFICACION(4.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
 	#comentario1=COMENTARIO("MUY MALO", persona1)
 	#print(comentario1.getFecha())
 

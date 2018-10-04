@@ -15,20 +15,20 @@ class PRINCIPAL:
         self.choicesInicial={
         #"1": self.IniciarSesion,
         #"2": self.Registrarme,
-        "3": self.Salir
+        "3": self.SalirPrincipal
         }
 
         self.choicesIniciarSesion={
         #"1": self.Conductor,
         #"2": self.Pasajero,
         #"3": self.Administrador,
-        "4": self.Salir
+        #"4": self.atras
         }
 
         self.choicesRegistrarme={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        "3": self.Salir
+        #"3": self.atras
         }
 
     @staticmethod
@@ -40,29 +40,58 @@ class PRINCIPAL:
         print(MENSAJE.men.get("MenuIniciarSesion"))
 
     @staticmethod
-    def display_Menu3():
-        print(MENSAJE.men.get("Menu3"))
+    def display_MenuResgistrarme():
+        print(MENSAJE.men.get("MenuRegistrarme"))
      
     @staticmethod
     def AgregarConductor():
+        archivo=open("registro.txt", "a")
         print(MENSAJE.men.get("Antes@"))
         Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
+        Correo=PRINCIPAL.VerificarCorreo(Correo)
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=input(MENSAJE.men.get("IngresarNombre"))
         Cell=input(MENSAJE.men.get("IngresarCell"))
         CONDUCTOR(Correo, Contrasena, Nombre, Cell)
+        archivo.write("CONDUCTOR, "+Correo+", "+Contrasena+", "+Nombre+", "+Cell+", 0, 0"+"\n")
+
+    @staticmethod
+    def VerificarCorreo(correo):
+        archivo=open("registro.txt", "r")
+        cont=0
+        X=True
+        while X:
+            conductor=0
+            noesta=0
+            if cont >= 1:
+                correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
+            for line in archivo:
+                if "CONDUCTOR" in line:
+                    conductor=conductor+1
+                    if correo in line:
+                        print(MENSAJE.men.get("CorreoInvalido"))
+                        cont=cont+1
+                    else:
+                        noesta=noesta+1
+            if noesta==conductor:
+                return correo
+                X=False
+            else:
+                continue
 
     @staticmethod
     def AgregarPasajero():
+        archivo=open("registro.txt", "a")
         print(MENSAJE.men.get("Antes@"))
         Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=input(MENSAJE.men.get("IngresarNombre"))
         Cell=input(MENSAJE.men.get("IngresarCell"))
         PASAJERO(Correo, Contrasena, Nombre, Cell)
+        archivo.write("PASAJERO, "+Correo+", "+Contrasena+", "+Nombre+", "+Cell+", 0"+"\n")
 
     @staticmethod
-    def Salir():
+    def SalirPrincipal():
         print(MENSAJE.men.get("salir"))
         os._exit(0)
 
@@ -81,7 +110,6 @@ class PRINCIPAL:
                 print(MENSAJE.espanol.get("OpcionIncorrecta").format(idioma))
                 print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
 
-
     def runInicial(self):
 
         PRINCIPAL.idiomaMensajes()
@@ -93,11 +121,11 @@ class PRINCIPAL:
             action=self.choicesInicial.get(opcion)
             if action:
                 action()
-            elif (opcion<1 and opcion>3):
+            elif (int(opcion)!=1 and int(opcion)!=3 and int(opcion)!=2):
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion=="1" or opcion=="2":
+            if opcion=="1":
                 self.runIniciarSesion()
-            else:
+            elif opcion=="2":
                 self.runRegistrarme()
 
     def runIniciarSesion(self):
@@ -109,24 +137,25 @@ class PRINCIPAL:
             action=self.choicesIniciarSesion.get(opcion)
             if action:
                 action()
-            else:
+            elif(int(opcion)!=1 and int(opcion)!=3 and int(opcion)!=2 and int(opcion)!=4):
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+            if(opcion=="4"):
+                break
 
     def runRegistrarme(self):
 
         while True:
-            self.display_Menu3()
+            self.display_MenuResgistrarme()
             opcion=input(MENSAJE.men.get("Opcion"))
             print("")
-            action=self.choices3.get(opcion)
+            action=self.choicesRegistrarme.get(opcion)
             if action:
                 action()
-            else:
+                break
+            elif(int(opcion)!=1 and int(opcion)!=3 and int(opcion)!=2):
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+            if (opcion=="3"):
+                break
 
 if __name__=="__main__":
     PRINCIPAL().runInicial()
-
-
-
-
