@@ -12,52 +12,37 @@ class PRINCIPAL:
 
     def __init__(self):
 
-        self.choices1={
-        "1": self.AgregarConductor,
-        "2": self.AgregarPasajero,
-        #"3": self.AgregarDatosFicticios,
+        self.choicesInicial={
+        #"1": self.IniciarSesion,
+        #"2": self.Registrarme,
+        "3": self.Salir
+        }
+
+        self.choicesIniciarSesion={
+        #"1": self.Conductor,
+        #"2": self.Pasajero,
+        #"3": self.Administrador,
         "4": self.Salir
-            }
+        }
 
-        self.choices2={
+        self.choicesRegistrarme={
         "1": self.AgregarConductor,
         "2": self.AgregarPasajero,
-        "3": self.CrearComentario,
-        #"4": self.AgregarDatosFicticios,
-        "5": self.Salir
-            }
-
-        self.choices3={
-        "1": self.AgregarConductor,
-        "2": self.AgregarPasajero,
-        #"3": self.CrearComentario,
-        #"4": self.Calificar,
-        #"5": self.CrearServicio,
-        #"6": self.AgregarVehiculo,
-        "7": self.Salir
-            }
+        "3": self.Salir
+        }
 
     @staticmethod
-    def display_Menu1():
-        print(MENSAJE.men.get("Menu1"))
+    def display_MenuInicial():
+        print(MENSAJE.men.get("MenuInicial"))
 
     @staticmethod
-    def display_Menu2():
-        print(MENSAJE.men.get("Menu2"))
+    def display_MenuIniciarSesion():
+        print(MENSAJE.men.get("MenuIniciarSesion"))
 
     @staticmethod
     def display_Menu3():
         print(MENSAJE.men.get("Menu3"))
-
-    @staticmethod
-    def idiomaMensajes():
-        print(MENSAJE.Mensaje.get("textoIdioma"))
-        idioma = input(MENSAJE.Mensaje.get("SeleccioneIdioma"))
-        if idioma =="1":
-            MENSAJE.men = MENSAJE.espanol
-        else:
-            MENSAJE.men = MENSAJE.ingles
-            
+     
     @staticmethod
     def AgregarConductor():
         print(MENSAJE.men.get("Antes@"))
@@ -81,42 +66,53 @@ class PRINCIPAL:
         print(MENSAJE.men.get("salir"))
         os._exit(0)
 
-    def run1(self):
+    @staticmethod
+    def idiomaMensajes():
+        while True:
+            print(MENSAJE.Mensaje.get("textoIdioma"))
+            idioma = input(MENSAJE.Mensaje.get("SeleccioneIdioma"))
+            if idioma =="1":
+                MENSAJE.men = MENSAJE.espanol
+                break
+            elif idioma=="2":
+                MENSAJE.men = MENSAJE.ingles
+                break
+            else:
+                print(MENSAJE.espanol.get("OpcionIncorrecta").format(idioma))
+                print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
+
+
+    def runInicial(self):
 
         PRINCIPAL.idiomaMensajes()
 
         while True:
-            self.display_Menu1()
+            self.display_MenuInicial()
             opcion=input(MENSAJE.men.get("Opcion"))
             print("")
-            action=self.choices1.get(opcion)
+            action=self.choicesInicial.get(opcion)
             if action:
                 action()
-            else:
+            elif (opcion<1 and opcion>3):
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
             if opcion=="1" or opcion=="2":
-                self.run2()
-                os._exit(0)
+                self.runIniciarSesion()
             else:
-                self.run3()
-                os._exit(0)
+                self.runRegistrarme()
 
-    def run2(self):
+    def runIniciarSesion(self):
 
         while True:
-            self.display_Menu2()
+            self.display_MenuIniciarSesion()
             opcion=input(MENSAJE.men.get("Opcion"))
             print("")
-            action=self.choices2.get(opcion)
+            action=self.choicesIniciarSesion.get(opcion)
             if action:
                 action()
             else:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion=="4":
-                self.runt3()
-                os._exit(0)
 
-    def run3(self):
+    def runRegistrarme(self):
 
         while True:
             self.display_Menu3()
@@ -129,4 +125,8 @@ class PRINCIPAL:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 
 if __name__=="__main__":
-    PRINCIPAL().run1()
+    PRINCIPAL().runInicial()
+
+
+
+
