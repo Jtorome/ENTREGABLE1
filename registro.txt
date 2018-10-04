@@ -1,0 +1,5 @@
+CLASE, Correo, Contrasena, Nombre, Celular, NumSer/CaliPro, AcumCali
+
+CONDUCTOR, jtorom@unal.edu.co, bla, juan, 13124, 0, 0
+PASAJERO, scabrera@unal.edu.co, blu, sergio, 132423, 0
+PASAJERO, jtorom@unal.edu.co, bla, juan, 13124, 0
