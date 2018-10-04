@@ -47,8 +47,10 @@ class PRINCIPAL:
     def AgregarConductor():
         archivo=open("registro.txt", "a")
         print(MENSAJE.men.get("Antes@"))
-        Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
-        Correo=PRINCIPAL.VerificarCorreo(Correo)
+        X=True
+        while X:
+            Correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
+            X=PRINCIPAL.VerificarCorreo("CONDUCTOR", Correo)
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=input(MENSAJE.men.get("IngresarNombre"))
         Cell=input(MENSAJE.men.get("IngresarCell"))
@@ -56,28 +58,25 @@ class PRINCIPAL:
         archivo.write("CONDUCTOR, "+Correo+", "+Contrasena+", "+Nombre+", "+Cell+", 0, 0"+"\n")
 
     @staticmethod
-    def VerificarCorreo(correo):
+    def VerificarCorreo(palabra, correo):
         archivo=open("registro.txt", "r")
-        cont=0
         X=True
         while X:
             conductor=0
             noesta=0
-            if cont >= 1:
-                correo=input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co"
             for line in archivo:
-                if "CONDUCTOR" in line:
+                if palabra in line:
                     conductor=conductor+1
                     if correo in line:
                         print(MENSAJE.men.get("CorreoInvalido"))
-                        cont=cont+1
+                        X=False
                     else:
                         noesta=noesta+1
             if noesta==conductor:
-                return correo
+                return False
                 X=False
             else:
-                continue
+                return True
 
     @staticmethod
     def AgregarPasajero():
