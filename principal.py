@@ -19,9 +19,9 @@ class PRINCIPAL:
         }
 
         self.choicesIniciarSesion={
-        #"1": self.Conductor,
-        #"2": self.Pasajero,
-        #"3": self.Administrador,
+        #"1": self.InicioSesionConductor,
+        #"2": self.InicioSesionPasajero,
+        #"3": self.InicioSesionAdministrador,
         #"4": self.atras
         }
 
