@@ -8,14 +8,44 @@ from comentario import COMENTARIO
 
 class CORRER:
 
-	archivo=open("registro.txt", "a")
+	#archivo=open("registro.txt", "a")
 	#X=(b'jtorom@unal.edu.co' in b'archivo')
 	
-	archivo=open("registro.txt", "r")
+	archivo=open("registro.txt", "r").readlines()
+	"""linea=0
 	for line in archivo:
 		if "scabrera" in line:
-			if "PASAJERO" in line:
-				print line
+			break
+		linea=linea+1	
+	X=archivo[linea]
+	X=X.split(',')
+	print(X)
+	X=X[2]
+	if X=="admin2":
+		print(X)"""
+	contra=0
+	linea=0
+	line1=0
+	line2=0
+	correo="juan@unal.edu.co"
+	contrasena="hola"
+	for line in archivo:
+		line=line.split(',')
+		if correo==line[1]:
+			if contrasena==line[2]:
+				contra=contra+1
+				if(contra==1):
+					line1=linea
+				if(contra>1):
+					line2=linea
+		linea=linea+1
+
+	line1=archivo[line1]
+	line2=archivo[line2]
+	print(line1)
+	print(line2)
+	
+	#print(archivo[0])
 	#pasajero1 = PASAJERO()
 	#conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
 	#servicio1 = SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
