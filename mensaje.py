@@ -14,7 +14,7 @@ class MENSAJE:
 			2. Registrarme
 			3. Salir
 			""",
-
+			
 	"MenuRegistrarme" :"""
 					Registrarme como:
 			1. Conductor
@@ -28,14 +28,44 @@ class MENSAJE:
 			2. Conductor
 			3. atras
 			""",
-
+			
 	"MenuPasajero" :"""
 					Inicio sesion como pasajero
 			1. Ver servicios disponibles
 			2. Cerrar sesion
 			""",
 
+	"MenuConductor" :"""
+					Inicio sesion como conductor
+			1. Programar viaje
+			2. Ver viaje actual
+			3. Ver mi historial
+			4. Cerrar sesion
+			""",
+
+	"MenuProgramarViaje":"""
+					Estas programando viaje
+			1.
+			2.
+			3. Salir
+			""",
+			
+	"MenuAdmin":"""
+					Estas en el menu de administrador
+			1. Ver administradores
+			2. Ver usuarios registrados
+			3. Ver historial de viajes
+			4. Cerrar sesion 
+			""",
+			
 	"Opcion":"Ingrese la opcion: ",
+	"NoViaje":"No tiene ningun viaje programado ",
+	"NoHistorial":"No ha echo ningun viaje Intercampus ",
+	"InfoVehiculo":"Ingrese la informacion del vehiculo a usar",
+	"IngresarPlaca":"Ingrese el numero de placa: ",
+	"IngresarColor":"Ingrese el color del vehiculo: ",
+	"IngresarTipoVehiculo":"Ingrese el modelo del vehiculo: ",
+	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
 	"OpcionIncorrecta":"{0} no es una opcion valida.",
 	"IngresarCorreo":"Ingrese su correo: ",
 	"IngresarContrasena": "Ingrese su Contrasena: ",
@@ -59,12 +89,14 @@ class MENSAJE:
 			2. Sign in 
 			3. Exit
 			""",
+			
 	"MenuRegistrarme" :"""
 					Sign in as:
 			1. Driver
 			2. Passenger
 			3. Back
 			""",
+			
 	"MenuVerificarCorreo" :"""
 					Please select your rol:
 			1. Rider
@@ -77,8 +109,38 @@ class MENSAJE:
 			1. Available services
 			2. Log out
 			""",
+			
+	"MenuConductor" :"""
+					Login as conductor
+			1. Schedule trip
+			2. View current trip
+			3. View my historial
+			4. Log out
+			""",
 
-	"Opcion": "Select an option:",
+	"MenuProgramarViaje":"""
+					You are planning a trip
+			1.
+			2.
+			3. Exit
+			""",
+			
+	"MenuAdministrador":"""
+					You are in the menu of administrators
+			1. View administrators
+			2. View users registered
+			3. View historial trips
+			4. Log out 
+			""",
+			
+	"Opcion": "Select an option:",   
+	"NoViaje":"You have no scheduled trip ",
+	"NoHistorial":"You have not done any Intercampus trip ", 
+	"InfoVehiculo":"Enter the vehicle information to use ",
+	"IngresarPlaca":"Enter the number of license plate: ",
+	"IngresarColor":"Enter the color of vehicle: ",
+	"IngresarTipoVehiculo":"Enter the vehicle type: ",
+	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
 	"OpcionIncorrecta": "{0} is not a valid choice.",
 	"IngresarCorreo":"Enter your mail: ",
 	"IngresarContrasena": "Enter your password: ",

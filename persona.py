@@ -94,7 +94,15 @@ class PERSONA():
 				print(MENSAJE.men.get("ContrasenaInvalida"))
 				return True
 				break
+			if corre==2 and contra==0:
+				print(MENSAJE.men.get("ContrasenaInvalida"))
+				return True
+				break
 			if corre==1 and contra==1:
+				line1=archivo[line1].split(',')
+				return line1
+				break
+			if corre==2 and contra==1:
 				line1=archivo[line1].split(',')
 				return line1
 				break

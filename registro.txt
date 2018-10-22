@@ -2,5 +2,5 @@ CLASE,Correo,Contrasena,Nombre,Celular,NumSer/CaliPro,AcumCali
 ADMINISTRADOR,jtorom@unal.edu.co,admin1,juan alberto toro mejia,1
 ADMINISTRADOR,scabrera@unal.edu.co,admin2,sergio esteban cabrera,2
 ADMINISTRADOR,esantosr@unal.edu.co,admin3,eduardo santos ruiz,3
-CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,0,0
+CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,0,0,xyz123,Rojo,Carro,4
 PASAJERO,juan@unal.edu.co,hola,juan toro,310,0

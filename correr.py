@@ -8,12 +8,18 @@ from comentario import COMENTARIO
 
 class CORRER:
 
+	"""PASAJERO("Juan", "hola", "JUAN", "1232")
+	for pasajeros in PASAJERO.listaPasajeros:
+		print(pasajeros.getCorreo())"""
+
 	#archivo=open("registro.txt", "a")
 	#X=(b'jtorom@unal.edu.co' in b'archivo')
 	
 	archivo=open("registro.txt", "r").readlines()
-	a=archivo[1].split(',')
-	print(a)
+	for line in archivo:
+		print(line)
+	"""a=archivo[1].split(',')
+	print(a)"""
 	"""linea=0
 	for line in archivo:
 		if "scabrera" in line:

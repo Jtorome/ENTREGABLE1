@@ -90,5 +90,5 @@ class SERVICIO:
 	def getCalificacionesSer(self):
 		return self._listaCalificacionesSer
 
-	@staticmethod
-	def VerServicios():
+	"""@staticmethod
+	def VerServicios():"""

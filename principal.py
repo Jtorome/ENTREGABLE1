@@ -39,10 +39,16 @@ class PRINCIPAL:
 	@staticmethod
 	def display_MenuPasajero():
 		print(MENSAJE.men.get("MenuPasajero"))
+		
+	@staticmethod
+	def display_MenuConductor():
+		print(MENSAJE.men.get("MenuConductor"))
+	@staticmethod
+	def display_MenuAdmin():
+		print(MENSAJE.men.get("MenuAdmin"))
 	 
 	@staticmethod
 	def AgregarConductor():
-		archivo=open("registro.txt", "a")
 		print(MENSAJE.men.get("Antes@"))
 		X=True
 		while X:
@@ -51,8 +57,19 @@ class PRINCIPAL:
 		Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
 		Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
 		Cell=(input(MENSAJE.men.get("IngresarCell"))).lower()
-		CONDUCTOR(Correo, Contrasena, Nombre, Cell)
-		archivo.write("\n"+"CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+Cell+",0,0")
+		conductor=CONDUCTOR(Correo, Contrasena, Nombre, Cell)
+		PRINCIPAL.AgregarVehiculo(Correo, Contrasena, Nombre, Cell, conductor)
+
+	@staticmethod
+	def AgregarVehiculo(Correo, Contrasena, Nombre, Cell, conductor):
+		archivo=open("registro.txt", "a")
+		print(MENSAJE.men.get("InfoVehiculo"))
+		Placa=input(MENSAJE.men.get("IngresarPlaca"))
+		ColorVehiculo=input(MENSAJE.men.get("IngresarColor"))
+		TipoVehiculo=input(MENSAJE.men.get("IngresarTipoVehiculo"))
+		CantidadAsientos=input(MENSAJE.men.get("IngresarCantidadAsientos"))
+		VEHICULO(Placa, ColorVehiculo, TipoVehiculo, CantidadAsientos, conductor)
+		archivo.write("\n"+"CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+Cell+",0,0,"+Placa+","+ColorVehiculo+","+CantidadAsientos)
 
 	@staticmethod
 	def AgregarPasajero():
@@ -88,15 +105,20 @@ class PRINCIPAL:
 				break 
 		if infousuario!="salir":
 			if "PASAJERO"==infousuario[0]:
-				PRINCIPAL.InicioSesionPasajero()
+				PRINCIPAL.InicioSesionPasajero(infousuario)
 			if "CONDUCTOR"==infousuario[0]:
-				PRINCIPAL.InicioSesionConductor()
+				PRINCIPAL.InicioSesionConductor(infousuario)
 			if "ADMINISTRADOR"==infousuario[0]:
 				PRINCIPAL.InicioSesionAdmin()
 			print(MENSAJE.men.get("CerradoSesion"))
 
 	@staticmethod
-	def InicioSesionPasajero():
+	def InicioSesionPasajero(infousuario):
+	
+		for pasajero in PASAJERO.listaPasajeros:
+			if (pasajero.getCorreo()==infousuario[1] and pasajero.getContrasena()==infousuario[2] and pasajero.getNombre()==infousuario[3] and pasajero.getCell()==infousuario[4]):
+				infousuario=pasajero
+				break
 
 		while True:
 			PRINCIPAL.display_MenuPasajero()
@@ -104,10 +126,46 @@ class PRINCIPAL:
 			print("")
 			if (int(opcion)!=1 and int(opcion)!=2):
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-			if (int(opcion)==1):
+			elif (int(opcion)==1):
 				SERVICIO.VerServicios()
 			elif (int(opcion)==2):
 				break
+				
+	@staticmethod
+	def InicioSesionConductor(infousuario):
+	
+		for conductor in CONDUCTOR.ListaConductores:
+			if (conductor.getCorreo()==infousuario[1] and conductor.getContrasena()==infousuario[2] and conductor.getNombre()==fousuario[3] and conductor.getCell()==infousuario[4]):
+				infousuario=conductor
+				break
+				
+		while True:
+			PRINCIPAL.display_MenuConductor()
+			opcion=input(MENSAJE.men.get("Opcion"))
+			print("")
+			if (int(opcion)!=1 and int(opcion)!=2 and int(opcion)!=3 and int(opcion)!=4):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif (int(opcion)==1):
+				SERVICIO.ProgramarViaje()
+			elif (int(opcion)==2):
+				SERVICIO.VerViajeActual()
+			elif (int(opcion)==3):
+				SERVICIO.VerMiHistorial()
+			elif (int(opcion)==4):
+				break
+				
+	@staticmethod
+	def InicioSesionAdmin():
+		
+		while True:
+			PRINCIPA.display_MenuAdmin()
+			opcion=input(MENSAJE.men.get("Opcion"))
+			print("")
+			if (int(opcion)!=1 and int(opcion)!=2 and int(opcion)!=3 and int(opcion)!=4):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif(int(opcion)==1):
+				
+			
 
 	@staticmethod
 	def idiomaMensajes():
@@ -126,6 +184,14 @@ class PRINCIPAL:
 				print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
 
 	def runInicial(self):
+
+		archivo=open("registro.txt", "r").readlines()
+		for line in archivo:
+			if "PASAJERO" == line[0]:
+				PASAJERO(line[1], line[2], line[3], line[4])
+			if "CONDUCTOR" == line[0]:
+				conductor=CONDUCTOR(line[1], line[2], line[3], line[4])
+				VEHICULO(line[7], line[8], line[9], line[10], conductor)
 
 		PRINCIPAL.idiomaMensajes()
 
