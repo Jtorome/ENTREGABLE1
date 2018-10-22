@@ -12,6 +12,8 @@ class CORRER:
 	#X=(b'jtorom@unal.edu.co' in b'archivo')
 	
 	archivo=open("registro.txt", "r").readlines()
+	a=archivo[1].split(',')
+	print(a)
 	"""linea=0
 	for line in archivo:
 		if "scabrera" in line:
@@ -23,14 +25,18 @@ class CORRER:
 	X=X[2]
 	if X=="admin2":
 		print(X)"""
-	contra=0
+
+	"""contra=0
 	linea=0
 	line1=0
 	line2=0
+	cont=0
 	correo="juan@unal.edu.co"
 	contrasena="hola"
 	for line in archivo:
+		cont=cont+1
 		line=line.split(',')
+		print(cont)
 		if correo==line[1]:
 			if contrasena==line[2]:
 				contra=contra+1
@@ -43,7 +49,7 @@ class CORRER:
 	line1=archivo[line1]
 	line2=archivo[line2]
 	print(line1)
-	print(line2)
+	print(line2)"""
 	
 	#print(archivo[0])
 	#pasajero1 = PASAJERO()

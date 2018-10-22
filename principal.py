@@ -35,6 +35,10 @@ class PRINCIPAL:
 	@staticmethod
 	def display_MenuResgistrarme():
 		print(MENSAJE.men.get("MenuRegistrarme"))
+		
+	@staticmethod
+	def display_MenuPasajero():
+		print(MENSAJE.men.get("MenuPasajero"))
 	 
 	@staticmethod
 	def AgregarConductor():
@@ -89,16 +93,25 @@ class PRINCIPAL:
 				PRINCIPAL.InicioSesionConductor()
 			if "ADMINISTRADOR"==infousuario[0]:
 				PRINCIPAL.InicioSesionAdmin()
-			print("HAS INICIADO SESION")
+			print(MENSAJE.men.get("CerradoSesion"))
 
-	"""@staticmethod
+	@staticmethod
 	def InicioSesionPasajero():
 
-		while True:"""
-
+		while True:
+			PRINCIPAL.display_MenuPasajero()
+			opcion=input(MENSAJE.men.get("Opcion"))
+			print("")
+			if (int(opcion)!=1 and int(opcion)!=2):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			if (int(opcion)==1):
+				SERVICIO.VerServicios()
+			elif (int(opcion)==2):
+				break
 
 	@staticmethod
 	def idiomaMensajes():
+
 		while True:
 			print(MENSAJE.Mensaje.get("textoIdioma"))
 			idioma = input(MENSAJE.Mensaje.get("SeleccioneIdioma"))

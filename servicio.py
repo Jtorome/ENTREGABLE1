@@ -2,6 +2,7 @@ from conductor import CONDUCTOR
 class SERVICIO:
 
 	ListaServicios=[]
+	ServiciosDisponibles=[]
 
 	def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor , CalificacionPromedioSer=0 ):
 
@@ -88,3 +89,6 @@ class SERVICIO:
 
 	def getCalificacionesSer(self):
 		return self._listaCalificacionesSer
+
+	@staticmethod
+	def VerServicios():
