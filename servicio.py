@@ -26,7 +26,9 @@ class SERVICIO:
 		self._CalificacionPromedioSer=CalificacionPromedioSer
 		self._listaPasajeros=[]
 		self._listaCalificacionesSer=[]
+		SERVICIO.ServiciosDisponibles.append(self)
 		SERVICIO.ListaServicios.append(self)
+
 
 	def setHoraEncuentro(self, horaencuentro):
 		self._HoraEncuentro=horaencuentro
@@ -89,6 +91,3 @@ class SERVICIO:
 
 	def getCalificacionesSer(self):
 		return self._listaCalificacionesSer
-
-	"""@staticmethod
-	def VerServicios():"""

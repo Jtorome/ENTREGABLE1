@@ -1,5 +1,6 @@
 from conductor import CONDUCTOR
-from servicio import SERVICIO 
+from servicio import SERVICIO
+from pasajero import PASAJERO
 
 class CALIFICACION:
 

@@ -5,8 +5,25 @@ from servicio import SERVICIO
 from calificacion import CALIFICACION
 from vehiculo import VEHICULO
 from comentario import COMENTARIO
+from mensaje import MENSAJE
+import time
 
-class CORRER:
+class CORRER: 
+
+	actual=time.strftime("%H:%M")
+	pasada="17:59"
+	if pasada>actual:
+		print("SI")
+
+	"""conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
+	SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
+	if len(SERVICIO.ServiciosDisponibles) ==0:
+		print(MENSAJE.espanol.get("SinServicios"))
+	else:
+		cont=1
+		for servicio in SERVICIO.ServiciosDisponibles:
+			print(MENSAJE.espanol.get("FormatoVerServicios").format(cont,servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre()))
+			cont=cont+1"""
 
 	"""PASAJERO("Juan", "hola", "JUAN", "1232")
 	for pasajeros in PASAJERO.listaPasajeros:
@@ -15,9 +32,28 @@ class CORRER:
 	#archivo=open("registro.txt", "a")
 	#X=(b'jtorom@unal.edu.co' in b'archivo')
 	
-	archivo=open("registro.txt", "r").readlines()
+	"""archivo=open("registro.txt", "r").readlines()
+	a=archivo[1].split(',')
+	print(type(a))"""
+
+	"""for line in archivo:
+		line=line.split(',')
+		if "PASAJERO" == line[0]:
+			PASAJERO(line[1], line[2], line[3], line[4])
+		if "CONDUCTOR" == line[0]:
+			conductor=CONDUCTOR(line[1], line[2], line[3], line[4])
+			VEHICULO(line[7], line[8], line[9], line[10], conductor)"""
+
+	"""for pasajeros in PASAJERO.listaPasajeros:
+		print(pasajeros.getCorreo()+", "+pasajeros.getNombre())"""
+
+	"""for conductores in CONDUCTOR.ListaConductores:
+		for vehiculo in conductores.getVehiculos():
+			print(vehiculo.getPlaca())"""
+
+	"""archivo=open("registro.txt", "r").readlines()
 	for line in archivo:
-		print(line)
+		print(line)"""
 	"""a=archivo[1].split(',')
 	print(a)"""
 	"""linea=0
@@ -59,12 +95,13 @@ class CORRER:
 	
 	#print(archivo[0])
 	#pasajero1 = PASAJERO()
-	#conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
-	#servicio1 = SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
+	
+
 	#calificacion1 = CALIFICACION(3.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
 	#calificacion2 = CALIFICACION(4.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
-	#comentario1=COMENTARIO("MUY MALO", persona1)
-	#print(comentario1.getFecha())
+	"""persona1=PERSONA("Juan", "hola", "JUAN", "1232")
+	comentario1=COMENTARIO("MUY MALO", persona1)
+	print(comentario1.getFecha())"""
 
 	#print(servicio1.getHoraEncuentro())
 	#print(servicio1.getCalificacionPromedioSer())

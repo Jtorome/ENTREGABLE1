@@ -1,5 +1,3 @@
-from calificacion import CALIFICACION
-from servicio import SERVICIO
 from persona import PERSONA
 class PASAJERO(PERSONA):
 

@@ -1,4 +1,5 @@
-from mensaje import MENSAJE
+#from principal import PRINCIPAL
+
 class PERSONA():
 
 	listaPersonas=[]
@@ -42,7 +43,7 @@ class PERSONA():
 		self._Contrasena= contrasena
 
 	def getContrasena(self):
-		return self.Contrasena
+		return self._Contrasena
 
 	def setComentarios(self, comentarios):
 		self._listaComentarios.append(comentarios)
@@ -91,44 +92,16 @@ class PERSONA():
 							line2=linea
 				linea=linea+1
 			if corre==1 and contra==0:
-				print(MENSAJE.men.get("ContrasenaInvalida"))
-				return True
-				break
+				return "Invalido"
 			if corre==2 and contra==0:
-				print(MENSAJE.men.get("ContrasenaInvalida"))
-				return True
-				break
+				return [2,3]
 			if corre==1 and contra==1:
 				line1=archivo[line1].split(',')
 				return line1
-				break
 			if corre==2 and contra==1:
 				line1=archivo[line1].split(',')
 				return line1
-				break
 			if corre==0:
-				print(MENSAJE.men.get("CorreoInexistente"))
-				return True
-				break
+				return "Invalido"
 			if corre==2 and contra ==2:
-				line1=archivo[line1].split(',')
-				line2=archivo[line2].split(',')
-				print(MENSAJE.men.get("MenuVerificarCorreo"))
-				opcion=input(MENSAJE.men.get("Opcion"))
-				if opcion=="1":
-					if "PASAJERO" ==line1[0]:
-						return line1
-						break
-					if "PASAJERO"==line2[0]:
-						return line2
-						break
-				if opcion=="2":
-					if "CONDUCTOR"==line1[0]:
-						return line1
-						break
-					if "CONDUCTOR"==line2[0]:
-						return line2
-						break
-				if opcion=="3":
-					return "salir"
-					break
+				return [line1, line2]

@@ -76,10 +76,12 @@ class MENSAJE:
 	"IngresarDescripcion": "Por favor ingrese la descripcion: ",
 	"CorreoInvalido": "Correo existente por favor ingrese otro: ",
 	"CorreoInexistente": "El correo no esta registrado por favor registrese o ingrese uno que exista.",
-	"ContrasenaInvalida": "Contrasena invalida.",
+	"ContraOCorreoInvalido": "Contrasena o correo invalidos.",
 	"MensajeInicioSesion": """        Inicio de sesion
 		Pulse 3 para salir.""",
-	"CerradoSesion": "Has cerrado sesion."
+	"CerradoSesion": "Has cerrado sesion.",
+	"SinServicios": "En el momento no hay servicios disponibles.",
+	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}."
 	}
 	
 

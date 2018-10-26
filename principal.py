@@ -1,11 +1,11 @@
 import os
-from calificacion import CALIFICACION
-from comentario import COMENTARIO
+from persona import PERSONA
 from conductor import CONDUCTOR
 from pasajero import PASAJERO
-from persona import PERSONA
 from vehiculo import VEHICULO
 from servicio import SERVICIO
+from comentario import COMENTARIO
+from calificacion import CALIFICACION
 from mensaje import MENSAJE
 
 class PRINCIPAL:
@@ -33,6 +33,11 @@ class PRINCIPAL:
 		print(MENSAJE.men.get("MenuIniciarSesion"))
 
 	@staticmethod
+	def display_MenuVerificarCorreo():
+		print(MENSAJE.men.get("MenuVerificarCorreo"))
+		print(MENSAJE.men.get("Opcion"))
+
+	@staticmethod
 	def display_MenuResgistrarme():
 		print(MENSAJE.men.get("MenuRegistrarme"))
 		
@@ -43,6 +48,7 @@ class PRINCIPAL:
 	@staticmethod
 	def display_MenuConductor():
 		print(MENSAJE.men.get("MenuConductor"))
+
 	@staticmethod
 	def display_MenuAdmin():
 		print(MENSAJE.men.get("MenuAdmin"))
@@ -102,8 +108,30 @@ class PRINCIPAL:
 			contrasena=input(MENSAJE.men.get("IngresarContrasena"))
 			infousuario=PERSONA.VerificarCorreo(correo, contrasena)
 			if infousuario=="salir":
-				break 
-		if infousuario!="salir":
+				break
+			elif infousuario=="Invalido":
+				print(MENSAJE.men.get("ContraOCorreoInvalido"))
+
+		if type(infousuario)==list:
+			archivo=open("registro.txt", "r").readlines()
+			line1=archivo[infousuario[0]].split(',')
+			line2=archivo[infousuario[1]].split(',')
+			PRINCIPAL.display_MenuVerificarCorreo()
+			opcion=input()
+			if opcion=="1":
+				if "PASAJERO" ==line1[0]:
+					infousuario = line1
+				if "PASAJERO"==line2[0]:
+					infousuario = line2
+			if opcion=="2":
+				if "CONDUCTOR"==line1[0]:
+					infousuario = line1
+				if "CONDUCTOR"==line2[0]:
+					infousuario = line2
+			if opcion=="3":
+				infousuario = "salir"
+
+		if infousuario!="salir" and infousuario!="Invalido":
 			if "PASAJERO"==infousuario[0]:
 				PRINCIPAL.InicioSesionPasajero(infousuario)
 			if "CONDUCTOR"==infousuario[0]:
@@ -111,6 +139,7 @@ class PRINCIPAL:
 			if "ADMINISTRADOR"==infousuario[0]:
 				PRINCIPAL.InicioSesionAdmin()
 			print(MENSAJE.men.get("CerradoSesion"))
+		
 
 	@staticmethod
 	def InicioSesionPasajero(infousuario):
@@ -130,15 +159,25 @@ class PRINCIPAL:
 				SERVICIO.VerServicios()
 			elif (int(opcion)==2):
 				break
+
+	@staticmethod
+	def VerServicios():
+		if len(SERVICIO.ServiciosDisponibles) ==0:
+			print(MENSAJE.men.get("SinServicios"))
+		else:
+			cont=1
+			for servicio in SERVICIO.ServiciosDisponibles:
+				print(MENSAJE.men.get("FormatoVerServicios").format(cont+". "+servicio.getHoraEncuentro()+", "+servicio.getSitioEncuentro()+", "+servicio.getLugarInicio()+", "+servicio.getLugarFin()+", "+servicio.getAsientosDisponibles()+", "+servicio.getConductorSer().getNombre()))
+				cont=cont+1
 				
 	@staticmethod
 	def InicioSesionConductor(infousuario):
 	
 		for conductor in CONDUCTOR.ListaConductores:
-			if (conductor.getCorreo()==infousuario[1] and conductor.getContrasena()==infousuario[2] and conductor.getNombre()==fousuario[3] and conductor.getCell()==infousuario[4]):
+			if (conductor.getCorreo()==infousuario[1] and conductor.getContrasena()==infousuario[2] and conductor.getNombre()==infousuario[3] and conductor.getCell()==infousuario[4]):
 				infousuario=conductor
 				break
-				
+
 		while True:
 			PRINCIPAL.display_MenuConductor()
 			opcion=input(MENSAJE.men.get("Opcion"))
@@ -164,8 +203,7 @@ class PRINCIPAL:
 			if (int(opcion)!=1 and int(opcion)!=2 and int(opcion)!=3 and int(opcion)!=4):
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 			elif(int(opcion)==1):
-				
-			
+				pass
 
 	@staticmethod
 	def idiomaMensajes():
@@ -187,6 +225,7 @@ class PRINCIPAL:
 
 		archivo=open("registro.txt", "r").readlines()
 		for line in archivo:
+			line=line.split(',')
 			if "PASAJERO" == line[0]:
 				PASAJERO(line[1], line[2], line[3], line[4])
 			if "CONDUCTOR" == line[0]:
