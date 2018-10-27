@@ -94,7 +94,7 @@ class PERSONA():
 			if corre==1 and contra==0:
 				return "Invalido"
 			if corre==2 and contra==0:
-				return [2,3]
+				return "Invalido"
 			if corre==1 and contra==1:
 				line1=archivo[line1].split(',')
 				return line1
