@@ -1,5 +1,3 @@
-#from principal import PRINCIPAL
-
 class PERSONA():
 
 	listaPersonas=[]

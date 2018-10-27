@@ -59,12 +59,12 @@ class MENSAJE:
 			""",
 			
 	"Opcion":"Ingrese la opcion: ",
-	"NoViaje":"No tiene ningun viaje programado ",
-	"NoHistorial":"No ha echo ningun viaje Intercampus ",
+	"NoViaje":"No tiene ningun viaje programado.",
+	"NoHistorial":"No ha echo ningun viaje Intercampus.",
 	"InfoVehiculo":"Ingrese la informacion del vehiculo a usar",
 	"IngresarPlaca":"Ingrese el numero de placa: ",
 	"IngresarColor":"Ingrese el color del vehiculo: ",
-	"IngresarTipoVehiculo":"Ingrese el modelo del vehiculo: ",
+	"IngresarTipoVehiculo":"Ingrese el tipo de vehiculo(Carro o moto): ",
 	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
 	"OpcionIncorrecta":"{0} no es una opcion valida.",
 	"IngresarCorreo":"Ingrese su correo: ",
@@ -81,7 +81,13 @@ class MENSAJE:
 		Pulse 3 para salir.""",
 	"CerradoSesion": "Has cerrado sesion.",
 	"SinServicios": "En el momento no hay servicios disponibles.",
-	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}."
+	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}.",
+	"InfoServicio": "Ingrese la informacion del servicio.",
+	"IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h): ",
+	"IngresarSitioEncuentro": "Ingrese el campus de encuentro(Volador, minas, rio): ",
+	"IngresarLugarInicio": "Ingrese el lugar donde iniciara el viaje(Ejemplo:bloque M8, 12, 4): ",
+	"IngresarLugarFin": "Ingrese el lugar donde terminara el viaje(Ejemplo:bloque M8, 12, 4): ",
+	"IngresarAsientosDisponibles": "Ingrese la cantidad de asientos disponibles: "
 	}
 	
 

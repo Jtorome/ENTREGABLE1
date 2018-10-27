@@ -10,10 +10,12 @@ import time
 
 class CORRER: 
 
-	actual=time.strftime("%H:%M")
+
+
+	"""actual=time.strftime("%H:%M")
 	pasada="17:59"
 	if pasada>actual:
-		print("SI")
+		print("SI")"""
 
 	"""conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
 	SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
@@ -34,15 +36,24 @@ class CORRER:
 	
 	"""archivo=open("registro.txt", "r").readlines()
 	a=archivo[1].split(',')
-	print(type(a))"""
+	print(a)
+	print(len(a))"""
 
-	"""for line in archivo:
+	"""archivo=open("registro.txt", "r").readlines()
+	for line in archivo:
 		line=line.split(',')
 		if "PASAJERO" == line[0]:
 			PASAJERO(line[1], line[2], line[3], line[4])
-		if "CONDUCTOR" == line[0]:
-			conductor=CONDUCTOR(line[1], line[2], line[3], line[4])
-			VEHICULO(line[7], line[8], line[9], line[10], conductor)"""
+		elif "CONDUCTOR" == line[0]:
+			CONDUCTOR(line[1], line[2], line[3], line[4])
+		elif "VEHICULO" == line[0]:
+			for conductor in CONDUCTOR.ListaConductores:
+				correo=line[5].split()
+				if correo[0] == conductor.getCorreo():
+					VEHICULO(line[1], line[2], line[3], line[4], conductor)
+
+	for vehiculo in VEHICULO.ListaVehiculos:
+		print(vehiculo.getPlaca())"""
 
 	"""for pasajeros in PASAJERO.listaPasajeros:
 		print(pasajeros.getCorreo()+", "+pasajeros.getNombre())"""
