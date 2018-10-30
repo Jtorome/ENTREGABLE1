@@ -81,7 +81,10 @@ class SERVICIO:
 		return self._Conductor
 
 	def setPasajeros(self, pasajeros):
-		self._listaPasajeros.append(pasajeros)
+		if self._AsientosDisponibles >0:
+			self._listaPasajeros.append(pasajeros)
+			pasajeros.setServiciosPa(self)
+			self._AsientosDisponibles=self._AsientosDisponibles-1
 
 	def getPasajeros(self):
 		return self._listaPasajeros

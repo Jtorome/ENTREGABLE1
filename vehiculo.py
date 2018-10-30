@@ -2,7 +2,7 @@ class VEHICULO:
 
 	ListaVehiculos=[]
 
-	def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, Conductor):
+	def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, Conductor, Activo):
 
 		'''ATRIBUTOS
 		self._Placa
@@ -17,6 +17,7 @@ class VEHICULO:
 		self.setTipoVehiculo(TipoVehiculo)
 		self.setCantidadAsientos(CantidadAsientos)
 		self.setConductorVe(Conductor)
+		self.setActivo(Activo)
 		VEHICULO.ListaVehiculos.append(self)
 
 	def setPlaca(self, placa):
@@ -49,3 +50,16 @@ class VEHICULO:
 
 	def getConductorVe(self):
 		return self._conductor
+
+	def setActivo(self, activo):
+		self._Activo=activo
+
+	def getActivo(self):
+		return self._Activo
+
+	@staticmethod
+	def VerificarPlaca(Placa):
+		for placas in VEHICULO.ListaVehiculos:
+			if Placa == placas.getPlaca():
+				return True
+		return False

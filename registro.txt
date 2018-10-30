@@ -1,8 +1,8 @@
-CLASE,Correo,Contrasena,Nombre,Celular,NumSer/CaliPro,AcumCali
-ADMINISTRADOR,jtorom@unal.edu.co,admin1,juan alberto toro mejia,1
+
+VEHICULO,<built-in function input>,rojo,moto,<built-in function input>,tro@unal.edu.col.edu.co,admin1,juan alberto toro mejia,1
 ADMINISTRADOR,scabrera@unal.edu.co,admin2,sergio esteban cabrera,2
 ADMINISTRADOR,esantosr@unal.edu.co,admin3,eduardo santos ruiz,3
 CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,0,0
-VEHICULO,xyz123,Rojo,Carro,4,juan@unal.edu.co
+VEHICULO,xyz123,Rojo,Carro,4,juan@unal.edu.co,si
 PASAJERO,juan@unal.edu.co,hola,juan toro,310,0
 SERVICIO,17:20,Volador,12,M8,3,juan@unal.edu.co

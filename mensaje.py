@@ -40,20 +40,15 @@ class MENSAJE:
 			1. Programar viaje
 			2. Ver viaje actual
 			3. Ver mi historial
-			4. Cerrar sesion
-			""",
-
-	"MenuProgramarViaje":"""
-					Estas programando viaje
-			1.
-			2.
-			3. Salir
+			4. Agregar nuevo vehiculo
+			5. Ver vehiculos
+			6. Cerrar sesion
 			""",
 			
 	"MenuAdmin":"""
 					Estas en el menu de administrador
-			1. Ver administradores
-			2. Ver usuarios registrados
+			1. Crear datos ficticios
+			2. Crear datps ficticios del txt
 			3. Ver historial de viajes
 			4. Cerrar sesion 
 			""",
@@ -63,9 +58,11 @@ class MENSAJE:
 	"NoHistorial":"No ha echo ningun viaje Intercampus.",
 	"InfoVehiculo":"Ingrese la informacion del vehiculo a usar",
 	"IngresarPlaca":"Ingrese el numero de placa: ",
+	"PlacaInvalida": "Placa ya existe en el sistema.",
 	"IngresarColor":"Ingrese el color del vehiculo: ",
 	"IngresarTipoVehiculo":"Ingrese el tipo de vehiculo(Carro o moto): ",
 	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
+	"ActivarVehiculo":"¿Va a utilizar este vehiculo en su proximo viaje?(Si o No)",
 	"OpcionIncorrecta":"{0} no es una opcion valida.",
 	"IngresarCorreo":"Ingrese su correo: ",
 	"IngresarContrasena": "Ingrese su Contrasena: ",
@@ -81,13 +78,17 @@ class MENSAJE:
 		Pulse 3 para salir.""",
 	"CerradoSesion": "Has cerrado sesion.",
 	"SinServicios": "En el momento no hay servicios disponibles.",
-	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}.",
+	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}.\n",
 	"InfoServicio": "Ingrese la informacion del servicio.",
 	"IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h): ",
 	"IngresarSitioEncuentro": "Ingrese el campus de encuentro(Volador, minas, rio): ",
 	"IngresarLugarInicio": "Ingrese el lugar donde iniciara el viaje(Ejemplo:bloque M8, 12, 4): ",
 	"IngresarLugarFin": "Ingrese el lugar donde terminara el viaje(Ejemplo:bloque M8, 12, 4): ",
-	"IngresarAsientosDisponibles": "Ingrese la cantidad de asientos disponibles: "
+	"IngresarAsientosDisponibles": "Ingrese la cantidad de asientos disponibles: ",
+	"IngreseServicioEscogido": """
+	Ingrese 0 para salir.
+	Ingrese el servicio que desea tomar: """,
+	"FormatoSetActivo": "{0}, {1}."
 	}
 	
 

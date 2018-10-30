@@ -9,8 +9,37 @@ from mensaje import MENSAJE
 import time
 
 class CORRER: 
+	archivo=open("registro.txt", "w")
+	conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
+	Placa=input
+	print(type(Placa))
+	CantidadAsientos=input
+	print(type(CantidadAsientos))
+	ColorVehiculo="rojo"
+	TipoVehiculo="moto"
+	Activo="si"
+	print(type(ColorVehiculo))
+	print(type(TipoVehiculo))
+	print(type(Activo))
+	archivo.write("\n"+"VEHICULO,"+str(Placa)+","+ColorVehiculo+","+TipoVehiculo+","+str(CantidadAsientos)+","+conductor1.getCorreo())+","+Activo
 
+	"""archivo=open("registro.txt", "r").readlines()
+	out=open("registro.txt", "w")
+	for line in archivo:
+		line=line.replace(",ACTIVO", "")
+		out.writelines(line)"""
 
+	"""contenido= list()
+
+	with open('registro.txt', 'r') as archivo:
+		for linea in archivo:
+			columnas = linea.replace(",ACTIVO", "")
+			columnas= columnas.split(',')
+			contenido.append(','.join(columnas))
+
+	print(contenido)
+	with open('registro.txt', 'w') as archivo:
+		archivo.writelines(contenido)"""
 
 	"""actual=time.strftime("%H:%M")
 	pasada="17:59"
@@ -18,7 +47,12 @@ class CORRER:
 		print("SI")"""
 
 	"""conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
-	SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )
+	servicio1=SERVICIO("7:30", "Agora", "Bloque 12", "M7", 3, conductor1 )	
+	pasajero1=PASAJERO("Juan", "hola", "JUAN", "1232")
+	servicio1.setPasajeros(pasajero1)
+	for servicios in pasajero1.getServiciosPa():
+		print(servicios.getHoraEncuentro())
+	print(pasajero1.getServiciosPa())
 	if len(SERVICIO.ServiciosDisponibles) ==0:
 		print(MENSAJE.espanol.get("SinServicios"))
 	else:

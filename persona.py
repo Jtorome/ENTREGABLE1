@@ -52,24 +52,12 @@ class PERSONA():
 	@staticmethod
 	def VerificarRegistro(palabra, correo):
 		archivo=open("registro.txt", "r")
-		X=True
-		while X:
-			pal=0
-			noesta=0
-			for line in archivo:
-				line=line.split(',')
-				if palabra==line[0]:
-					pal=pal+1
-					if correo == line[1]:
-						print(MENSAJE.men.get("CorreoInvalido"))
-						X=False
-					else:
-						noesta=noesta+1
-			if noesta==pal:
-				return False
-				X=False
-			else:
-				return True
+		for line in archivo:
+			line=line.split(',')
+			if palabra==line[0]:
+				if correo == line[1]:
+					return True
+		return False
 
 	@staticmethod
 	def VerificarCorreo(correo, contrasena):
