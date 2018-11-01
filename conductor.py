@@ -19,6 +19,7 @@ class CONDUCTOR(PERSONA):
 		self._listaVehiculos = []
 		self._listaServiciosCon = []
 		self._listaCalificacionesCon=[]
+		self._ServicioActual=[]
 		self._NumeroServicios=NumeroServicios
 		self._AcumuladoCalificacion=AcumuladoCalificacion
 		CONDUCTOR.ListaConductores.append(self)
@@ -60,6 +61,12 @@ class CONDUCTOR(PERSONA):
 	def getCalificacionesCon(self):
 		return self._listaCalificacionesCon
 
+	def setServicioActual(self, servicio):
+		self._ServicioActual.append(servicio)
+
+	def getServicioActual(self):
+		return self._ServicioActual
+
 	@staticmethod
 	def VerVehiculos(Conductor):
 		vehiculos=list()
@@ -83,6 +90,9 @@ class CONDUCTOR(PERSONA):
 				for line in archivo:
 					if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[6].split()[0]:
 						line=line.replace(",si\n",",no\n").split(',')
+						contenido.append(','.join(line))
+					else:
+						line=line.split(',')
 						contenido.append(','.join(line))
 		with open('registro.txt', 'w') as archivo:
 			archivo.writelines(contenido)

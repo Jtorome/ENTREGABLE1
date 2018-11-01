@@ -47,17 +47,32 @@ class MENSAJE:
 			
 	"MenuAdmin":"""
 					Estas en el menu de administrador
-			1. Crear datos ficticios
-			2. Crear datps ficticios del txt
-			3. Ver historial de viajes
-			4. Cerrar sesion 
+			1. Crear datos ficticios.
+			2. Crear datos ficticios del txt.
+			3. Actualizar servicios disponibles.
+			4. Cerrar sesion.
 			""",
+
+	"CambiarInfo": """"
+					¿Que desea cambiar?
+			1. Hora de encuentro.
+			2. Sitio de encuentro.
+			3. Lugar de inicio.
+			4. Lugar de llegada.
+			5. La cantidad de asientos.
+			6. Atras.
+			""",
+
+	"MenuFormatoViajeActual":"""
+	1. Cambiar informacion.
+	2. Atras.""",
 			
 	"Opcion":"Ingrese la opcion: ",
 	"NoViaje":"No tiene ningun viaje programado.",
 	"NoHistorial":"No ha echo ningun viaje Intercampus.",
-	"InfoVehiculo":"Ingrese la informacion del vehiculo a usar",
-	"IngresarPlaca":"Ingrese el numero de placa: ",
+	"InfoVehiculo":"""	Ingrese la informacion del vehiculo a usar.
+	Presione 3 para cancelar.""",
+	"IngresarPlaca":"Ingrese la placa del vehiculo: ",
 	"PlacaInvalida": "Placa ya existe en el sistema.",
 	"IngresarColor":"Ingrese el color del vehiculo: ",
 	"IngresarTipoVehiculo":"Ingrese el tipo de vehiculo(Carro o moto): ",
@@ -79,16 +94,19 @@ class MENSAJE:
 	"CerradoSesion": "Has cerrado sesion.",
 	"SinServicios": "En el momento no hay servicios disponibles.",
 	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}.\n",
-	"InfoServicio": "Ingrese la informacion del servicio.",
+	"InfoServicio": """	Ingrese la informacion del servicio.
+	Presione 3 para cancelar.""",
 	"IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h): ",
 	"IngresarSitioEncuentro": "Ingrese el campus de encuentro(Volador, minas, rio): ",
 	"IngresarLugarInicio": "Ingrese el lugar donde iniciara el viaje(Ejemplo:bloque M8, 12, 4): ",
 	"IngresarLugarFin": "Ingrese el lugar donde terminara el viaje(Ejemplo:bloque M8, 12, 4): ",
 	"IngresarAsientosDisponibles": "Ingrese la cantidad de asientos disponibles: ",
+	"ServicioEnCurso": "Usted ya tiene un servicio en curso por favor termine ese antes de programar otro.",
 	"IngreseServicioEscogido": """
 	Ingrese 0 para salir.
 	Ingrese el servicio que desea tomar: """,
-	"FormatoSetActivo": "{0}, {1}."
+	"FormatoSetActivo": "{0}, {1}.",
+	"FormatoViajeActual": "Hora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}"
 	}
 	
 

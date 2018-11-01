@@ -1,10 +1,11 @@
 from conductor import CONDUCTOR
+import time
 class SERVICIO:
 
 	ListaServicios=[]
 	ServiciosDisponibles=[]
 
-	def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor , CalificacionPromedioSer=0 ):
+	def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor, FechaSer=time.strftime("%y/%m/%d"), CalificacionPromedioSer=0):
 
 		'''ATRIBUTOS
 		self._HoraEncuentro
@@ -23,6 +24,7 @@ class SERVICIO:
 		self.setLugarFin(LugarFin)
 		self.setAsientosDisponibles(AsientosDisponibles)
 		self.setConductorSer(Conductor)
+		self._FechaSer=FechaSer
 		self._CalificacionPromedioSer=CalificacionPromedioSer
 		self._listaPasajeros=[]
 		self._listaCalificacionesSer=[]
@@ -75,6 +77,7 @@ class SERVICIO:
 	def setConductorSer(self, Conductor):
 		self._Conductor=Conductor
 		Conductor.setServiciosCon(self)
+		Conductor.setServicioActual(self)
 		CONDUCTOR.setNumeroServicios(Conductor)
 
 	def getConductorSer(self):
@@ -94,3 +97,20 @@ class SERVICIO:
 
 	def getCalificacionesSer(self):
 		return self._listaCalificacionesSer
+
+	def getFechaSer(self):
+		return self._FechaSer
+
+	@staticmethod
+	def ActualizarSerDis():
+		actual=time.strftime("%y/%m/%d")
+		Hora=time.strftime("%H:%M")
+		for servicio in SERVICIO.ServiciosDisponibles:
+			FechaSer=servicio.getFechaSer()
+			if FechaSer < actual:
+				SERVICIO.ServiciosDisponibles.remove(servicio)
+				CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
+			elif FechaSer == actual:
+				if servicio.getHoraEncuentro() < Hora:
+					SERVICIO.ServiciosDisponibles.remove(servicio)
+					CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)

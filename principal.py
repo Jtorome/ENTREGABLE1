@@ -82,6 +82,8 @@ class PRINCIPAL:
 			if cont>0:
 				print(MENSAJE.men.get("PlacaInvalida"))
 			Placa=input(MENSAJE.men.get("IngresarPlaca"))
+			if Placa == "3":
+				return
 			X=VEHICULO.VerificarPlaca(Placa)
 			cont=cont+1
 		ColorVehiculo=input(MENSAJE.men.get("IngresarColor"))
@@ -120,15 +122,22 @@ class PRINCIPAL:
 
 	@staticmethod
 	def ProgramarViaje(infousuario):
+		for servicio in SERVICIO.ServiciosDisponibles:
+			if servicio.getConductorSer() == infousuario:
+				print(MENSAJE.men.get("ServicioEnCurso"))
+				return
 		print(MENSAJE.men.get("InfoServicio"))
 		HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
+		if HoraEncuentro == "3":
+			return
 		SitioEncuentro=input(MENSAJE.men.get("IngresarSitioEncuentro"))
 		LugarInicio=input(MENSAJE.men.get("IngresarLugarInicio"))
 		LugarFin=input(MENSAJE.men.get("IngresarLugarFin"))
 		AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
+		FechaSer=time.strftime("%y/%m/%d")
 		SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario)
 		archivo=open("registro.txt", "a")
-		archivo.write("\n"+"SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo())
+		archivo.write("\n"+"SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+FechaSer+",0")
 
 	@staticmethod
 	def SalirPrincipal():
@@ -138,7 +147,7 @@ class PRINCIPAL:
 	@staticmethod
 	def VerServicios():
 		if len(SERVICIO.ServiciosDisponibles) == 0:
-			print(MENSAJE.men.get("SinServicios"))
+			return print(MENSAJE.men.get("SinServicios"))
 		else:
 			cont=1
 			for servicio in SERVICIO.ServiciosDisponibles:
@@ -154,6 +163,69 @@ class PRINCIPAL:
 			else:
 				servicio=SERVICIO.ServiciosDisponibles[opcion-1]
 
+	@staticmethod
+	def VerViajeActual(infousuario):
+		servicio=infousuario.getServicioActual()[0]
+		print(MENSAJE.men.get("FormatoViajeActual").format(servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles()))
+		print(MENSAJE.men.get("MenuFormatoViajeActual"))
+		opcion=int(input(MENSAJE.men.get("Opcion")))
+		if opcion != 1 and opcion !=2:
+			print(MENSAJE.men.get("Opcion"))
+		elif opcion == 2:
+			return
+		elif opcion == 1:
+			print(MENSAJE.men.get("CambiarInfo"))
+			archivo=open("registro.txt", "r").readlines()
+			contenido=list()
+			for line in archivo:
+				if "SERVICIO"==line.split(',')[0] and servicio.getHoraEncuentro()==line.split(',')[1] and servicio.getFechaSer()==line.split(',')[7] and servicio.getConductorSer().getCorreo()==line.split(',')[6]:
+					while True:
+						cambio=int(input(MENSAJE.men.get("Opcion")))
+						if cambio!=1 and cambio!=2 and cambio!=3 and cambio!=4 and cambio!=5 and cambio!=6:
+							print(MENSAJE.men.get("OpcionIncorrecta"))
+						elif cambio==1:
+							HoraVieja=servicio.getHoraEncuentro()
+							HoraNueva=input(MENSAJE.men.get("IngresarHoraEncuentro"))
+							line=line.replace(HoraVieja, HoraNueva).split(',')
+							servicio.setHoraEncuentro(HoraNueva)
+							contenido.append(','.join(line))
+							break
+						elif cambio==2:
+							SitioViejo=servicio.getSitioEncuentro()
+							SitioNuevo=input(MENSAJE.men.get("IngresarSitioEncuentro"))
+							line=line.replace(SitioViejo, SitioNuevo).split(',')
+							servicio.setSitioEncuentro(SitioNuevo)
+							contenido.append(','.join(line))
+							break
+						elif cambio==3:
+							LugarViejo=servicio.getLugarInicio()
+							LugarNuevo=input(MENSAJE.men.get("IngresarLugarInicio"))
+							line=line.replace(LugarViejo, LugarNuevo).split(',')
+							servicio.setLugarInicio(LugarNuevo)
+							contenido.append(','.join(line))
+							break
+						elif cambio==4:
+							LugarViejo=servicio.getLugarFin()
+							LugarNuevo=input(MENSAJE.men.get("IngresarLugarFin"))
+							line=line.replace(LugarViejo, LugarNuevo).split(',')
+							servicio.setLugarFin(input(MENSAJE.men.get("IngresarLugarFin")))
+							contenido.append(','.join(line))
+							break
+						elif cambio==5:
+							AsientosViejo=servicio.getAsientosDisponibles()
+							AsientosNuevo=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
+							line=line.replace(AsientosViejo, AsientosNuevo).split(',')
+							servicio.setAsientosDisponibles(AsientosNuevo)
+							contenido.append(','.join(line))
+							break
+						elif cambio==6:
+							return
+				else:
+					line=line.split(',')
+					contenido.append(','.join(line))
+			with open('registro.txt', 'w') as archivo:
+				archivo.writelines(contenido)
+				return
 
 	@staticmethod
 	def IniciarSesion():
@@ -222,11 +294,11 @@ class PRINCIPAL:
 		
 	@staticmethod
 	def InicioSesionConductor(infousuario):
-	
-		for conductor in CONDUCTOR.ListaConductores:
-			if (conductor.getCorreo()==infousuario[1] and conductor.getContrasena()==infousuario[2] and conductor.getNombre()==infousuario[3] and conductor.getCell()==infousuario[4]):
-				infousuario=conductor
-				break
+		if type(infousuario) == list:
+			for conductor in CONDUCTOR.ListaConductores:
+				if (conductor.getCorreo()==infousuario[1] and conductor.getContrasena()==infousuario[2] and conductor.getNombre()==infousuario[3] and conductor.getCell()==infousuario[4]):
+					infousuario=conductor
+					break
 
 		while True:
 			PRINCIPAL.display_MenuConductor()
@@ -237,7 +309,7 @@ class PRINCIPAL:
 			elif opcion==1:
 				PRINCIPAL.ProgramarViaje(infousuario)
 			elif opcion==2:
-				PRINCIPAL.VerViajeActual()
+				PRINCIPAL.VerViajeActual(infousuario)
 			elif opcion==3:
 				SERVICIO.VerMiHistorial()
 			elif opcion==4:
@@ -257,6 +329,8 @@ class PRINCIPAL:
 			print("")
 			if opcion!=1 and opcion!=2 and opcion!=3 and opcion!=4:
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion == 3:
+				SERVICIO.ActualizarSerDis()
 			elif opcion==4:
 				break
 
@@ -273,7 +347,7 @@ class PRINCIPAL:
 				MENSAJE.men = MENSAJE.ingles
 				break
 			else:
-				print(MENSAJE.espanol.get("OpcionpcionIncorrecta").format(idioma))
+				print(MENSAJE.espanol.get("OpcionIncorrecta").format(idioma))
 				print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
 
 	def runInicial(self):
@@ -294,7 +368,7 @@ class PRINCIPAL:
 				for conductor in CONDUCTOR.ListaConductores:
 					correo=line[6].split()
 					if correo[0] == conductor.getCorreo():
-						SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor)
+						SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7])
 
 		PRINCIPAL.idiomaMensajes()
 

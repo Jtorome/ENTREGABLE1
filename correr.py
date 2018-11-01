@@ -9,19 +9,20 @@ from mensaje import MENSAJE
 import time
 
 class CORRER: 
-	archivo=open("registro.txt", "w")
-	conductor1 = CONDUCTOR("tro@unal.edu.co", "1234", "Bla", "12324")
-	Placa=input
-	print(type(Placa))
-	CantidadAsientos=input
-	print(type(CantidadAsientos))
-	ColorVehiculo="rojo"
-	TipoVehiculo="moto"
-	Activo="si"
-	print(type(ColorVehiculo))
-	print(type(TipoVehiculo))
-	print(type(Activo))
-	archivo.write("\n"+"VEHICULO,"+str(Placa)+","+ColorVehiculo+","+TipoVehiculo+","+str(CantidadAsientos)+","+conductor1.getCorreo())+","+Activo
+
+	opcion= int(input())
+	if opcion != (1, 2, 3, 4, 5):
+		print(MENSAJE.espanol.get("OpcionIncorrecta").format(opcion))
+	"""actual=time.strftime("%y/%m/%d")
+	a=actual.split('/')
+	pasada="18/09/31"
+	p=pasada.split('/')
+	if actual > pasada:
+		print("SIP")
+	if a[2] >= p[2] and a[1] >= p[1] and a[0] > p[0]:
+		print("DIA MAYOR")
+	elif a[2] >= p[2] and a[1] >= p[1] and a[0] == p[0]:
+		print("DIA IGUAL")"""
 
 	"""archivo=open("registro.txt", "r").readlines()
 	out=open("registro.txt", "w")
