@@ -160,26 +160,45 @@ class MENSAJE:
 			4. Log out 
 			""",
 			
-	"Opcion": "Select an option:",   
-	"NoViaje":"You have no scheduled trip ",
-	"NoHistorial":"You have not done any Intercampus trip ", 
-	"InfoVehiculo":"Enter the vehicle information to use ",
+	"Opcion":"Select an option: ",
+	"NoViaje":"You have not sheduled trip.",
+	"NoHistorial":"You have not done any intercampus trip.",
+	"InfoVehiculo":"""	Enter the vehicle information to use.
+	Select 3 to cancel""",
 	"IngresarPlaca":"Enter the number of license plate: ",
+	"PlacaInvalida": "License plate already existing in the system.",
 	"IngresarColor":"Enter the color of vehicle: ",
-	"IngresarTipoVehiculo":"Enter the vehicle type: ",
-	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
-	"OpcionIncorrecta": "{0} is not a valid choice.",
+	"IngresarTipoVehiculo":"Enter the vehicle type(car or motorcycle): ",
+	"IngresarCantidadAsientos": "Enter the total number of seats of the vehicle: ",
+	"ActivarVehiculo":"Will you use this vehicle on your next trip? (Yes or No)",
+	"OpcionIncorrecta":"{0} Is not valid choice. ",
 	"IngresarCorreo":"Enter your mail: ",
-	"IngresarContrasena": "Enter your password: ",
-	"IngresarNombre":"Enter your name: ",
-	"IngresarCell": "Enter your cellphone: ",
-	"Antes@": "Plase enter your user before that @",
+	"IngresarContrasena": "Enter your password:  ",
+	"IngresarNombre": "Enter your name:",
+	"IngresarCell": "Enter your cellphone",
+	"Antes@": "Please write your user before that @",
 	"Salir": "Bye Bye",
-	"IngresarDescripcion": "How was your travel ?: ",
-	"CorreoInvalido": "The email address you have entered is already registered: ",
-	"CorreoInexistente": "The email you entered is not registered: ",
-	"ContrasenaInvalida": "Invalid password.",
+	"IngresarDescripcion": "Please enter the description: ",
+	"CorreoInvalido": "Existing mail please enter another: ",
+	"CorreoInexistente": "The mail is not registered, please register or enter a valid mail",
+	"ContraOCorreoInvalido": "Mail or password invalid.",
 	"MensajeInicioSesion": """        Login
-		Press 3 to exit."""
+		Enter 3 to exit.""",
+	"CerradoSesion": "Make closed session. ",
+	"SinServicios": "There are no services available",
+	"FormatoVerServicios": "{0}, Meeting time: {1}, Meetin place: {2}, Start place: {3}, Place of arrival: {4}, Available seats: {5}, Name of condutor: {6}.\n",
+	"InfoServicio": """	Enter the information of service.
+	Enter 3 to cancel.""",
+	"IngresarHoraEncuentro": "Enter the meeting time(24h): ",
+	"IngresarSitioEncuentro": "Enter the meeting place(Volador, minas, rio): ",
+	"IngresarLugarInicio": "Enter the place where star the service(Example:bloque M8, 12, 4): ",
+	"IngresarLugarFin": "Enter the place where the service will end(Example:bloque M8, 12, 4): ",
+	"IngresarAsientosDisponibles": "Enter the number of seats available: ",
+	"ServicioEnCurso": "You already have an ongoing service, please finish that before you schedule another.",
+	"IngreseServicioEscogido": """
+	Enter 0 to exit.
+	Enter the servic that wish take: """,
+	"FormatoSetActivo": "{0}, {1}.",
+	"FormatoViajeActual": "Meeting time: {0}, Meeting place: {1}, Start place: {2}, Place of arrival: {3}, Available seats: {4}"
 
 			}
