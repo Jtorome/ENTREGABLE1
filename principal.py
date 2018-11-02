@@ -7,6 +7,7 @@ from servicio import SERVICIO
 from comentario import COMENTARIO
 from calificacion import CALIFICACION
 from mensaje import MENSAJE
+from datetime import datetime, date, timedelta
 import time
 
 class PRINCIPAL:
@@ -126,6 +127,7 @@ class PRINCIPAL:
 
 	@staticmethod
 	def ProgramarViaje(infousuario):
+		SERVICIO.ActualizarSerDis()
 		vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
 		if vehiculo.getTipoVehiculo()=="moto":
 			MaxAsientosDis=1
@@ -152,8 +154,21 @@ class PRINCIPAL:
 				print(MENSAJE.men.get("AsientosMaximos").format(vehiculo.getTipoVehiculo(), MaxAsientosDis))
 			else:
 				break
-		FechaSer=time.strftime("%y/%m/%d")
-		SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario)
+		while True:
+			while True:
+				opcion=input(MENSAJE.men.get("IngresarFecha"))
+				if opcion!="1" and opcion!="2":
+					print(MENSAJE.men.get("OpcionIncorrecta"))
+				else:
+					opcion=int(opcion)
+					break
+			if opcion==1:
+				FechaSer=time.strftime("%y/%m/%d")
+				break
+			elif opcion==2:
+				FechaSer=(datetime.today()+timedelta(days=1)).strftime("%y/%m/%d")
+				break
+		SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, FechaSer)
 		archivo=open("registro.txt", "a")
 		archivo.write("\n"+"SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+FechaSer+",0")
 
@@ -278,6 +293,30 @@ class PRINCIPAL:
 		print(MENSAJE.men.get("FormatoInfoVehi").format(vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.getTipoVehiculo()))
 
 	@staticmethod
+	def VerMiHistorial(infousuario):
+		if len(CONDUCTOR.getServiciosCon(infousuario))==0:
+			return print(MENSAJE.men.get("HistorialVacio"))
+		cont=1
+		for servicio in CONDUCTOR.getServiciosCon(infousuario):
+			print(MENSAJE.men.get("FormatoVerMiHistorial").format(cont, servicio.getFechaSer(), servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin()))
+			cont=cont+1
+		PRINCIPAL.RevisarServicio(infousuario)
+
+	@staticmethod
+	def RevisarServicio(infousuario):
+		while True:
+			opcion=int(input(MENSAJE.men.get("RevisarViaje")))
+			if opcion<0 and opcion>len(CONDUCTOR.getServiciosCon(infousuario)):
+				print(MENSAJE.men.get("OpcionIncorrecta"))
+			else:
+				break
+		servicio=(CONDUCTOR.getServiciosCon(infousuario))[opcion-1]
+		cont=1
+		for pasajero in servicio.getPasajeros():
+			print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPa()))
+			cont=cont+1
+
+	@staticmethod
 	def IniciarSesion():
 		infousuario=True
 		while infousuario==True:
@@ -375,7 +414,7 @@ class PRINCIPAL:
 			elif opcion==2:
 				PRINCIPAL.VerViajeActual(infousuario)
 			elif opcion==3:
-				SERVICIO.VerMiHistorial()
+				PRINCIPAL.VerMiHistorial(infousuario)
 			elif opcion==4:
 				PRINCIPAL.AgregarVehiculo(infousuario)
 			elif opcion==5:

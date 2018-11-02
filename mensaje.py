@@ -68,6 +68,11 @@ class MENSAJE:
 			1. Cambiar informacion.
 			2. Eliminar Servicio.
 			3. Atras.""",
+
+	"RevisarViaje": """
+	Ingrese 0 para salir.
+	¿Que viaje desea revisar?: 
+	""",
 			
 	"Opcion":"Ingrese la opcion: ",
 	"NoViaje":"No tiene ningun viaje programado.",
@@ -109,19 +114,20 @@ class MENSAJE:
 	Ingrese el servicio que desea tomar: """,
 	"FormatoSetActivo": "{0}, {1}.",
 	"FormatoViajeActual": "Hora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}",
-	"IngresarFecha":"Favor ingresar fecha en formato yymmdd(maximo un mes de antelacion)",
-	"FechaIncorrecta":"Formato invalido(yymmdd) o fecha limite excedida.",
+	"IngresarFecha":"""¿Cuando va a realizar su viaje: 1.Hoy.
+                                2. Mañana: """,
 	"SinServiciosCon":"Usted no tiene viaje programado.",
 	"NoPuedeTomarSer":"Usted no puede tomar este servicio ya que usted mismo lo popuso",
-	"ViajeLleno":"Ya no quedan asientos en este viaje por favor tomar otro"
+	"ViajeLleno":"Ya no quedan asientos en este viaje por favor tomar otro",
 	"RegistradoEnSer":"Usted a quedado registrado en el servicio que parte a las {0} del {1} hacia {2}",
 	"AsientosMaximos":"La cantidad maxima de asientos disponibles para un {0} son {1}",
 	"HoraYaPaso":"La hora ingresada ya paso. Por favor ingrese una hora que no haya pasado {0} son {1}",
-	"FormatoInfoSer": "Informacion sobre el servicio.\nHora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}, Fecha: {5}.\n",	
-	"FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",	
-	"FormatoInfoVeh": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n"
-
-
+	"FormatoInfoSer": "Informacion sobre el servicio.\nHora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}, Fecha: {5}.\n",
+	"FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",
+	"FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
+	"HistorialVacio": "Usted no ha hecho ningun viaje.",
+	"FormatoVerMiHistorial": "	Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}.",
+	"FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}."
 	}
 	
 
@@ -224,11 +230,11 @@ class MENSAJE:
 	"FechaIncorrecta":"Invalid format(yymmdd) or limit date exceeded.",
 	"SinServiciosCon":"You have no trip sheduled.",
 	"NoPuedeTomarSer":"You must not take this service because you get it yourself",
-	"ViajeLleno":"There are no seats left in this trip please take another"
+	"ViajeLleno":"There are no seats left in this trip please take another",
 	"RegistradoEnSer":"You have been registered in the service that leaves at {0} of {1} to {2}",
 	"AsientosMaximos":"The maximum number of seats available for a {0} is {1}",
 	"HoraYaPaso":"The time entered already step. Please enter a time that has not passed {0} are {1}",
-	"FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",	
-	"FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",	
-	"FormatoInfoVeh": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n"
-			}
+	"FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",
+	"FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",
+	"FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n"
+	}	

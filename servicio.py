@@ -6,7 +6,7 @@ class SERVICIO:
 	ListaServicios=[]
 	ServiciosDisponibles=[]
 
-	def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor, FechaSer=time.strftime("%y/%m/%d"), CalificacionPromedioSer=0):
+	def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor, FechaSer, CalificacionPromedioSer=0):
 
 		'''ATRIBUTOS
 		self._HoraEncuentro
@@ -25,7 +25,7 @@ class SERVICIO:
 		self.setLugarFin(LugarFin)
 		self.setAsientosDisponibles(AsientosDisponibles)
 		self.setConductorSer(Conductor)
-		self._FechaSer=FechaSer
+		self.setFechaSer(FechaSer)
 		self._CalificacionPromedioSer=CalificacionPromedioSer
 		self._listaPasajeros=[]
 		self._listaCalificacionesSer=[]
@@ -100,10 +100,12 @@ class SERVICIO:
 	def getCalificacionesSer(self):
 		return self._listaCalificacionesSer
 
+	def setFechaSer(self, fechaser):
+		self._FechaSer=fechaser
+
 	def getFechaSer(self):
 		return self._FechaSer
 
-	#PROBLEMA
 	@staticmethod
 	def ActualizarSerDis():
 		actual=time.strftime("%y/%m/%d")
@@ -114,13 +116,13 @@ class SERVICIO:
 				SERVICIO.ServiciosDisponibles.remove(servicio)
 				CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
 				for pasajero in servicio.getPasajeros():
-					PASAJERO.getViajeActual().remove(pasajero)
+					PASAJERO.getViajeActual(pasajero).remove(servicio)
 			elif FechaSer == actual:
 				if servicio.getHoraEncuentro() < Hora:
 					SERVICIO.ServiciosDisponibles.remove(servicio)
 					CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
 					for pasajero in servicio.getPasajeros():
-						PASAJERO.getViajeActual().remove(pasajero)
+						PASAJERO.getViajeActual(pasajero).remove(servicio)
 
 	@staticmethod
 	def ServicioTomado(infousuario, servicio):
@@ -128,4 +130,4 @@ class SERVICIO:
 			return MENSAJE.men.get("NoPuedeTomarSer")
 		else:
 			servicio.setPasajeros(infousuario)
-			return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.LugarFin())
+			return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin())

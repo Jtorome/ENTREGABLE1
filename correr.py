@@ -6,35 +6,23 @@ from calificacion import CALIFICACION
 from vehiculo import VEHICULO
 from comentario import COMENTARIO
 from mensaje import MENSAJE
+from principal import PRINCIPAL
+from datetime import datetime, date, time, timedelta
+import calendar
 import time
 
 class CORRER:
 
-	archivo=open("registro.txt", "r").readlines()
-	for line in archivo:
-		line=line.split(',')
-		print(len(line))
-		break
+	"""formato="%y/%m/%d"
+	dia=datetime.now()
+	day=dia.strftime(formato)
+	bla=datetime.strptime(day, formato)
+	print(bla)"""	
 
-	"""archivo=open("registro.txt", "r").readlines()
-	for line in archivo:
-		line=line.split(',')
-		if "PASAJERO" == line[0]:
-			PASAJERO(line[1], line[2], line[3], line[4], line[5].split()[0])
-		elif "CONDUCTOR" == line[0]:
-			CONDUCTOR(line[1], line[2], line[3], line[4], line[5], line[6].split()[0])
-		elif "VEHICULO" == line[0]:
-			for conductor in CONDUCTOR.ListaConductores:
-				correo=line[5].split()
-				if correo[0] == conductor.getCorreo():
-					VEHICULO(line[1], line[2], line[3], line[4], conductor, line[6].split()[0])
-		elif "SERVICIO" == line[0]:
-			for conductor in CONDUCTOR.ListaConductores:
-				correo=line[6].split()
-				if correo[0] == conductor.getCorreo():
-					SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7], line[8].split()[0])
 
-	for conductor in CONDUCTOR.ListaConductores:
+	print(date.today().isoformat())
+
+	"""for conductor in CONDUCTOR.ListaConductores:
 		if "juan@unal.edu.co"==conductor.getCorreo():
 			Conductor=conductor
 
