@@ -1,4 +1,5 @@
 from conductor import CONDUCTOR
+from mensaje import MENSAJE
 import time
 class SERVICIO:
 
@@ -57,6 +58,7 @@ class SERVICIO:
 		return self._LugarFin
 
 	def setAsientosDisponibles(self, asientosDisponibles):
+
 		self._AsientosDisponibles=int(asientosDisponibles)
 
 	def getAsientosDisponibles(self):
@@ -84,10 +86,10 @@ class SERVICIO:
 		return self._Conductor
 
 	def setPasajeros(self, pasajeros):
-		if self._AsientosDisponibles >0:
-			self._listaPasajeros.append(pasajeros)
-			pasajeros.setServiciosPa(self)
-			self._AsientosDisponibles=self._AsientosDisponibles-1
+		self._listaPasajeros.append(pasajeros)
+		pasajeros.setServiciosPa(self)
+		pasajeros.setViajeActual(self)
+		self._AsientosDisponibles=self._AsientosDisponibles-1
 
 	def getPasajeros(self):
 		return self._listaPasajeros
@@ -101,6 +103,7 @@ class SERVICIO:
 	def getFechaSer(self):
 		return self._FechaSer
 
+	#PROBLEMA
 	@staticmethod
 	def ActualizarSerDis():
 		actual=time.strftime("%y/%m/%d")
@@ -110,7 +113,19 @@ class SERVICIO:
 			if FechaSer < actual:
 				SERVICIO.ServiciosDisponibles.remove(servicio)
 				CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
+				for pasajero in servicio.getPasajeros():
+					PASAJERO.getViajeActual().remove(pasajero)
 			elif FechaSer == actual:
 				if servicio.getHoraEncuentro() < Hora:
 					SERVICIO.ServiciosDisponibles.remove(servicio)
 					CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
+					for pasajero in servicio.getPasajeros():
+						PASAJERO.getViajeActual().remove(pasajero)
+
+	@staticmethod
+	def ServicioTomado(infousuario, servicio):
+		if infousuario.getCorreo() == servicio.getConductorSer().getCorreo():
+			return MENSAJE.men.get("NoPuedeTomarSer")
+		else:
+			servicio.setPasajeros(infousuario)
+			return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.LugarFin())

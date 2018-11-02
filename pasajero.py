@@ -14,6 +14,7 @@ class PASAJERO(PERSONA):
 		'''
 
 		self._listaServiciosPa=[]
+		self._ViajeActual=[]
 		self._listaCalificacionPa=[]
 		self._CalificacionPromedio=CalificacionPromedio
 		PASAJERO.listaPasajeros.append(self)
@@ -41,3 +42,9 @@ class PASAJERO(PERSONA):
 
 	def getCalificacionPa(self):
 		return self._listaCalificacionPa
+
+	def setViajeActual(self, servicio):
+		self._ViajeActual.append(servicio)
+
+	def getViajeActual(self):
+		return self._ViajeActual

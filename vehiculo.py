@@ -39,7 +39,7 @@ class VEHICULO:
 		return self._TipoVehiculo
 
 	def setCantidadAsientos(self, cantidadAsientos):
-		self._CantidadAsientos=int(cantidadAsientos)
+		self._CantidadAsientos=cantidadAsientos
 
 	def getCantidadAsientos(self):
 		return self._CantidadAsientos

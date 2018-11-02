@@ -97,3 +97,9 @@ class CONDUCTOR(PERSONA):
 		with open('registro.txt', 'w') as archivo:
 			archivo.writelines(contenido)
 		return False
+
+	@staticmethod
+	def VehiculoActivado(infousuario):
+		for vehiculo in infousuario.getVehiculos():
+			if vehiculo.getActivo()=="si":
+				return vehiculo
