@@ -106,6 +106,18 @@ class SERVICIO:
 	def getFechaSer(self):
 		return self._FechaSer
 
+	def getInformacionSerCompleta(self):
+		if len(self.getPasajeros())==0:
+			return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())
+		elif len(self.getPasajeros())==1:
+			return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()
+		elif len(self.getPasajeros())==2:
+			return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()
+		elif len(self.getPasajeros())==3:
+			return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()
+		elif len(self.getPasajeros())==4:
+			return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()+","+(self.getPasajeros()[3]).getCorreo()
+
 	@staticmethod
 	def ActualizarSerDis():
 		actual=time.strftime("%y/%m/%d")
@@ -114,20 +126,50 @@ class SERVICIO:
 			FechaSer=servicio.getFechaSer()
 			if FechaSer < actual:
 				SERVICIO.ServiciosDisponibles.remove(servicio)
-				CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
+				(servicio.getConductorSer()).getServicioActual().remove(servicio)
 				for pasajero in servicio.getPasajeros():
-					PASAJERO.getViajeActual(pasajero).remove(servicio)
+					pasajero.getViajeActual().remove(servicio)
 			elif FechaSer == actual:
 				if servicio.getHoraEncuentro() < Hora:
 					SERVICIO.ServiciosDisponibles.remove(servicio)
-					CONDUCTOR.getServicioActual(servicio.getConductorSer()).remove(servicio)
+					(servicio.getConductorSer()).getServicioActual().remove(servicio)
 					for pasajero in servicio.getPasajeros():
-						PASAJERO.getViajeActual(pasajero).remove(servicio)
+						pasajero.getViajeActual().remove(servicio)
 
 	@staticmethod
 	def ServicioTomado(infousuario, servicio):
 		if infousuario.getCorreo() == servicio.getConductorSer().getCorreo():
 			return MENSAJE.men.get("NoPuedeTomarSer")
 		else:
+			archivo=open("registro.txt", "r").readlines()
+			contenido=list()
+			text=servicio.getInformacionSerCompleta().split(',')
+			for line in archivo:
+				if line.split(',')[0]=="SERVICIO":
+					if line.split(',')[1]==text[1] and line.split(',')[6]==text[6] and line.split(',')[7]==text[7]:
+						line=(line.split()[0])+","+infousuario.getCorreo()+"\n"
+						contenido.append(','.join(line.split(',')))
+					else:
+						contenido.append(','.join(line.split(',')))
+				else:
+					contenido.append(','.join(line.split(',')))
+			with open('registro.txt', 'w') as archivo:
+				archivo.writelines(contenido)
 			servicio.setPasajeros(infousuario)
 			return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin())
+
+	@staticmethod
+	def EliminarServicio(servicio):
+		archivo=open("registro.txt", "r").readlines()
+		contenido=list()
+		text=servicio.getInformacionSerCompleta()
+		for line in archivo:
+			if text!=(line.split()[0])+"\n":
+				line=line.split(',')
+				contenido.append(','.join(line))
+		with open('registro.txt', 'w') as archivo:
+			archivo.writelines(contenido)
+		SERVICIO.ServiciosDisponibles.remove(servicio)
+		(servicio.getConductorSer()).getServicioActual().remove(servicio)
+		for pasajero in servicio.getPasajeros():
+			pasajero.getViajeActual().remove(servicio)

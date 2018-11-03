@@ -10,17 +10,65 @@ from principal import PRINCIPAL
 from datetime import datetime, date, time, timedelta
 import calendar
 import time
+#"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
+class CORRER:	
 
-class CORRER:
+	archivo=open("registro.txt", "r").readlines()
+	for line in archivo:
+		line=line.split(',')
+		if "PASAJERO" == line[0]:
+			PASAJERO(line[1], line[2], line[3], line[4], line[5].split()[0])
+		elif "CONDUCTOR" == line[0]:
+			CONDUCTOR(line[1], line[2], line[3], line[4], line[5], line[6].split()[0])
+		elif "VEHICULO" == line[0]:
+			for conductor in CONDUCTOR.ListaConductores:
+				correo=line[5].split()
+				if correo[0] == conductor.getCorreo():
+					VEHICULO(line[1], line[2], line[3], line[4], conductor, line[6].split()[0])
+		elif "SERVICIO" == line[0]:
+			for conductor in CONDUCTOR.ListaConductores:
+				correo=line[6].split()
+				if correo[0] == conductor.getCorreo():
+					SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7], line[8].split()[0])
+
+	for servicio in SERVICIO.ListaServicios:
+		text=servicio.getInformacionSerCompleta().split(',')
+		for line in archivo:
+			linea=line.split(',')
+			if linea[0]=="SERVICIO":
+				if len(linea)==10 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[9].split()[0])
+					servicio.setPasajeros(pasajero)
+				elif len(linea)==11 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[10].split()[0])
+					servicio.setPasajeros(pasajero)
+				elif len(linea)==12 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[10])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[11].split()[0])
+					servicio.setPasajeros(pasajero)
+				elif len(linea)==13 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[10])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[11])
+					servicio.setPasajeros(pasajero)
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[12].split()[0])
+					servicio.setPasajeros(pasajero)
+
+	servicio=SERVICIO.ListaServicios[0]
+	print(servicio.getPasajeros()[0].getCorreo())
 
 	"""formato="%y/%m/%d"
 	dia=datetime.now()
 	day=dia.strftime(formato)
 	bla=datetime.strptime(day, formato)
-	print(bla)"""	
-
-
-	print(date.today().isoformat())
+	print(bla)"""
 
 	"""for conductor in CONDUCTOR.ListaConductores:
 		if "juan@unal.edu.co"==conductor.getCorreo():

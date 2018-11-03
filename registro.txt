@@ -5,5 +5,6 @@ ADMINISTRADOR,esantosr@unal.edu.co,admin3,eduardo santos ruiz,3
 CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,0,0
 VEHICULO,xyz123,Rojo,carro,5,juan@unal.edu.co,si
 PASAJERO,juan@unal.edu.co,hola,juan toro,310,0
-SERVICIO,17:20,Volador,12,M8,4,juan@unal.edu.co,18/11/02,0
 PASAJERO,alberto@unal.edu.co,bla,alberto mejia,311,0
+SERVICIO,17:30,Volador,12,M8,4,juan@unal.edu.co,18/11/04,0,alberto@unal.edu.co,toro@unal.edu.co
+PASAJERO,toro@unal.edu.co,toro,toro alberto,315,0

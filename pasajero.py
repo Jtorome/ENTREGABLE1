@@ -48,3 +48,9 @@ class PASAJERO(PERSONA):
 
 	def getViajeActual(self):
 		return self._ViajeActual
+
+	@staticmethod
+	def BuscadorDePasajeros(correo):
+		for pasajero in PASAJERO.listaPasajeros:
+			if pasajero.getCorreo()==correo:
+				return pasajero
