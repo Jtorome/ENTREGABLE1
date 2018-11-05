@@ -91,3 +91,9 @@ class PERSONA():
 				return "Invalido"
 			if corre==2 and contra ==2:
 				return [line1, line2]
+
+	@staticmethod
+	def BuscarPersona(correo):
+		for persona in PERSONA.listaPersonas:
+			if persona.getCorreo()==correo:
+				return persona

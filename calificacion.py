@@ -4,7 +4,7 @@ from pasajero import PASAJERO
 
 class CALIFICACION:
 
-	def __init__(self, Calificacion, Descripcion, Conductor, Pasajero, Servicio):
+	def __init__(self, Calificacion, Descripcion, Pasajero, Servicio=None):
 
 		'''ATRIBUTO
 		self._Calificacion
@@ -17,17 +17,10 @@ class CALIFICACION:
 		self.setCalificacion(Calificacion)
 		self.setDescripcionCa(Descripcion)
 		self.setServicio(Servicio)
-		self.setConductorCa(Conductor)
 		self.setPasajero(Pasajero)
 
 	def setCalificacion(self, calificacion):
-		j=1
-		while(j==1):
-			if(calificacion>=0 and calificacion<=5):
-				self._Calificacion=float(calificacion)
-				j=j+1
-			else:
-				print("VALOR MAL: ")
+		self._Calificacion=float(calificacion)
 
 	def getCalificacion(self):
 		return self._Calificacion
@@ -38,26 +31,18 @@ class CALIFICACION:
 	def getDescripcionCa(self):
 		return self._Descripcion
 
-	def setConductorCa(self, conductor):
-		self._Conductor=conductor
-		conductor.setCalificacionesCon(self)
-		conductor.setAcumuladoCalificacion(conductor)
-
-	def getConductorCa(self):
-		return self._Conductor
-
 	def setPasajero(self, pasajero):
 		self._Pasajero=pasajero
-		pasajero.setCalificacionPa(self)
-		pasajero.setCalificacionPromedio(pasajero)
+		if pasajero!=None and type(pasajero)!=str:
+			pasajero.setCalificacionPa(self)
 
 	def getPasajero(self):
 		return self._Pasajero
 
 	def setServicio(self, servicio):
 		self._Servicio=servicio
-		servicio.setCalificacionesSer(self)
-		servicio.setCalificacionPromedioSer(servicio)
+		if servicio!=None and type(servicio)!=str:
+			servicio.setCalificacionesSer(self)
 
 	def getServicio(self):
 		return self._Servicio

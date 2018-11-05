@@ -11,9 +11,9 @@ from datetime import datetime, date, time, timedelta
 import calendar
 import time
 #"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
-class CORRER:	
+class CORRER:
 
-	archivo=open("registro.txt", "r").readlines()
+	"""archivo=open("registro.txt", "r").readlines()
 	for line in archivo:
 		line=line.split(',')
 		if "PASAJERO" == line[0]:
@@ -60,9 +60,37 @@ class CORRER:
 					servicio.setPasajeros(pasajero)
 					pasajero=PASAJERO.BuscadorDePasajeros(linea[12].split()[0])
 					servicio.setPasajeros(pasajero)
+				SERVICIO.ActualizarSerDis()
+			elif "CALIFICACION"==linea[0]:
+				if len(linea)==8:
+					servicio=SERVICIO.BuscadorDeServicio(linea[4], linea[5], linea[6].split()[0])
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[7].split()[0])
+					CALIFICACION(linea[1], linea[2], linea[3], servicio)
+					pasajero.getServicioNoCalificado().remove(servicio)
+				if len(linea)==5:
+					pasajero=PASAJERO.BuscadorDePasajeros(linea[3])
+					conductor=CONDUCTOR.BuscadorDeConductor(linea[4].split()[0])
+					CALIFICACION(linea[1], linea[2], pasajero)
+					conductor.getPasajeroNoCalificado().remove(pasajero)
+			elif "COMENTARIO"==linea[0]:
+				persona=PERSONA.BuscarPersona(linea[2])
+				COMENTARIO(linea[1], persona, linea[3].split()[0])"""
 
-	servicio=SERVICIO.ListaServicios[0]
-	print(servicio.getPasajeros()[0].getCorreo())
+	"""pasajero=PASAJERO.BuscadorDePasajeros("alberto@unal.edu.co")
+	persona=PERSONA.BuscarPersona("juan@unal.edu.co")
+	print(persona.getComentarios()[0].getDescripcion())
+	print(pasajero.getCalificacionPromedio())"""
+
+	"""servicio=SERVICIO.ListaServicios[0]
+	archivo=open("registro.txt", "r").readlines()
+	text=servicio.getInformacionSerCompleta().split(',')
+	print(text)
+	for line in archivo:
+		if "SERVICIO"==line.split(',')[0]:
+			linea=line.split(',')
+			print(linea)
+			if linea[1]==text[1] and linea[6]==text[6] and linea[7]==text[7]:
+				print(text)"""
 
 	"""formato="%y/%m/%d"
 	dia=datetime.now()
@@ -210,10 +238,17 @@ class CORRER:
 	
 	#print(archivo[0])
 	#pasajero1 = PASAJERO()
-	
 
-	#calificacion1 = CALIFICACION(3.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
-	#calificacion2 = CALIFICACION(4.0, "NO JODA CARE MONDA", conductor1, pasajero1, servicio1)
+	"""pasajero1=PASAJERO("juan@unal.edu.co", "hola", "juan toro", "310")
+	conductor1=CONDUCTOR("alberto@unal.edu.co", "bla", "alberto toro", "314")
+	servicio1=SERVICIO("17:20", "Volador", "12", "M8", "1", conductor1, "18/11/5")
+	calificacion1 = CALIFICACION(3.0, "NO JODA CARE MONDA", pasajero1)
+	calificacion2 = CALIFICACION(4.0, "NO JODA CARE MONDA", None, servicio1)
+	calificacion2 = CALIFICACION(4.5, "NO JODA CARE MONDA", None, servicio1)
+	print(pasajero1.getCalificacionPromedio())
+	print(conductor1.getAcumuladoCalificacion())"""
+
+
 	"""persona1=PERSONA("Juan", "hola", "JUAN", "1232")
 	comentario1=COMENTARIO("MUY MALO", persona1)
 	print(comentario1.getFecha())"""

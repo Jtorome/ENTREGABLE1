@@ -156,11 +156,12 @@ class PRINCIPAL:
 				break
 		while True:
 			while True:
-				opcion=input(MENSAJE.men.get("IngresarFecha"))
-				if opcion!="1" and opcion!="2":
+				opcion=eval(input(MENSAJE.men.get("IngresarFecha")))
+				if type(opcion)!=int:
+					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+				elif opcion<1 and opcion>2:
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 				else:
-					opcion=int(opcion)
 					break
 			if opcion==1:
 				FechaSer=time.strftime("%y/%m/%d")
@@ -171,6 +172,17 @@ class PRINCIPAL:
 		SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, FechaSer)
 		archivo=open("registro.txt", "a")
 		archivo.write("SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+FechaSer+",0\n")
+
+	@staticmethod
+	def CrearComentario(infousuario):
+		persona=PERSONA.BuscarPersona(infousuario.getCorreo())
+		Descripcion=input(MENSAJE.men.get("IngresarDescripcion"))
+		if Descripcion=="3":
+			return
+		Fecha=time.strftime("%d/%m/%y")
+		COMENTARIO(Descripcion, persona, Fecha)
+		archivo=open("registro.txt", "a")
+		archivo.write("COMENTARIO,"+Descripcion+","+persona.getCorreo()+","+Fecha+"\n")
 
 	@staticmethod
 	def SalirPrincipal():
@@ -185,18 +197,20 @@ class PRINCIPAL:
 		else:
 			cont=1
 			for servicio in SERVICIO.ServiciosDisponibles:
-				print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre()))
+				print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre(), servicio.getFechaSer()))
 				cont=cont+1
 		PRINCIPAL.EscogerServicio(infousuario)
 
 	@staticmethod
 	def EscogerServicio(infousuario):
 		while True:
-			opcion=int(input(MENSAJE.men.get("IngreseServicioEscogido")))
+			opcion=eval(input(MENSAJE.men.get("IngreseServicioEscogido")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion<0 and opcion>len(SERVICIO.ServiciosDisponibles):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 			if opcion==0:
 				break
-			elif opcion<0 and opcion>=len(SERVICIO.ServiciosDisponibles):
-				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 			else:
 				servicio=SERVICIO.ServiciosDisponibles[opcion-1]
 				if servicio.getAsientosDisponibles() == 0:
@@ -212,16 +226,17 @@ class PRINCIPAL:
 		print(MENSAJE.men.get("FormatoViajeActual").format(servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles()))
 		print(MENSAJE.men.get("MenuFormatoViajeActual"))
 		while True:
-			opcion=input(MENSAJE.men.get("Opcion"))
-			if opcion != "1" and opcion != "2" and opcion !="3":
+			opcion=eval(input(MENSAJE.men.get("Opcion")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			if opcion<1 and opcion>3:
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 			else:
-				opcion=int(opcion)
 				break
 		if opcion == 3:
 			return
 		elif opcion == 2:
-			SERVICIO.EliminarServicio(servicio)
+			print(SERVICIO.EliminarServicio(servicio))
 		elif opcion == 1:
 			PRINCIPAL.CambioInfoSer(servicio)
 
@@ -234,11 +249,12 @@ class PRINCIPAL:
 			if "SERVICIO"==line.split(',')[0] and servicio.getHoraEncuentro()==line.split(',')[1] and servicio.getFechaSer()==line.split(',')[7] and servicio.getConductorSer().getCorreo()==line.split(',')[6]:
 				while True:
 					while True:
-						cambio=input(MENSAJE.men.get("Opcion"))
-						if cambio!="1" and cambio!="2" and cambio!="3" and cambio!="4" and cambio!="5" and cambio!="6":
+						cambio=eval(input(MENSAJE.men.get("Opcion")))
+						if type(cambio)!=int:
 							print(MENSAJE.men.get("OpcionIncorrecta").format(cambio))
-						else:								
-							cambio=int(cambio)
+						elif cambio<1 and cambio>6:
+							print(MENSAJE.men.get("OpcionIncorrecta").format(cambio))
+						else:
 							break
 					if cambio==1:
 						HoraVieja=servicio.getHoraEncuentro()
@@ -294,6 +310,24 @@ class PRINCIPAL:
 		print(MENSAJE.men.get("FormatoInfoCon").format(conductor.getNombre(), conductor.getCell(), conductor.getNumeroServicios(), conductor.getAcumuladoCalificacion()))
 		vehiculo=CONDUCTOR.VehiculoActivado(conductor)
 		print(MENSAJE.men.get("FormatoInfoVehi").format(vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.getTipoVehiculo()))
+		PRINCIPAL.MenuInfoViaje(infousuario)
+
+	@staticmethod
+	def MenuInfoViaje(infousuario):
+		while True:
+			print(MENSAJE.men.get("MenuInfoViaje"))
+			opcion=eval(input(MENSAJE.men.get("Opcion")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion<1 and opcion>2:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			else:
+				break
+		if opcion==1:
+			servicio=infousuario.getViajeActual()[0]
+			return print(SERVICIO.EliminarPasajero(infousuario, servicio))
+		elif opcion==2:
+			return
 
 	@staticmethod
 	def VerMiHistorial(infousuario):
@@ -301,23 +335,196 @@ class PRINCIPAL:
 			return print(MENSAJE.men.get("HistorialVacio"))
 		cont=1
 		for servicio in CONDUCTOR.getServiciosCon(infousuario):
-			print(MENSAJE.men.get("FormatoVerMiHistorial").format(cont, servicio.getFechaSer(), servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin()))
+			print(MENSAJE.men.get("FormatoVerMiHistorial").format(cont, servicio.getFechaSer(), servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getCalificacionPromedioSer()))
 			cont=cont+1
 		PRINCIPAL.RevisarServicio(infousuario)
 
 	@staticmethod
 	def RevisarServicio(infousuario):
 		while True:
-			opcion=int(input(MENSAJE.men.get("RevisarViaje")))
-			if opcion<0 and opcion>len(CONDUCTOR.getServiciosCon(infousuario)):
+			opcion=eval(input(MENSAJE.men.get("RevisarViaje")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion==0:
+				return
+			elif opcion<0 and opcion>len(CONDUCTOR.getServiciosCon(infousuario)):
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 			else:
 				break
 		servicio=(CONDUCTOR.getServiciosCon(infousuario))[opcion-1]
 		cont=1
 		for pasajero in servicio.getPasajeros():
-			print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPa()))
+			print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPromedio()))
 			cont=cont+1
+
+	@staticmethod
+	def CalificarServicio(infousuario):
+		SERVICIO.ActualizarSerDis()
+		if len(infousuario.getServicioNoCalificado())==0:
+			return print(MENSAJE.men.get("SinServiciosCalificacion"))
+		cont=1
+		for servicio in infousuario.getServicioNoCalificado():
+			print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre(), servicio.getFechaSer()))
+			cont=cont+1
+		while True:
+			opcion=eval(input(MENSAJE.men.get("ServicioACalificar")))
+			if opcion=="b":
+				return
+			elif type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion<=0 and opcion>len(infousuario.getServicioNoCalificado()):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			else:
+				opcion=opcion-1
+				break
+		servicio=infousuario.getServicioNoCalificado()[opcion]
+		while True:
+			Calificacion=eval(input(MENSAJE.men.get("IngresarCalificacion")))
+			if type(Calificacion)!=int:
+				print(MENSAJE.men.get("ValorMalCali"))
+			elif Calificacion<0 and Calificacion>5:
+				print(MENSAJE.men.get("ValorMalCali"))
+			elif Calificacion == 6:
+				return
+			else:
+				break
+		while True:
+			opcion=input(MENSAJE.men.get("DeseaComentar"))
+			if opcion!="1" and opcion!="2":
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion=="1":
+				Comentario=input(MENSAJE.men.get("IngresarComentario"))
+				break
+			elif opcion=="2":
+				Comentario=None
+				break
+		CALIFICACION(Calificacion, Comentario, None, servicio)
+		infousuario.getServicioNoCalificado().remove(servicio)
+		archivo=open("registro.txt", "a")
+		archivo.write("CALIFICACION,"+str(Calificacion)+","+str(Comentario)+","+str(None)+","+servicio.getHoraEncuentro()+","+servicio.getConductorSer().getCorreo()+","+servicio.getFechaSer()+","+infousuario.getCorreo()+"\n")
+
+	@staticmethod
+	def CalificarPasajeros(infousuario):
+		SERVICIO.ActualizarSerDis()
+		if len(infousuario.getPasajeroNoCalificado())==0:
+			return print(MENSAJE.men.get("SinPasajerosPorCalificar"))
+		cont=1
+		for pasajero in infousuario.getPasajeroNoCalificado():
+			print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPromedio()))
+			cont=cont+1
+		while True:
+			opcion=eval(input(MENSAJE.men.get("PasajeroACalificar")))
+			if opcion=="b":
+				return
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion<0 and opcion>len(infousuario.getPasajeroNoCalificado()):
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			else:
+				opcion=opcion-1
+				break
+		pasajero=infousuario.getPasajeroNoCalificado()[opcion]
+		while True:
+			Calificacion=eval(input(MENSAJE.men.get("IngresarCalificacion")))
+			if type(Calificacion)!=int:
+				print(MENSAJE.men.get("ValorMalCali"))
+			elif Calificacion<0 and Calificacion>5:
+				print(MENSAJE.men.get("ValorMalCali"))
+			elif Calificacion == 6:
+				return
+			else:
+				break
+		while True:
+			opcion=input(MENSAJE.men.get("DeseaComentar"))
+			if opcion!="1" and opcion!="2":
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion=="1":
+				Comentario=input(MENSAJE.men.get("IngresarComentario"))
+				break
+			elif opcion=="2":
+				Comentario=None
+				break
+		CALIFICACION(Calificacion, Comentario, pasajero)
+		infousuario.getPasajeroNoCalificado().remove(pasajero)
+		archivo=open("registro.txt", "a")
+		archivo.write("CALIFICACION,"+str(Calificacion)+","+str(Comentario)+","+pasajero.getCorreo()+","+infousuario.getCorreo()+"\n")
+
+	@staticmethod
+	def VerPerfil(palabra, infousuario):
+		if palabra=="PASAJERO":
+			print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
+		elif palabra=="CONDUCTOR":
+			print(MENSAJE.men.get("FormatoVerPerfilConductor").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getNumeroServicios(), infousuario.getAcumuladoCalificacion()))
+		while True:
+			print(MENSAJE.men.get("CambiarInfoVerPerfil"))
+			opcion=eval(input(MENSAJE.men.get("Opcion")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion<1 and opcion>3:
+				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+			elif opcion==3:
+				return
+			else:
+				PRINCIPAL.CambiarInfoVerPerfil(palabra, opcion, infousuario)
+				if palabra=="PASAJERO":
+					return print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
+				elif palabra=="CONDUCTOR":
+					return print(MENSAJE.men.get("FormatoVerPerfilConductor").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getNumeroServicios(), infousuario.getAcumuladoCalificacion()))
+
+	@staticmethod
+	def CambiarInfoVerPerfil(palabra, opcion, infousuario):
+		if opcion==1:
+			contrasena=input(MENSAJE.men.get("IngresarNuevaContrasena"))
+			archivo=open("registro.txt","r").readlines()
+			contenido=list()
+			for line in archivo:
+				line=line.split(',')
+				if line[0]==palabra and line[1]==infousuario.getCorreo():
+					line[2]=contrasena
+					contenido.append(','.join(line))
+					infousuario.setContrasena(contrasena)
+				else:
+					contenido.append(','.join(line))
+			with open("registro.txt", "w") as archivo:
+				archivo.writelines(contenido)
+		elif opcion==2:
+			cell=input(MENSAJE.men.get("IngresarNuevoCell"))
+			archivo=open("registro.txt", "r").readlines()
+			contenido=list()
+			for line in archivo:
+				line=line.split(',')
+				if line[0]==palabra and line[1]==infousuario.getCorreo():
+					line[4]=cell
+					contenido.append(','.join(line))
+					infousuario.setCell(cell)
+				else:
+					contenido.append(','.join(line))
+			with open("registro.txt", "w") as archivo:
+				archivo.writelines(contenido)
+
+	@staticmethod
+	def Comentarios(infousuario):
+		print(MENSAJE.men.get("MenuComentarios"))
+		while True:
+			opcion=eval(input(MENSAJE.men.get("Opcion")))
+			if type(opcion)!=int:
+				print(MENSAJE.men.get("OpcionIncorrecta"))
+			elif opcion<1 and opcion>3:
+				print(MENSAJE.men.get("OpcionIncorrecta"))
+			else:
+				break
+		if opcion==1:
+			PRINCIPAL.CrearComentario(infousuario)
+		elif opcion==2:
+			PRINCIPAL.VerHistorialComen(infousuario)
+		elif opcion==3:
+			return
+
+	@staticmethod
+	def VerHistorialComen(infousuario):
+		persona=PERSONA.BuscarPersona(infousuario.getCorreo())
+		for comentario in persona.getComentarios():
+			print(MENSAJE.men.get("FormatoComentarios").format(infousuario.getNombre(), comentario.getFecha(), comentario.getDescripcion()))
 
 	@staticmethod
 	def IniciarSesion():
@@ -339,11 +546,12 @@ class PRINCIPAL:
 			line2=archivo[infousuario[1]].split(',')
 			PRINCIPAL.display_MenuVerificarCorreo()
 			while True:
-				opcion=input()
-				if opcion!="1" and opcion!="2" and opcion!="3":
+				opcion=eval(input())
+				if type(opcion)!=int:
+					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+				elif opcion<1 and opcion>3:
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 				else:
-					opcion=int(opcion)
 					break
 			if opcion==1:
 				if "PASAJERO" ==line1[0]:
@@ -379,18 +587,25 @@ class PRINCIPAL:
 		while True:
 			PRINCIPAL.display_MenuPasajero()
 			while True:
-				opcion=input(MENSAJE.men.get("Opcion"))
+				opcion=eval(input(MENSAJE.men.get("Opcion")))
 				print("")
-				if opcion!="1" and opcion!="2" and opcion!="3":
+				if type(opcion)!=int:
+					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+				elif opcion<1 and opcion>6:
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 				else:
-					opcion=int(opcion)
 					break
 			if opcion==1:
 				PRINCIPAL.VerServicios(infousuario)
 			elif opcion==2:
 				PRINCIPAL.InfoViaje(infousuario)
 			elif opcion==3:
+				PRINCIPAL.CalificarServicio(infousuario)
+			elif opcion==4:
+				PRINCIPAL.Comentarios(infousuario)
+			elif opcion==5:
+				PRINCIPAL.VerPerfil("PASAJERO", infousuario)
+			elif opcion==6:
 				break
 		
 	@staticmethod
@@ -404,12 +619,13 @@ class PRINCIPAL:
 		while True:
 			PRINCIPAL.display_MenuConductor()
 			while True:
-				opcion=input(MENSAJE.men.get("Opcion"))
+				opcion=eval(input(MENSAJE.men.get("Opcion")))
 				print("")
-				if opcion!="1" and opcion!="2" and opcion!="3" and opcion!="4" and opcion!="5" and opcion!="6":
+				if type(opcion)!=int:
+					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+				elif opcion<1 and opcion>9:
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 				else:
-					opcion=int(opcion)
 					break
 			if opcion==1:
 				PRINCIPAL.ProgramarViaje(infousuario)
@@ -423,6 +639,12 @@ class PRINCIPAL:
 				for c in CONDUCTOR.VerVehiculos(infousuario):
 					print(c)
 			elif opcion==6:
+				PRINCIPAL.CalificarPasajeros(infousuario)
+			elif opcion==7:
+				PRINCIPAL.Comentarios(infousuario)
+			elif opcion==8:
+				PRINCIPAL.VerPerfil("CONDUCTOR", infousuario)
+			elif opcion==9:
 				return
 				
 	@staticmethod
@@ -431,12 +653,13 @@ class PRINCIPAL:
 		while True:
 			PRINCIPAL.display_MenuAdmin()
 			while True:
-				opcion=int(input(MENSAJE.men.get("Opcion")))
+				opcion=eval(input(MENSAJE.men.get("Opcion")))
 				print("")
-				if opcion!=1 and opcion!=2 and opcion!=3 and opcion!=4:
+				if type(opcion)!=int:
+					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+				elif opcion<1 and opcion>4:
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 				else:
-					opcion=int(opcion)
 					break
 			if opcion == 3:
 				SERVICIO.ActualizarSerDis()
@@ -449,12 +672,14 @@ class PRINCIPAL:
 		while True:
 			print(MENSAJE.Mensaje.get("textoIdioma"))
 			while True:
-				idioma = input(MENSAJE.Mensaje.get("SeleccioneIdioma"))
-				if idioma!="1" and idioma!="2":
+				idioma = eval(input(MENSAJE.Mensaje.get("SeleccioneIdioma")))
+				if type(idioma)!=int:
+					print(MENSAJE.espanol.get("OpcionIncorrecta").format(idioma))
+					print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
+				elif idioma<1 and idioma>2:
 					print(MENSAJE.espanol.get("OpcionIncorrecta").format(idioma))
 					print(MENSAJE.ingles.get("OpcionIncorrecta").format(idioma))
 				else:
-					idioma=int(idioma)
 					break
 			if idioma ==1:
 				MENSAJE.men = MENSAJE.espanol
@@ -486,32 +711,47 @@ class PRINCIPAL:
 		for servicio in SERVICIO.ListaServicios:
 			text=servicio.getInformacionSerCompleta().split(',')
 			for line in archivo:
-				linea=line.split(',')
-				if linea[0]=="SERVICIO":
-					if len(linea)==10 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[9].split()[0])
+				line=line.split(',')
+				if line[0]=="SERVICIO":
+					if len(line)==10 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
+						pasajero=PASAJERO.BuscadorDePasajeros(line[9].split()[0])
 						servicio.setPasajeros(pasajero)
-					elif len(linea)==11 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					elif len(line)==11 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
+						pasajero=PASAJERO.BuscadorDePasajeros(line[9])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[10].split()[0])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[10].split()[0])
 						servicio.setPasajeros(pasajero)
-					elif len(linea)==12 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					elif len(line)==12 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
+						pasajero=PASAJERO.BuscadorDePasajeros(line[9])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[10])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[10])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[11].split()[0])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[11].split()[0])
 						servicio.setPasajeros(pasajero)
-					elif len(linea)==13 and text[1]==linea[1] and text[6]==linea[6] and text[7]==linea[7]:
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[9])
+					elif len(line)==13 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
+						pasajero=PASAJERO.BuscadorDePasajeros(line[9])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[10])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[10])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[11])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[11])
 						servicio.setPasajeros(pasajero)
-						pasajero=PASAJERO.BuscadorDePasajeros(linea[12].split()[0])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[12].split()[0])
 						servicio.setPasajeros(pasajero)
+					SERVICIO.ActualizarSerDis()
+				elif "CALIFICACION"==line[0]:
+					if len(line)==8:
+						servicio=SERVICIO.BuscadorDeServicio(line[4], line[5], line[6].split()[0])
+						pasajero=PASAJERO.BuscadorDePasajeros(line[7].split()[0])
+						CALIFICACION(line[1], line[2], line[3], servicio)
+						pasajero.getServicioNoCalificado().remove(servicio)
+					elif len(line)==5:
+						pasajero=PASAJERO.BuscadorDePasajeros(line[3])
+						conductor=CONDUCTOR.BuscadorDeConductor(line[4].split()[0])
+						CALIFICACION(line[1], line[2], pasajero)
+						conductor.getPasajeroNoCalificado().remove(pasajero)
+				elif "COMENTARIO"==line[0]:
+					persona=PERSONA.BuscarPersona(line[2])
+					COMENTARIO(line[1], persona, line[3].split()[0])
 
 		PRINCIPAL.idiomaMensajes()
 
@@ -524,7 +764,7 @@ class PRINCIPAL:
 				action()
 			if opcion!="1" and opcion!="3" and opcion!="2":
 				print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-			if opcion==2:
+			if opcion=="2":
 				self.runRegistrarme()
 
 	def runRegistrarme(self):
@@ -537,16 +777,9 @@ class PRINCIPAL:
 			if action:
 				action()
 				break
-			while True:
-				if cont>0:
-					opcion=input(MENSAJE.men.get("Opcion"))
-				if opcion!="1" and opcion!="3" and opcion!="2":
+			if opcion!="1" and opcion!="3" and opcion!="2":
 					print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-				else:
-					opcion=int(opcion)
-					break
-				cont=cont+1
-			if opcion==3:
+			if opcion=="3":
 				break
 
 if __name__=="__main__":

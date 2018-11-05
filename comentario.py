@@ -4,7 +4,7 @@ class COMENTARIO:
 
 	listaComentarios=[]
 
-	def __init__(self, Descripcion, Persona, Fecha=time.strftime("%d/%m/%y")):
+	def __init__(self, Descripcion, Persona, Fecha):
 
 		'''ATRIBUTOS
 		self._FechaHora
@@ -14,7 +14,7 @@ class COMENTARIO:
 
 		self.setDescripcion(Descripcion)
 		self.setPersona(Persona)
-		self._Fecha=Fecha
+		self.setFecha(Fecha)
 		COMENTARIO.listaComentarios.append(self)
 
 	def setFecha(self, fecha):

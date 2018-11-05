@@ -18,8 +18,8 @@ class CONDUCTOR(PERSONA):
 
 		self._listaVehiculos = []
 		self._listaServiciosCon = []
-		self._listaCalificacionesCon=[]
 		self._ServicioActual=[]
+		self._PasajeroNoCalificado=[]
 		self._NumeroServicios=NumeroServicios
 		self._AcumuladoCalificacion=AcumuladoCalificacion
 		CONDUCTOR.ListaConductores.append(self)
@@ -27,20 +27,41 @@ class CONDUCTOR(PERSONA):
 	def setNumeroServicios(self):
 		ser=self.getServiciosCon()
 		self._NumeroServicios=len(ser)
+		archivo=open("registro.txt", "r").readlines()
+		contenido=list()
+		for line in archivo:
+			line=line.split(',')
+			if "CONDUCTOR"==line[0] and line[1]==self.getCorreo():
+				line[5]=str(self._NumeroServicios)
+				contenido.append(','.join(line))
+			else:
+				contenido.append(','.join(line))
+		with open("registro.txt","w") as archivo:
+			archivo.writelines(contenido)
 
 	def getNumeroServicios(self):
 		return self._NumeroServicios
 
-	def setAcumuladoCalificacion(self, conductor):
-		cond=conductor.getServiciosCon()
-		if len(cond)==0:
-			return ("Es conductor nuevo")
+	def setAcumuladoCalificacion(self):
+		cond=self.getServiciosCon()
 		sum=0
 		for cal in cond:
-			sum=float(sum+(cal.getCalificacionPromedioSer()))
+			sum=float(sum+int(cal.getCalificacionPromedioSer()))
 		self._AcumuladoCalificacion=float(sum)
+		archivo=open("registro.txt", "r").readlines()
+		contenido=list()
+		for line in archivo:
+			line=line.split(',')
+			if "CONDUCTOR"==line[0] and line[1]==self.getCorreo():
+				line[6]=str(self._AcumuladoCalificacion)+"\n"
+				contenido.append(','.join(line))
+			else:
+				contenido.append(','.join(line))
+		with open("registro.txt","w") as archivo:
+			archivo.writelines(contenido)
 
 	def getAcumuladoCalificacion(self):
+		self.setAcumuladoCalificacion()
 		return self._AcumuladoCalificacion
 
 	def setVehiculos(self, vehiculos):
@@ -55,17 +76,17 @@ class CONDUCTOR(PERSONA):
 	def getServiciosCon(self):
 		return self._listaServiciosCon
 
-	def setCalificacionesCon(self, calificaciones):
-		self._listaCalificacionesCon.append(calificaciones)
-
-	def getCalificacionesCon(self):
-		return self._listaCalificacionesCon
-
 	def setServicioActual(self, servicio):
 		self._ServicioActual.append(servicio)
 
 	def getServicioActual(self):
 		return self._ServicioActual
+
+	def setPasajeroNoCalificado(self, pasajero):
+		self._PasajeroNoCalificado.append(pasajero)
+
+	def getPasajeroNoCalificado(self):
+		return self._PasajeroNoCalificado
 
 	@staticmethod
 	def VerVehiculos(Conductor):
@@ -103,3 +124,9 @@ class CONDUCTOR(PERSONA):
 		for vehiculo in infousuario.getVehiculos():
 			if vehiculo.getActivo()=="si":
 				return vehiculo
+
+	@staticmethod
+	def BuscadorDeConductor(correo):
+		for conductor in CONDUCTOR.ListaConductores:
+			if conductor.getCorreo()==correo:
+				return conductor

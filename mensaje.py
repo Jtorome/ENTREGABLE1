@@ -33,7 +33,10 @@ class MENSAJE:
 					Inicio sesion como pasajero
 			1. Ver servicios disponibles
 			2. Informacion sobre mi viaje.
-			3. Cerrar sesion
+			3. Calificar servicio.
+			4. Comentarios.
+			5. Ver perfil.
+			6. Cerrar sesion.
 			""",
 
 	"MenuConductor" :"""
@@ -43,7 +46,10 @@ class MENSAJE:
 			3. Ver mi historial
 			4. Agregar nuevo vehiculo
 			5. Ver vehiculos
-			6. Cerrar sesion
+			6. Calificar pasajeros
+			7. Comentarios
+			8. Ver perfil
+			9. Cerrar sesion
 			""",
 			
 	"MenuAdmin":"""
@@ -53,6 +59,12 @@ class MENSAJE:
 			3. Actualizar servicios disponibles.
 			4. Cerrar sesion.
 			""",
+
+	"MenuComentarios": """
+	1. Hacer comentario a la plataforma o reportar algo.
+	2. Ver mis comentarios.
+	3. Atras
+	""",
 
 	"CambiarInfo": """"
 					¿Que desea cambiar?
@@ -73,6 +85,17 @@ class MENSAJE:
 	Ingrese 0 para salir.
 	¿Que viaje desea revisar?: 
 	""",
+
+	"MenuInfoViaje":"""
+	1. Cancelar servicio.
+	2. Atras
+	""",
+
+	"CambiarInfoVerPerfil":"""
+	1. Cambiar contraseña.
+	2. Cambiar numero de celular
+	3. Atras
+	""",
 			
 	"Opcion":"Ingrese la opcion: ",
 	"NoViaje":"No tiene ningun viaje programado.",
@@ -92,7 +115,7 @@ class MENSAJE:
 	"IngresarCell": "Ingrese su celular:",
 	"Antes@": "Por favor escriba su usuario antes del @",
 	"Salir": "Chaito",
-	"IngresarDescripcion": "Por favor ingrese la descripcion: ",
+	"IngresarDescripcion": "Ingrese 3 para salir.\nPor favor ingrese la descripcion: ",
 	"CorreoInvalido": "Correo existente por favor ingrese otro: ",
 	"CorreoInexistente": "El correo no esta registrado por favor registrese o ingrese uno que exista.",
 	"ContraOCorreoInvalido": "Contrasena o correo invalidos.",
@@ -100,7 +123,7 @@ class MENSAJE:
 		Pulse 3 para salir.""",
 	"CerradoSesion": "Has cerrado sesion.",
 	"SinServicios": "En el momento no hay servicios disponibles.",
-	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}.\n",
+	"FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}, Fecha: {7}.\n",
 	"InfoServicio": """	Ingrese la informacion del servicio.
 	Presione 3 para cancelar.""",
 	"IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h): ",
@@ -112,12 +135,11 @@ class MENSAJE:
 	"IngreseServicioEscogido": """
 	Ingrese 0 para salir.
 	Ingrese el servicio que desea tomar: """,
-	"FormatoSetActivo": "{0}, {1}.",
 	"FormatoViajeActual": "Hora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}",
 	"IngresarFecha":"""¿Cuando va a realizar su viaje: 1.Hoy.
                                 2. Mañana: """,
 	"SinServiciosCon":"Usted no tiene viaje programado.",
-	"NoPuedeTomarSer":"Usted no puede tomar este servicio ya que usted mismo lo popuso",
+	"NoPuedeTomarSer":"Usted no puede tomar este servicio.",
 	"ViajeLleno":"Ya no quedan asientos en este viaje por favor tomar otro",
 	"RegistradoEnSer":"Usted a quedado registrado en el servicio que parte a las {0} del {1} hacia {2}",
 	"AsientosMaximos":"La cantidad maxima de asientos disponibles para un {0} son {1}",
@@ -126,8 +148,26 @@ class MENSAJE:
 	"FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",
 	"FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
 	"HistorialVacio": "Usted no ha hecho ningun viaje.",
-	"FormatoVerMiHistorial": "	Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}.",
-	"FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}."
+	"FormatoVerMiHistorial": "	Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
+	"FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
+	"ServicioCancelado": "Su viaje a sido cancelado exitosamente.",
+	"ServicioEliminado": "Servicio eliminado exitosamente.",
+	"ValorMalCali": "Valor ingresado no es valido.",
+	"IngresarCalificacion": """
+	Ingrese 6 para salir.
+Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 5 muy bueno: """,
+	"IngresarComentario": "Comentario sobre el servicio: ",
+	"DeseaComentar": """¿Desea dejar un comentario con calificacion?: 1. Si
+                                              2. No: """,
+    "ServicioACalificar": "¿Que servicio desea calificar?\nIngrese 'b' para salir: ",
+    "SinServiciosCalificacion": "Sin servicios para calificar.",
+    "SinPasajerosPorCalificar": "Usted no tiene ningun pasajero por calificar.",
+    "PasajeroACalificar": "¿Que pasajero desea calificar?\nIngrese 'b' para salir: ",
+    "FormatoVerPerfilPasajero": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Calificacion Promedio: {4}.",
+    "IngresarNuevaContrasena": "Ingrese la nueva contrasena por favor: ",
+    "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
+    "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
+    "FormatoComentarios": "{0}    {1}\n{2}."
 	}
 	
 
@@ -229,7 +269,7 @@ class MENSAJE:
 	"IngresarFecha":"Please enter date in format yymmdd(maximum one month in advance)",
 	"FechaIncorrecta":"Invalid format(yymmdd) or limit date exceeded.",
 	"SinServiciosCon":"You have no trip sheduled.",
-	"NoPuedeTomarSer":"You must not take this service because you get it yourself",
+	"NoPuedeTomarSer":"You must not take this service.",
 	"ViajeLleno":"There are no seats left in this trip please take another",
 	"RegistradoEnSer":"You have been registered in the service that leaves at {0} of {1} to {2}",
 	"AsientosMaximos":"The maximum number of seats available for a {0} is {1}",
