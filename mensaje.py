@@ -12,7 +12,8 @@ class MENSAJE:
 	"MenuInicial" :"""
 			1. Iniciar Sesion
 			2. Registrarme
-			3. Salir
+			3. Crear datos ficticios de txt
+			4. Salir
 			""",
 			
 	"MenuRegistrarme" :"""
@@ -117,8 +118,7 @@ class MENSAJE:
 	"Salir": "Chaito",
 	"IngresarDescripcion": "Ingrese 3 para salir.\nPor favor ingrese la descripcion: ",
 	"CorreoInvalido": "Correo existente por favor ingrese otro: ",
-	"CorreoInexistente": "El correo no esta registrado por favor registrese o ingrese uno que exista.",
-	"ContraOCorreoInvalido": "Contrasena o correo invalidos.",
+	"ContraOCorreoInvalido": "Contrasena y/o correo invalidos.",
 	"MensajeInicioSesion": """        Inicio de sesion
 		Pulse 3 para salir.""",
 	"CerradoSesion": "Has cerrado sesion.",
@@ -167,7 +167,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "IngresarNuevaContrasena": "Ingrese la nueva contrasena por favor: ",
     "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
     "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
-    "FormatoComentarios": "{0}    {1}\n{2}."
+    "FormatoComentarios": "{0}    {1}\n{2}.",
+    "DatosLeidos": "Datos leidos correctamente."
 	}
 	
 
@@ -246,7 +247,6 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
 	"Salir": "Bye Bye",
 	"IngresarDescripcion": "Please enter the description: ",
 	"CorreoInvalido": "Existing mail please enter another: ",
-	"CorreoInexistente": "The mail is not registered, please register or enter a valid mail",
 	"ContraOCorreoInvalido": "Mail or password invalid.",
 	"MensajeInicioSesion": """        Login
 		Enter 3 to exit.""",
