@@ -137,7 +137,8 @@ class PRINCIPAL:
 			MaxAsientosDis=4
 		for servicio in SERVICIO.ServiciosDisponibles:
 			if servicio.getConductorSer() == infousuario:
-				return print(MENSAJE.men.get("ServicioEnCurso"))
+				print(MENSAJE.men.get("ServicioEnCurso"))
+				return
 		print(MENSAJE.men.get("InfoServicio"))
 		while True:
 			HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
@@ -195,7 +196,8 @@ class PRINCIPAL:
 	def VerServicios(infousuario):
 		SERVICIO.ActualizarSerDis()
 		if len(SERVICIO.ServiciosDisponibles) == 0:
-			return print(MENSAJE.men.get("SinServicios"))
+			print(MENSAJE.men.get("SinServicios"))
+			return
 		else:
 			cont=1
 			for servicio in SERVICIO.ServiciosDisponibles:
@@ -216,14 +218,17 @@ class PRINCIPAL:
 			else:
 				servicio=SERVICIO.ServiciosDisponibles[opcion-1]
 				if servicio.getAsientosDisponibles() == 0:
-					return print(MENSAJE.men.get("ViajeLleno"))
-				return print(SERVICIO.ServicioTomado(infousuario, servicio))
+					print(MENSAJE.men.get("ViajeLleno"))
+					return
+				print(SERVICIO.ServicioTomado(infousuario, servicio))
+				return
 
 	@staticmethod
 	def VerViajeActual(infousuario):
 		SERVICIO.ActualizarSerDis()
 		if len(infousuario.getServicioActual())==0:
-			return print(MENSAJE.men.get("SinServiciosCon"))
+			print(MENSAJE.men.get("SinServiciosCon"))
+			return
 		servicio=infousuario.getServicioActual()[0]
 		print(MENSAJE.men.get("FormatoViajeActual").format(servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles()))
 		print(MENSAJE.men.get("MenuFormatoViajeActual"))
@@ -305,7 +310,8 @@ class PRINCIPAL:
 	@staticmethod
 	def InfoViaje(infousuario):
 		if len(infousuario.getViajeActual())==0:
-			return print(MENSAJE.men.get("SinServicios"))
+			print(MENSAJE.men.get("SinServicios"))
+			return
 		Servicio=infousuario.getViajeActual()[0]
 		print(MENSAJE.men.get("FormatoInfoSer").format(Servicio.getHoraEncuentro(), Servicio.getSitioEncuentro(), Servicio.getLugarInicio(), Servicio.getLugarFin(), Servicio.getAsientosDisponibles(), Servicio.getFechaSer()))
 		conductor=Servicio.getConductorSer()
@@ -327,14 +333,16 @@ class PRINCIPAL:
 				break
 		if opcion==1:
 			servicio=infousuario.getViajeActual()[0]
-			return print(SERVICIO.EliminarPasajero(infousuario, servicio))
+			print(SERVICIO.EliminarPasajero(infousuario, servicio))
+			return
 		elif opcion==2:
 			return
 
 	@staticmethod
 	def VerMiHistorial(infousuario):
 		if len(CONDUCTOR.getServiciosCon(infousuario))==0:
-			return print(MENSAJE.men.get("HistorialVacio"))
+			print(MENSAJE.men.get("HistorialVacio"))
+			return
 		cont=1
 		for servicio in CONDUCTOR.getServiciosCon(infousuario):
 			print(MENSAJE.men.get("FormatoVerMiHistorial").format(cont, servicio.getFechaSer(), servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getCalificacionPromedioSer()))
@@ -363,7 +371,8 @@ class PRINCIPAL:
 	def CalificarServicio(infousuario):
 		SERVICIO.ActualizarSerDis()
 		if len(infousuario.getServicioNoCalificado())==0:
-			return print(MENSAJE.men.get("SinServiciosCalificacion"))
+			print(MENSAJE.men.get("SinServiciosCalificacion"))
+			return
 		cont=1
 		for servicio in infousuario.getServicioNoCalificado():
 			print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre(), servicio.getFechaSer()))
@@ -409,7 +418,8 @@ class PRINCIPAL:
 	def CalificarPasajeros(infousuario):
 		SERVICIO.ActualizarSerDis()
 		if len(infousuario.getPasajeroNoCalificado())==0:
-			return print(MENSAJE.men.get("SinPasajerosPorCalificar"))
+			print(MENSAJE.men.get("SinPasajerosPorCalificar"))
+			return
 		cont=1
 		for pasajero in infousuario.getPasajeroNoCalificado():
 			print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPromedio()))
@@ -469,9 +479,11 @@ class PRINCIPAL:
 			else:
 				PRINCIPAL.CambiarInfoVerPerfil(palabra, opcion, infousuario)
 				if palabra=="PASAJERO":
-					return print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
+					print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
+					return
 				elif palabra=="CONDUCTOR":
-					return print(MENSAJE.men.get("FormatoVerPerfilConductor").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getNumeroServicios(), infousuario.getAcumuladoCalificacion()))
+					print(MENSAJE.men.get("FormatoVerPerfilConductor").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getNumeroServicios(), infousuario.getAcumuladoCalificacion()))
+					return
 
 	@staticmethod
 	def CambiarInfoVerPerfil(palabra, opcion, infousuario):

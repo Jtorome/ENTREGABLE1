@@ -68,7 +68,7 @@ class MENSAJE:
 	""",
 
 	"CambiarInfo": """"
-					¿Que desea cambiar?
+					Seleccione lo que desea cambiar
 			1. Hora de encuentro.
 			2. Sitio de encuentro.
 			3. Lugar de inicio.
@@ -84,7 +84,7 @@ class MENSAJE:
 
 	"RevisarViaje": """
 	Ingrese 0 para salir.
-	¿Que viaje desea revisar?: 
+	Seleccione el viaje que desea revisar: 
 	""",
 
 	"MenuInfoViaje":"""
@@ -93,7 +93,7 @@ class MENSAJE:
 	""",
 
 	"CambiarInfoVerPerfil":"""
-	1. Cambiar contraseña.
+	1. Cambiar contrasena.
 	2. Cambiar numero de celular
 	3. Atras
 	""",
@@ -108,7 +108,7 @@ class MENSAJE:
 	"IngresarColor":"Ingrese el color del vehiculo: ",
 	"IngresarTipoVehiculo":"Ingrese el tipo de vehiculo(Carro o moto): ",
 	"IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
-	"ActivarVehiculo":"¿Va a utilizar este vehiculo en su proximo viaje?(Si o No)",
+	"ActivarVehiculo":"Va a utilizar este vehiculo en su proximo viaje(Si o No)",
 	"OpcionIncorrecta":"{0} no es una opcion valida.",
 	"IngresarCorreo":"Ingrese su correo: ",
 	"IngresarContrasena": "Ingrese su Contrasena: ",
@@ -136,8 +136,8 @@ class MENSAJE:
 	Ingrese 0 para salir.
 	Ingrese el servicio que desea tomar: """,
 	"FormatoViajeActual": "Hora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}",
-	"IngresarFecha":"""¿Cuando va a realizar su viaje: 1.Hoy.
-                                2. Mañana: """,
+	"IngresarFecha":"""Cuando va a realizar su viaje: 1.Hoy.
+                                2. Manana: """,
 	"SinServiciosCon":"Usted no tiene viaje programado.",
 	"NoPuedeTomarSer":"Usted no puede tomar este servicio.",
 	"ViajeLleno":"Ya no quedan asientos en este viaje por favor tomar otro",
@@ -157,12 +157,12 @@ class MENSAJE:
 	Ingrese 6 para salir.
 Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 5 muy bueno: """,
 	"IngresarComentario": "Comentario sobre el servicio: ",
-	"DeseaComentar": """¿Desea dejar un comentario con calificacion?: 1. Si
+	"DeseaComentar": """Desea dejar un comentario con calificacion: 1. Si
                                               2. No: """,
-    "ServicioACalificar": "¿Que servicio desea calificar?\nIngrese 'b' para salir: ",
+    "ServicioACalificar": "Seleccione el servicio que desea calificar\nIngrese 'b' para salir: ",
     "SinServiciosCalificacion": "Sin servicios para calificar.",
     "SinPasajerosPorCalificar": "Usted no tiene ningun pasajero por calificar.",
-    "PasajeroACalificar": "¿Que pasajero desea calificar?\nIngrese 'b' para salir: ",
+    "PasajeroACalificar": "Seleccione el pasajero que desea calificar\nIngrese 'b' para salir: ",
     "FormatoVerPerfilPasajero": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Calificacion Promedio: {4}.",
     "IngresarNuevaContrasena": "Ingrese la nueva contrasena por favor: ",
     "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
