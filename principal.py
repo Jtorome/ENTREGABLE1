@@ -93,7 +93,12 @@ class PRINCIPAL:
             X=VEHICULO.VerificarPlaca(Placa)
             cont=cont+1
         ColorVehiculo=input(MENSAJE.men.get("IngresarColor"))
-        TipoVehiculo=(input(MENSAJE.men.get("IngresarTipoVehiculo"))).lower()
+        while True:
+            TipoVehiculo=(input(MENSAJE.men.get("IngresarTipoVehiculo"))).lower()
+            if TipoVehiculo!="moto" and TipoVehiculo!="carro":
+                print(MENSAJE.men.get("ErrorTipoVehi"))
+            else:
+                break
         if TipoVehiculo=="moto":
             CantidadAsientos=2
         elif TipoVehiculo=="carro":
