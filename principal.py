@@ -564,9 +564,7 @@ class PRINCIPAL:
             Conductor=CONDUCTOR.BuscadoDeConductor(infousuario.getCorreo())
             if Conductor!=None:
                 PRINCIPAL.InicioSesionConductor(infousuario)
-        print(MENSAJE.men.get("CerradoSesion"))
-
-        if len(infousuario)==2 and type(infousuario)==list:
+        elif len(infousuario)==2 and type(infousuario)==list:
             PRINCIPAL.display_MenuVerificarCorreo()
             while True:
                 opcion=eval(input())
@@ -584,6 +582,7 @@ class PRINCIPAL:
                 PRINCIPAL.InicioSesionConductor(infousuario)
             elif opcion==3:
                 return
+        print(MENSAJE.men.get("CerradoSesion"))
 
     @staticmethod
     def InicioSesionPasajero(infousuario):
