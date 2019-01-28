@@ -67,7 +67,7 @@ class MENSAJE:
     3. Atras
     """,
 
-    "CambiarInfo": """"
+    "CambiarInfo": """
                     Seleccione lo que desea cambiar
             1. Hora de encuentro.
             2. Sitio de encuentro.
