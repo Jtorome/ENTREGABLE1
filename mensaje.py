@@ -172,8 +172,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "DatosLeidos": "Datos leidos correctamente.",
     "ErrorTipoVehi": "El vehiculo no corresponde con las opciones",
     "CelularInvalido":"El numero de celular es invalido",
-    "CambiarVehiActivo":"""Desea cambiar de vehiculo activo: 1.Si
-                                    2.No""",
+    "CambiarVehiActi":"""Desea cambiar de vehiculo activo: 1.Si
+                                  2.No: """,
     "ActivacionVehi":"Que vehiculo desea activar: "
     }
     
@@ -340,7 +340,7 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
     "DatosLeidos": "Data read correctly.",
     "ErrorTipoVehi": "The vehicle does not correspond with the options",
     "CelularInvalido":"The cell phone number is invalid",
-    "CambiarVehiActivo":"""You want change the active vehicle: 1. Yes
-                                    2. No""",                                    
+    "CambiarVehiActi":"""You want change the active vehicle: 1. Yes
+                                  2. No: """,                                    
     "ActivacionVehi":"Which vehicle do you want to activate: "
     }   

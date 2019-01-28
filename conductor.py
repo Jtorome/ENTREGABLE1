@@ -139,6 +139,7 @@ class CONDUCTOR(PERSONA):
             vehiculo2=Conductor.getVehiculos()[num-1]
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
+                vehiculo2.setActivo("si")
                 for line in archivo:
                     if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[6].split()[0]:
                         line=line.replace(",si\n", ",no\n").split(',')

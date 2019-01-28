@@ -11,3 +11,4 @@ PASAJERO,toro@unal.edu.co,Juan,toro alberto,315,0
 CALIFICACION,4,Muy bueno,None,17:20,juan@unal.edu.co,19/01/27,alberto@unal.edu.co
 CALIFICACION,4,None,alberto@unal.edu.co,juan@unal.edu.co
 COMENTARIO,Muy malo mejorar ,juan@unal.edu.co,05/11/18
+VEHICULO,qwe563,negro,moto,2,juan@unal.edu.co,no
