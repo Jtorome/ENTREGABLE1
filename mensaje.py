@@ -127,7 +127,7 @@ class MENSAJE:
     "FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}, Fecha: {7}.\n",
     "InfoServicio": """ Ingrese la informacion del servicio.
     Presione 3 para cancelar.""",
-    "IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h): ",
+    "IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h y hh:mm): ",
     "IngresarSitioEncuentro": "Ingrese el campus de encuentro(Volador, minas, rio): ",
     "IngresarLugarInicio": "Ingrese el lugar donde iniciara el viaje(Ejemplo:bloque M8, 12, 4): ",
     "IngresarLugarFin": "Ingrese el lugar donde terminara el viaje(Ejemplo:bloque M8, 12, 4): ",
@@ -144,12 +144,10 @@ class MENSAJE:
     "ViajeLleno":"Ya no quedan asientos en este viaje por favor tomar otro",
     "RegistradoEnSer":"Usted a quedado registrado en el servicio que parte a las {0} del {1} hacia {2}",
     "AsientosMaximos":"La cantidad maxima de asientos disponibles para un {0} son {1}",
-    "HoraYaPaso":"La hora ingresada ya paso. Por favor ingrese una hora que no haya pasado {0} son {1}",
+    "HoraYaPaso":"La hora ingresada ya paso. Por favor ingrese una hora que no haya pasado.",
     "FormatoInfoSer": "Informacion sobre el servicio.\nHora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}, Fecha: {5}.\n",
     "FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",
     "FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
-    
-
     "HistorialVacio": "Usted no ha hecho ningun viaje.",
     "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
     "FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
@@ -295,7 +293,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoVerServicios": "{0}, Meeting time: {1}, Meetin place: {2}, Start place: {3}, Place of arrival: {4}, Available seats: {5}, Name of condutor: {6}.\n",
     "InfoServicio": """ Enter the information of service.
     Enter 3 to cancel.""",
-    "IngresarHoraEncuentro": "Enter the meeting time(24h): ",
+    "IngresarHoraEncuentro": "Enter the meeting time(24h and hh:mm): ",
     "IngresarSitioEncuentro": "Enter the meeting place(Volador, minas, rio): ",
     "IngresarLugarInicio": "Enter the place where star the service(Example:bloque M8, 12, 4): ",
     "IngresarLugarFin": "Enter the place where the service will end(Example:bloque M8, 12, 4): ",
