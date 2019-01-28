@@ -314,11 +314,10 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",
     "FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",
     "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n",
-    "HistorialVacio": "Usted no ha hecho ningun viaje.",
-    "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
-    "FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
-    "ServicioCancelado": "Su viaje a sido cancelado exitosamente.",
-    "ServicioEliminado": "Servicio eliminado exitosamente.",
+    "HistorialVacio": "Usted no ha hecho ningun viaje.",    
+    "FormatoVerMiHistorial": "  Your history is.\n{0}. Date: {1}, departure time: {2}, Start place: {3}, Arrival place: {4}, Puntuation: {5}.",
+    "FormatoRevisarPasajero": "{0}. Name: {1}, Cell: {2}, Puntuation: {3}.",
+    "ServicioCancelado": "Your trip has been successfully canceled.",
     "ValorMalCali": "Valor ingresado no es valido.",
     "IngresarCalificacion": """
     Ingrese 6 para salir.
