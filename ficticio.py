@@ -17,19 +17,23 @@ class FICTICIO:
         for line in archivo:
             line=line.split(',')
             if "PASAJERO" == line[0]:
-                PASAJERO(line[1], line[2], line[3], line[4], line[5].split()[0])
+                if PASAJERO.BuscadorDePasajeros(line[1]) == None:
+                    PASAJERO(line[1], line[2], line[3], line[4], line[5].split()[0])
             elif "CONDUCTOR" == line[0]:
-                CONDUCTOR(line[1], line[2], line[3], line[4], line[5], line[6].split()[0])
+                if CONDUCTOR.BuscadorDeConductor(line[1]) == None:
+                    CONDUCTOR(line[1], line[2], line[3], line[4], line[5], line[6].split()[0])
             elif "VEHICULO" == line[0]:
-                for conductor in CONDUCTOR.ListaConductores:
-                    correo=line[5].split()
-                    if correo[0] == conductor.getCorreo():
-                        VEHICULO(line[1], line[2], line[3], line[4], conductor, line[6].split()[0])
+                if  VEHICULO.VerificarPlaca(line[1]) == False:
+                    for conductor in CONDUCTOR.ListaConductores:
+                        correo=line[5].split()
+                        if correo[0] == conductor.getCorreo():
+                            VEHICULO(line[1], line[2], line[3], line[4], conductor, line[6].split()[0])
             elif "SERVICIO" == line[0]:
-                for conductor in CONDUCTOR.ListaConductores:
-                    correo=line[6].split()
-                    if correo[0] == conductor.getCorreo():
-                        SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7], line[8].split()[0])
+                if SERVICIO.BuscadorDeServicio(line[1], line[6], line[7]) == None:
+                    for conductor in CONDUCTOR.ListaConductores:
+                        correo=line[6].split()
+                        if correo[0] == conductor.getCorreo():
+                            SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7], line[8].split()[0])
 
         for servicio in SERVICIO.ListaServicios:
             text=servicio.getInformacionSerCompleta().split(',')
