@@ -171,7 +171,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
     "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
-    "DatosLeidos": "Datos leidos correctamente."
+    "DatosLeidos": "Datos leidos correctamente.",
+    "ErrorTipoVehi": "El vehiculo no corresponde con las opciones"
     }
     
 
@@ -314,15 +315,15 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",
     "FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",
     "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n",
-    "HistorialVacio": "Usted no ha hecho ningun viaje.",    
+    "HistorialVacio": "You have not made any trip.",    
     "FormatoVerMiHistorial": "  Your history is.\n{0}. Date: {1}, departure time: {2}, Start place: {3}, Arrival place: {4}, Puntuation: {5}.",
     "FormatoRevisarPasajero": "{0}. Name: {1}, Cell: {2}, Puntuation: {3}.",
     "ServicioCancelado": "Your trip has been successfully canceled.",
-    "ValorMalCali": "Valor ingresado no es valido.",
+    "ValorMalCali": "Value entered is not valid.",
     "IngresarCalificacion": """
-    Ingrese 6 para salir.
-Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 5 muy bueno: """,
-    "IngresarComentario": "Comentario sobre el servicio: ",
+    Enter 6 to exit.
+Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very good: """,
+    "IngresarComentario": "Comment about service: ",
     "DeseaComentar": """Desea dejar un comentario con calificacion: 1. Si
                                               2. No: """,
     "ServicioACalificar": "Seleccione el servicio que desea calificar\nIngrese 'b' para salir: ",
@@ -334,5 +335,6 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
     "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
-    "DatosLeidos": "Datos leidos correctamente."
+    "DatosLeidos": "Datos leidos correctamente.",
+    "ErrorTipoVehi": "The vehicle does not correspond with the options"
     }   
