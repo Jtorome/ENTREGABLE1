@@ -166,7 +166,7 @@ class PRINCIPAL:
         LugarFin=input(MENSAJE.men.get("IngresarLugarFin"))
         while True:
             AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
-            if int(AsientosDisponibles)>MaxAsientosDis:
+            if int(AsientosDisponibles) > MaxAsientosDis:
                 print(MENSAJE.men.get("AsientosMaximos").format(vehiculo.getTipoVehiculo(), MaxAsientosDis))
             else:
                 break
