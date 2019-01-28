@@ -172,7 +172,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
     "DatosLeidos": "Datos leidos correctamente.",
-    "ErrorTipoVehi": "El vehiculo no corresponde con las opciones"
+    "ErrorTipoVehi": "El vehiculo no corresponde con las opciones",
+    "CelularInvalido":"El numero de celular es invalido"
     }
     
 
@@ -336,5 +337,6 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
     "FormatoVerPerfilConductor": "Email: {0}, Password: {1}, Name: {2}, Cellphone: {3}, Service facts: {4}, Cumulative ratings: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
     "DatosLeidos": "Data read correctly.",
-    "ErrorTipoVehi": "The vehicle does not correspond with the options"
+    "ErrorTipoVehi": "The vehicle does not correspond with the options",
+    "CelularInvalido":"The cell phone number is invalid"
     }   

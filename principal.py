@@ -73,7 +73,12 @@ class PRINCIPAL:
             cont=cont+1
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
-        Cell=(input(MENSAJE.men.get("IngresarCell"))).lower()
+        while True:
+            Cell=eval(MENSAJE.men.get("IngresarCell"))
+            if Cell != int:
+                print(MENSAJE.men.get("CelularInvalido"))
+            else:
+                break
         conductor=CONDUCTOR(Correo, Contrasena, Nombre, Cell)
         archivo.write("CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+Cell+",0,0\n")
         PRINCIPAL.AgregarVehiculo(conductor)
