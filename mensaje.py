@@ -324,17 +324,17 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     Enter 6 to exit.
 Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very good: """,
     "IngresarComentario": "Comment about service: ",
-    "DeseaComentar": """Desea dejar un comentario con calificacion: 1. Si
+    "DeseaComentar": """You want to leave a comment with qualification: 1. Yes
                                               2. No: """,
-    "ServicioACalificar": "Seleccione el servicio que desea calificar\nIngrese 'b' para salir: ",
-    "SinServiciosCalificacion": "Sin servicios para calificar.",
-    "SinPasajerosPorCalificar": "Usted no tiene ningun pasajero por calificar.",
-    "PasajeroACalificar": "Seleccione el pasajero que desea calificar\nIngrese 'b' para salir: ",
-    "FormatoVerPerfilPasajero": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Calificacion Promedio: {4}.",
-    "IngresarNuevaContrasena": "Ingrese la nueva contrasena por favor: ",
-    "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
-    "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
+    "ServicioACalificar": "Select the service that you want quilify \nEnter 'b' to exit: ",
+    "SinServiciosCalificacion": "Without service to quilify.",
+    "SinPasajerosPorCalificar": "You do not have any passengers to qualify.",
+    "PasajeroACalificar": "Select the passenger that want quilify\nEnter 'b' to exit: ",
+    "FormatoVerPerfilPasajero": "Email: {0}, Password: {1}, Name: {2}, Cellphone: {3}, Average mark: {4}.",
+    "IngresarNuevaContrasena": "IEnter the new password please: ",
+    "IngresarNuevoCell": "Enter the new cellphone number: ",
+    "FormatoVerPerfilConductor": "Email: {0}, Password: {1}, Name: {2}, Cellphone: {3}, Service facts: {4}, Cumulative ratings: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
-    "DatosLeidos": "Datos leidos correctamente.",
+    "DatosLeidos": "Data read correctly.",
     "ErrorTipoVehi": "The vehicle does not correspond with the options"
     }   
