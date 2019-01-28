@@ -172,7 +172,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
     "FormatoComentarios": "{0}    {1}\n{2}.",
     "DatosLeidos": "Datos leidos correctamente.",
-    "ErrorTipoVehi": "El vehiculo no corresponde con las opciones"
+    "ErrorTipoVehi": "El vehiculo no corresponde con las opciones",
     "CelularInvalido":"El numero de celular es invalido"
     }
     

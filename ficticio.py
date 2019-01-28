@@ -75,6 +75,3 @@ class FICTICIO:
                 elif "COMENTARIO"==line[0]:
                     persona=PERSONA.BuscarPersona(line[2])
                     COMENTARIO(line[1], persona, line[3].split()[0])
-
-
-## ACACACACACAACA
