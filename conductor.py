@@ -152,4 +152,4 @@ class CONDUCTOR(PERSONA):
                         contenido.append(','.join(line))
         with open('registro.txt', 'w') as archivo:
             archivo.writelines(contenido)
-        return False
+        return

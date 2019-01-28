@@ -647,14 +647,12 @@ class PRINCIPAL:
                 for c in CONDUCTOR.VerVehiculos(infousuario):
                     print(c)
                 while True:
-                    option=eval(input(MENSAJE.men.get("CambiarVehiActi")))
+                    option=input(MENSAJE.men.get("CambiarVehiActi"))
                     print("")
-                    if type(option)!=int:
-                        print(MENSAJE.men.get("OpcionIncorrecta").format(option))
-                    elif option<1 and option>2:
+                    if option!="1" and option!="2":
                         print(MENSAJE.men.get("OpcionIncorrecta").format(option))
                     else: break
-                if option == 1:
+                if option == "1":
                     while True:
                         num=eval(input(MENSAJE.men.get("ActivacionVehi")))
                         if type(num) != int:
