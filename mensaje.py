@@ -84,7 +84,7 @@ class MENSAJE:
 
     "RevisarViaje": """
     Ingrese 0 para salir.
-    Seleccione el viaje que desea revisar: 
+    Seleccione el viaje que quiere revisar: 
     """,
 
     "MenuInfoViaje":"""
@@ -123,6 +123,7 @@ class MENSAJE:
         Pulse 3 para salir.""",
     "CerradoSesion": "Has cerrado sesion.",
     "SinServicios": "En el momento no hay servicios disponibles.",
+   
     "FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}, Fecha: {7}.\n",
     "InfoServicio": """ Ingrese la informacion del servicio.
     Presione 3 para cancelar.""",
@@ -147,6 +148,8 @@ class MENSAJE:
     "FormatoInfoSer": "Informacion sobre el servicio.\nHora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}, Fecha: {5}.\n",
     "FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",
     "FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
+    
+
     "HistorialVacio": "Usted no ha hecho ningun viaje.",
     "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
     "FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
@@ -176,7 +179,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
    "MenuInicial" :"""
             1. Log in
             2. Sign in 
-            3. Exit
+            3. Create fictional data of txt
+            4. Exit
             """,
             
     "MenuRegistrarme" :"""
@@ -190,14 +194,17 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
                     Please select your rol:
             1. Rider
             2. Driver
-            3. Exit
+            3. Back
             """,
 
     "MenuPasajero" :"""
                     Login as rider
             1. Available services
             2. Information about my trip
-            3. Log out
+            3. Qualify service
+            4. Comments
+            5. View profile
+            6. Log out
             """,
             
     "MenuConductor" :"""
@@ -205,27 +212,58 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
             1. Schedule trip
             2. View current trip
             3. View my historial
-            4. Log out
+            4. Add a new vehicle
+            5. View vehicles
+            6. Qualify passengers
+            7. Comments
+            8. View profile
+            9. Log out
+
             """,
 
-    "MenuProgramarViaje":"""
-                    You are planning a trip
-            1.
-            2.
-            3. Exit
-            """,
-            
-    "MenuAdministrador":"""
+    "MenuAdmin":"""
                     You are in the menu of administrators
-            1. View administrators
-            2. View users registered
-            3. View historial trips
+            1. Create fictianal data
+            2. Create fictianal data of txt
+            3. Update available service
             4. Log out 
             """,
+    "MenuComentarios":"""
+            1. Make comments to the platafroma or report something
+            2. View my comments
+            3. Back
+            """,
+  
+    "CambiarInfo": """"
+                    Seleccione lo que desea cambiar
+            1. Meeting time.
+            2. Meeting place.
+            3. Start place.
+            4. Arrival sites.
+            5. Number of sites.
+            6. Back.
+            """,
+
     "MenuFormatoViajeActual":"""
             1. Change information.
-            2. Delete servic.
+            2. Delete service.
             3. Back.""",
+
+    "RevisarViaje": """
+    Enter 0 to exit.
+    Select the trip you want to review: 
+    """,
+
+    "MenuInfoViaje":"""
+    1. Cancel Service.
+    2. Back
+    """,
+
+    "CambiarInfoVerPerfil":"""
+    1. Change password.
+    2. Change cell number.
+    3. Back
+    """,
             
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",
@@ -264,10 +302,9 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "IngreseServicioEscogido": """
     Enter 0 to exit.
     Enter the servic that wish take: """,
-    "FormatoSetActivo": "{0}, {1}.",
     "FormatoViajeActual": "Meeting time: {0}, Meeting place: {1}, Start place: {2}, Place of arrival: {3}, Available seats: {4}",
-    "IngresarFecha":"Please enter date in format yymmdd(maximum one month in advance)",
-    "FechaIncorrecta":"Invalid format(yymmdd) or limit date exceeded.",
+    "IngresarFecha":"""When will you make the trip: 1.Today
+                                2. Tomorrow""",
     "SinServiciosCon":"You have no trip sheduled.",
     "NoPuedeTomarSer":"You must not take this service.",
     "ViajeLleno":"There are no seats left in this trip please take another",
@@ -276,5 +313,27 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "HoraYaPaso":"The time entered already step. Please enter a time that has not passed {0} are {1}",
     "FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",
     "FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",
-    "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n"
+    "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n",
+    "HistorialVacio": "Usted no ha hecho ningun viaje.",
+    "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
+    "FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
+    "ServicioCancelado": "Su viaje a sido cancelado exitosamente.",
+    "ServicioEliminado": "Servicio eliminado exitosamente.",
+    "ValorMalCali": "Valor ingresado no es valido.",
+    "IngresarCalificacion": """
+    Ingrese 6 para salir.
+Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 5 muy bueno: """,
+    "IngresarComentario": "Comentario sobre el servicio: ",
+    "DeseaComentar": """Desea dejar un comentario con calificacion: 1. Si
+                                              2. No: """,
+    "ServicioACalificar": "Seleccione el servicio que desea calificar\nIngrese 'b' para salir: ",
+    "SinServiciosCalificacion": "Sin servicios para calificar.",
+    "SinPasajerosPorCalificar": "Usted no tiene ningun pasajero por calificar.",
+    "PasajeroACalificar": "Seleccione el pasajero que desea calificar\nIngrese 'b' para salir: ",
+    "FormatoVerPerfilPasajero": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Calificacion Promedio: {4}.",
+    "IngresarNuevaContrasena": "Ingrese la nueva contrasena por favor: ",
+    "IngresarNuevoCell": "Ingrese el nuevo numero celular: ",
+    "FormatoVerPerfilConductor": "Correo: {0}, Contrasena: {1}, Nombre: {2}, Celular: {3}, Servicio hechos: {4}, Acumulado de calificaciones: {5}. ",
+    "FormatoComentarios": "{0}    {1}\n{2}.",
+    "DatosLeidos": "Datos leidos correctamente."
     }   
