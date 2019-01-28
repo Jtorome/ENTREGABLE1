@@ -130,3 +130,25 @@ class CONDUCTOR(PERSONA):
         for conductor in CONDUCTOR.ListaConductores:
             if conductor.getCorreo()==correo:
                 return conductor
+
+    @staticmethod
+    def CambioVehiActi(Conductor, num):
+        archivo=open("registro.txt", "r").readlines()
+        contenido=list()
+        for vehiculo in Conductor.getVehiculos():
+            vehiculo2=Conductor.getVehiculos()[num-1]
+            if vehiculo.getActivo().split()[0] == "si":
+                vehiculo.setActivo("no")
+                for line in archivo:
+                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[6].split()[0]:
+                        line=line.replace(",si\n", ",no\n").split(',')
+                        contenido.append(','.join(line))
+                    elif "VEHICULO" == line.split(',')[0] and vehiculo2.getPlaca() == line.split(',')[1] and "no" == line.split(',')[6].split()[0]:
+                        line=line.replace(",no\n", ",si\n").split(',')
+                        contenido.append(','.join(line))
+                    else:
+                        line=line.split(',')
+                        contenido.append(','.join(line))
+        with open('registro.txt', 'w') as archivo:
+            archivo.writelines(contenido)
+        return False

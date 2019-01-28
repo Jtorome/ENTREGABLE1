@@ -646,6 +646,26 @@ class PRINCIPAL:
             elif opcion==5:
                 for c in CONDUCTOR.VerVehiculos(infousuario):
                     print(c)
+                while True:
+                    option=eval(input(MENSAJE.men.get("CambiarVehiActi")))
+                    print("")
+                    if type(option)!=int:
+                        print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+                    elif option<1 and option>2:
+                        print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+                    else: break
+                if option == 1:
+                    while True:
+                        num=eval(input(MENSAJE.men.get("ActivacionVehi")))
+                        if type(num) != int:
+                            print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+                        elif num<1 and num>len(CONDUCTOR.getVehiculos()):
+                            print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+                        else:
+                            break
+                    CONDUCTOR.CambioVehiActi(infousuario, num)
+                    for c in CONDUCTOR.VerVehiculos(infousuario):
+                    print(c)
             elif opcion==6:
                 PRINCIPAL.CalificarPasajeros(infousuario)
             elif opcion==7:
