@@ -289,3 +289,4 @@ class CORRER:
 #       print(vehi.getTipoVehiculo())
 
 #toro es un imbecil
+#SERGIO IMBECIL
