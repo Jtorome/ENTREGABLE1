@@ -287,3 +287,5 @@ class CORRER:
     #con=conductor1.getVehiculos()
     #for vehi in con:
 #       print(vehi.getTipoVehiculo())
+
+toro es un imbecil
