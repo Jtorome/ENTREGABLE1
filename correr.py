@@ -288,4 +288,4 @@ class CORRER:
     #for vehi in con:
 #       print(vehi.getTipoVehiculo())
 
-toro es un imbecil
+#toro es un imbecil
