@@ -34,10 +34,11 @@ class MENSAJE:
                     Inicio sesion como pasajero
             1. Ver servicios disponibles
             2. Informacion sobre mi viaje.
-            3. Calificar servicio.
-            4. Comentarios.
-            5. Ver perfil.
-            6. Cerrar sesion.
+            3. Ver historial de viajes.
+            4. Calificar servicio.
+            5. Comentarios.
+            6. Ver perfil.
+            7. Cerrar sesion.
             """,
 
     "MenuConductor" :"""
@@ -107,6 +108,7 @@ class MENSAJE:
     "PlacaInvalida": "Placa ya existe en el sistema.",
     "IngresarColor":"Ingrese el color del vehiculo: ",
     "IngresarTipoVehiculo":"Ingrese el tipo de vehiculo(Carro o moto): ",
+    "IngresarModeloVehi":"Ingrese el modelo de su vehiculo: ",
     "IngresarCantidadAsientos":"Ingrese la cantidad total de asientos del vehiculo: ",
     "ActivarVehiculo":"Va a utilizar este vehiculo en su proximo viaje(Si o No)",
     "OpcionIncorrecta":"{0} no es una opcion valida.",
@@ -150,6 +152,7 @@ class MENSAJE:
     "FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
     "HistorialVacio": "Usted no ha hecho ningun viaje.",
     "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
+    "FormatoVerMiHistorialPasajero":" Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, nombre del conductor: {3}, modelo del vehiculo: {4}, placa: {5}.",
     "FormatoRevisarPasajero": "{0}. Nombre: {1}, celular: {2}, puntuacion: {3}.",
     "ServicioCancelado": "Su viaje a sido cancelado exitosamente.",
     "ServicioEliminado": "Servicio eliminado exitosamente.",
@@ -204,10 +207,11 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
                     Login as rider
             1. Available services
             2. Information about my trip
-            3. Qualify service
-            4. Comments
-            5. View profile
-            6. Log out
+            3. View travel history 
+            4. Qualify service
+            5. Comments
+            6. View profile
+            7. Log out
             """,
             
     "MenuConductor" :"""
@@ -277,6 +281,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "PlacaInvalida": "License plate already existing in the system.",
     "IngresarColor":"Enter the color of vehicle: ",
     "IngresarTipoVehiculo":"Enter the vehicle type(car or motorcycle): ",
+    "IngresarModeloVehi":"Enter the model of vehicle: ",
     "IngresarCantidadAsientos": "Enter the total number of seats of the vehicle: ",
     "ActivarVehiculo":"Will you use this vehicle on your next trip? (Yes or No)",
     "OpcionIncorrecta":"{0} Is not valid choice. ",
@@ -319,6 +324,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n",
     "HistorialVacio": "You have not made any trip.",    
     "FormatoVerMiHistorial": "  Your history is.\n{0}. Date: {1}, departure time: {2}, Start place: {3}, Arrival place: {4}, Puntuation: {5}.",
+    "FormatoVerMiHistorialPasajero":" Your history is.\n{0}. Date: {1}, departure time: {2}, driver's name: {3}, vehicle's model: {4}, license plate: {5}.",
     "FormatoRevisarPasajero": "{0}. Name: {1}, Cell: {2}, Puntuation: {3}.",
     "ServicioCancelado": "Your trip has been successfully canceled.",
     "ValorMalCali": "Value entered is not valid.",

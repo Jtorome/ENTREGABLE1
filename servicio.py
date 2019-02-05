@@ -6,7 +6,7 @@ class SERVICIO:
     ListaServicios=[]
     ServiciosDisponibles=[]
 
-    def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor, FechaSer, CalificacionPromedioSer=0):
+    def __init__(self, HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, Conductor, Vehiculo, FechaSer, CalificacionPromedioSer=0):
 
         '''ATRIBUTOS
         self._HoraEncuentro
@@ -16,6 +16,7 @@ class SERVICIO:
         self._AsientosDisponibles
         self._CalificacionPromedioSer
         self._Conductor
+        self._Vehiculo
         self._listaPasajeros
         self._listaCalificaciones
         '''
@@ -25,6 +26,7 @@ class SERVICIO:
         self.setLugarFin(LugarFin)
         self.setAsientosDisponibles(AsientosDisponibles)
         self.setConductorSer(Conductor)
+        self.setVehiculoSer(Vehiculo)
         self.setFechaSer(FechaSer)
         self._CalificacionPromedioSer=CalificacionPromedioSer
         self._listaPasajeros=[]
@@ -100,6 +102,12 @@ class SERVICIO:
     def getConductorSer(self):
         return self._Conductor
 
+    def setVehiculoSer(self, vehiculo):
+        self._Vehiculo=vehiculo
+
+    def getVehiculoSer(self):
+        return self._Vehiculo
+
     def setPasajeros(self, pasajeros):
         self._listaPasajeros.append(pasajeros)
         pasajeros.setServiciosPa(self)
@@ -123,16 +131,25 @@ class SERVICIO:
         return self._FechaSer
 
     def getInformacionSerCompleta(self):
+        HE=self.getHoraEncuentro()
+        SE=self.getSitioEncuentro()
+        LI=self.getLugarInicio()
+        LF=self.getLugarFin()
+        AD=str(self.getAsientosDisponibles())
+        CON=(self.getConductorSer()).getCorreo()
+        PL=(self.getVehiculoSer()).getPlaca()
+        FS=self.getFechaSer()
+        CP=str(self.getCalificacionPromedioSer())
         if len(self.getPasajeros())==0:
-            return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())
+            return "SERVICIO,"+HE+","+SE+","+LI+","+LF+","+AD+","+CON+","+PL+","+FS+","+CP
         elif len(self.getPasajeros())==1:
-            return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()
+            return "SERVICIO,"+HE+","+SE+","+LI+","+LF+","+AD+","+CON+","+PL+","+FS+","+CP+","+(self.getPasajeros()[0]).getCorreo()
         elif len(self.getPasajeros())==2:
-            return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()
+            return "SERVICIO,"+HE+","+SE+","+LI+","+LF+","+AD+","+CON+","+PL+","+FS+","+CP+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()
         elif len(self.getPasajeros())==3:
-            return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()
+            return "SERVICIO,"+HE+","+SE+","+LI+","+LF+","+AD+","+CON+","+PL+","+FS+","+CP+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()
         elif len(self.getPasajeros())==4:
-            return "SERVICIO,"+self.getHoraEncuentro()+","+self.getSitioEncuentro()+","+self.getLugarInicio()+","+self.getLugarFin()+","+str(self.getAsientosDisponibles())+","+(self.getConductorSer()).getCorreo()+","+self.getFechaSer()+","+str(self.getCalificacionPromedioSer())+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()+","+(self.getPasajeros()[3]).getCorreo()
+            return "SERVICIO,"+HE+","+SE+","+LI+","+LF+","+AD+","+CON+","+PL+","+FS+","+CP+","+(self.getPasajeros()[0]).getCorreo()+","+(self.getPasajeros()[1]).getCorreo()+","+(self.getPasajeros()[2]).getCorreo()+","+(self.getPasajeros()[3]).getCorreo()
 
     @staticmethod
     def ActualizarSerDis():

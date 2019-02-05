@@ -91,14 +91,12 @@ class CONDUCTOR(PERSONA):
     @staticmethod
     def VerVehiculos(Conductor):
         vehiculos=list()
-        cont="1"
         con=1
         for vehiculo in Conductor.getVehiculos():
-            text=str(cont)+". "+vehiculo.getPlaca()+", "+vehiculo.getColor()+", "+vehiculo.getTipoVehiculo()+", Activo: "+vehiculo.getActivo()
+            text=str(con)+". "+vehiculo.getPlaca()+", "+vehiculo.getColor()+", "+vehiculo.getTipoVehiculo()+", "+vehiculo.getModeloVehiculo()+", Activo: "+vehiculo.getActivo()
             text=text.split(',')
             vehiculos.append(','.join(text))
             con=con+1
-            cont=con
         return vehiculos
 
     @staticmethod
@@ -109,7 +107,7 @@ class CONDUCTOR(PERSONA):
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
                 for line in archivo:
-                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[6].split()[0]:
+                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[7].split()[0]:
                         line=line.replace(",si\n",",no\n").split(',')
                         contenido.append(','.join(line))
                     else:
@@ -139,17 +137,17 @@ class CONDUCTOR(PERSONA):
             vehiculo2=Conductor.getVehiculos()[num-1]
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
-                vehiculo2.setActivo("si")
                 for line in archivo:
-                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[6].split()[0]:
+                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[7].split()[0]:
                         line=line.replace(",si\n", ",no\n").split(',')
                         contenido.append(','.join(line))
-                    elif "VEHICULO" == line.split(',')[0] and vehiculo2.getPlaca() == line.split(',')[1] and "no" == line.split(',')[6].split()[0]:
+                    elif "VEHICULO" == line.split(',')[0] and vehiculo2.getPlaca() == line.split(',')[1] and "no" == line.split(',')[7].split()[0]:
                         line=line.replace(",no\n", ",si\n").split(',')
                         contenido.append(','.join(line))
                     else:
                         line=line.split(',')
                         contenido.append(','.join(line))
+        vehiculo2.setActivo("si")
         with open('registro.txt', 'w') as archivo:
             archivo.writelines(contenido)
         return

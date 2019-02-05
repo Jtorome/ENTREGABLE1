@@ -2,12 +2,13 @@ class VEHICULO:
 
     ListaVehiculos=[]
 
-    def __init__(self, Placa, Color, TipoVehiculo, CantidadAsientos, Conductor, Activo):
+    def __init__(self, Placa, Color, TipoVehiculo, ModeloVehiculo, CantidadAsientos, Conductor, Activo):
 
         '''ATRIBUTOS
         self._Placa
         self._Color
         self._TipoVehiculos
+        self._ModeloVehiculo
         self._CantidadAsientos
         self._Conductor
         '''
@@ -15,6 +16,7 @@ class VEHICULO:
         self.setPlaca(Placa)
         self.setColor(Color)
         self.setTipoVehiculo(TipoVehiculo)
+        self.setModeloVehiculo(ModeloVehiculo)
         self.setCantidadAsientos(CantidadAsientos)
         self.setConductorVe(Conductor)
         self.setActivo(Activo)
@@ -37,6 +39,12 @@ class VEHICULO:
 
     def getTipoVehiculo(self):
         return self._TipoVehiculo
+
+    def setModeloVehiculo(self, modelovehiculo):
+        self._ModeloVehiculo=modelovehiculo
+
+    def getModeloVehiculo(self):
+        return self._ModeloVehiculo
 
     def setCantidadAsientos(self, cantidadAsientos):
         self._CantidadAsientos=cantidadAsientos
@@ -63,3 +71,9 @@ class VEHICULO:
             if Placa == placas.getPlaca():
                 return True
         return False
+
+    @staticmethod
+    def BuscadorDeVehiculo(Placa):
+        for vehiculo in VEHICULO.ListaVehiculos:
+            if Placa == vehiculo.getPlaca():
+                return vehiculo

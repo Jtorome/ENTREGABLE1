@@ -1,4 +1,5 @@
 from persona import PERSONA
+from mensaje import MENSAJE
 class PASAJERO(PERSONA):
 
     listaPasajeros=[]
@@ -74,3 +75,16 @@ class PASAJERO(PERSONA):
         for pasajero in PASAJERO.listaPasajeros:
             if pasajero.getCorreo()==correo:
                 return pasajero
+
+    @staticmethod
+    def VerMiHistorial(infousuario):
+        if len(infousuario.getServiciosPa()) == 0:
+            return  MENSAJE.men.get("HistorialVacio")
+        historial=list()
+        cont=1
+        for servicio in infousuario.getServiciosPa():
+            text=MENSAJE.men.get("FormatoVerMiHistorialPasajero").format(cont, servicio.getFechaSer(), servicio.getHoraEncuentro(), servicio.getConductorSer().getNombre(), servicio.getVehiculoSer().getModeloVehiculo(), servicio.getVehiculoSer().getPlaca())
+            text=text.split(',')
+            historial.append(','.join(text))
+            cont=cont+1
+        return historial

@@ -25,44 +25,45 @@ class FICTICIO:
             elif "VEHICULO" == line[0]:
                 if  VEHICULO.VerificarPlaca(line[1]) == False:
                     for conductor in CONDUCTOR.ListaConductores:
-                        correo=line[5].split()
+                        correo=line[6].split()
                         if correo[0] == conductor.getCorreo():
-                            VEHICULO(line[1], line[2], line[3], line[4], conductor, line[6].split()[0])
+                            VEHICULO(line[1], line[2], line[3], line[4], line[5], conductor, line[7].split()[0])
             elif "SERVICIO" == line[0]:
                 if SERVICIO.BuscadorDeServicio(line[1], line[6], line[7]) == None:
                     for conductor in CONDUCTOR.ListaConductores:
                         correo=line[6].split()
                         if correo[0] == conductor.getCorreo():
-                            SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, line[7], line[8].split()[0])
+                            vehiculo=VEHICULO.BuscadorDeVehiculo(line[7])
+                            SERVICIO(line[1], line[2], line[3], line[4], line[5], conductor, vehiculo, line[8], line[9].split()[0])
 
         for servicio in SERVICIO.ListaServicios:
             text=servicio.getInformacionSerCompleta().split(',')
             for line in archivo:
                 line=line.split(',')
                 if line[0]=="SERVICIO":
-                    if len(line)==10 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[9].split()[0])
-                        servicio.setPasajeros(pasajero)
-                    elif len(line)==11 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[9])
-                        servicio.setPasajeros(pasajero)
+                    if len(line)==11 and text[1]==line[1] and text[6]==line[6] and text[8]==line[8]:
                         pasajero=PASAJERO.BuscadorDePasajeros(line[10].split()[0])
                         servicio.setPasajeros(pasajero)
-                    elif len(line)==12 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[9])
-                        servicio.setPasajeros(pasajero)
+                    elif len(line)==12 and text[1]==line[1] and text[6]==line[6] and text[8]==line[8]:
                         pasajero=PASAJERO.BuscadorDePasajeros(line[10])
                         servicio.setPasajeros(pasajero)
                         pasajero=PASAJERO.BuscadorDePasajeros(line[11].split()[0])
                         servicio.setPasajeros(pasajero)
-                    elif len(line)==13 and text[1]==line[1] and text[6]==line[6] and text[7]==line[7]:
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[9])
-                        servicio.setPasajeros(pasajero)
+                    elif len(line)==13 and text[1]==line[1] and text[6]==line[6] and text[8]==line[8]:
                         pasajero=PASAJERO.BuscadorDePasajeros(line[10])
                         servicio.setPasajeros(pasajero)
                         pasajero=PASAJERO.BuscadorDePasajeros(line[11])
                         servicio.setPasajeros(pasajero)
                         pasajero=PASAJERO.BuscadorDePasajeros(line[12].split()[0])
+                        servicio.setPasajeros(pasajero)
+                    elif len(line)==14 and text[1]==line[1] and text[6]==line[6] and text[8]==line[8]:
+                        pasajero=PASAJERO.BuscadorDePasajeros(line[10])
+                        servicio.setPasajeros(pasajero)
+                        pasajero=PASAJERO.BuscadorDePasajeros(line[11])
+                        servicio.setPasajeros(pasajero)
+                        pasajero=PASAJERO.BuscadorDePasajeros(line[12])
+                        servicio.setPasajeros(pasajero)
+                        pasajero=PASAJERO.BuscadorDePasajeros(line[13].split()[0])
                         servicio.setPasajeros(pasajero)
                     SERVICIO.ActualizarSerDis()
                 elif "CALIFICACION"==line[0]:

@@ -104,6 +104,7 @@ class PRINCIPAL:
                 print(MENSAJE.men.get("ErrorTipoVehi"))
             else:
                 break
+        ModeloVehiculo=input(MENSAJE.men.get("IngresarModeloVehi"))
         if TipoVehiculo=="moto":
             CantidadAsientos=2
         elif TipoVehiculo=="carro":
@@ -118,8 +119,8 @@ class PRINCIPAL:
                     X=CONDUCTOR.VerificarActivacion(conductor)
                 else:
                     break
-        VEHICULO(Placa, ColorVehiculo, TipoVehiculo, int(CantidadAsientos), conductor, Activo)
-        archivo.write("VEHICULO,"+Placa+","+ColorVehiculo+","+TipoVehiculo+","
+        VEHICULO(Placa, ColorVehiculo, TipoVehiculo, ModeloVehiculo, int(CantidadAsientos), conductor, Activo)
+        archivo.write("VEHICULO,"+Placa+","+ColorVehiculo+","+TipoVehiculo+","+ModeloVehiculo+","
                     +str(CantidadAsientos)+","+conductor.getCorreo()+","+Activo+"\n")
 
     @staticmethod
@@ -154,23 +155,6 @@ class PRINCIPAL:
                 return
         print(MENSAJE.men.get("InfoServicio"))
         while True:
-            HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
-            if HoraEncuentro=="3":
-                return
-            if HoraEncuentro<=time.strftime("%H:%M"):
-                print(MENSAJE.men.get("HoraYaPaso"))
-            elif HoraEncuentro>time.strftime("%H:%M"):
-                break
-        SitioEncuentro=input(MENSAJE.men.get("IngresarSitioEncuentro"))
-        LugarInicio=input(MENSAJE.men.get("IngresarLugarInicio"))
-        LugarFin=input(MENSAJE.men.get("IngresarLugarFin"))
-        while True:
-            AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
-            if int(AsientosDisponibles) > MaxAsientosDis:
-                print(MENSAJE.men.get("AsientosMaximos").format(vehiculo.getTipoVehiculo(), MaxAsientosDis))
-            else:
-                break
-        while True:
             while True:
                 opcion=input(MENSAJE.men.get("IngresarFecha"))
                 lista=["1", "2"]
@@ -184,9 +168,30 @@ class PRINCIPAL:
             elif opcion == "2":
                 FechaSer=(datetime.today()+timedelta(days=1)).strftime("%y/%m/%d")
                 break
-        SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, FechaSer)
+        if opcion == "1":
+            while True:
+                HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
+                if HoraEncuentro=="3":
+                    return
+                if HoraEncuentro<=time.strftime("%H:%M"):
+                    print(MENSAJE.men.get("HoraYaPaso"))
+                elif HoraEncuentro>time.strftime("%H:%M"):
+                    break
+        else:
+            HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
+        SitioEncuentro=input(MENSAJE.men.get("IngresarSitioEncuentro"))
+        LugarInicio=input(MENSAJE.men.get("IngresarLugarInicio"))
+        LugarFin=input(MENSAJE.men.get("IngresarLugarFin"))
+        while True:
+            AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
+            if int(AsientosDisponibles) > MaxAsientosDis:
+                print(MENSAJE.men.get("AsientosMaximos").format(vehiculo.getTipoVehiculo(), MaxAsientosDis))
+            else:
+                break
+        Vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
+        SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, Vehiculo, FechaSer)
         archivo=open("registro.txt", "a")
-        archivo.write("SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+FechaSer+",0\n")
+        archivo.write("SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+Vehiculo.getPlaca()+","+FechaSer+",0\n")
 
     @staticmethod
     def CrearComentario(infousuario):
@@ -360,7 +365,7 @@ class PRINCIPAL:
     def RevisarServicio(infousuario):
         while True:
             opcion=eval(input(MENSAJE.men.get("RevisarViaje")))
-            if opcion==0:
+            if opcion == 0:
                 return
             elif opcion<0 and opcion>len(CONDUCTOR.getServiciosCon(infousuario)):
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
@@ -375,7 +380,7 @@ class PRINCIPAL:
     @staticmethod
     def CalificarServicio(infousuario):
         SERVICIO.ActualizarSerDis()
-        if len(infousuario.getServicioNoCalificado())==0:
+        if len(infousuario.getServicioNoCalificado()) == 0:
             print(MENSAJE.men.get("SinServiciosCalificacion"))
             return
         cont=1
@@ -585,7 +590,7 @@ class PRINCIPAL:
             while True:
                 opcion=input(MENSAJE.men.get("Opcion"))
                 print("")
-                lista=["1", "2", "3", "4", "5", "6"]
+                lista=["1", "2", "3", "4", "5", "6", "7"]
                 if opcion in lista:
                     break
                 else:
@@ -595,12 +600,16 @@ class PRINCIPAL:
             elif opcion == "2":
                 PRINCIPAL.InfoViaje(infousuario)
             elif opcion == "3":
-                PRINCIPAL.CalificarServicio(infousuario)
+                vermihistorial=PASAJERO.VerMiHistorial(infousuario)
+                for c in vermihistorial:
+                    print(c)
             elif opcion == "4":
-                PRINCIPAL.Comentarios(infousuario)
+                PRINCIPAL.CalificarServicio(infousuario)
             elif opcion == "5":
-                PRINCIPAL.VerPerfil("PASAJERO", infousuario)
+                PRINCIPAL.Comentarios(infousuario)
             elif opcion == "6":
+                PRINCIPAL.VerPerfil("PASAJERO", infousuario)
+            elif opcion == "7":
                 break
         
     @staticmethod
@@ -625,7 +634,8 @@ class PRINCIPAL:
             elif opcion == "4":
                 PRINCIPAL.AgregarVehiculo(infousuario)
             elif opcion == "5":
-                for c in CONDUCTOR.VerVehiculos(infousuario):
+                vervehiculos=CONDUCTOR.VerVehiculos(infousuario)
+                for c in vervehiculos:
                     print(c)
                 while True:
                     option=input(MENSAJE.men.get("CambiarVehiActi"))
