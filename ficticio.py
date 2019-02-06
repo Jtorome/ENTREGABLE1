@@ -66,17 +66,20 @@ class FICTICIO:
                         pasajero=PASAJERO.BuscadorDePasajeros(line[13].split()[0])
                         servicio.setPasajeros(pasajero)
                     SERVICIO.ActualizarSerDis()
-                elif "CALIFICACION"==line[0]:
-                    if len(line)==8:
-                        servicio=SERVICIO.BuscadorDeServicio(line[4], line[5], line[6].split()[0])
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[7].split()[0])
-                        CALIFICACION(line[1], line[2], line[3], servicio)
-                        pasajero.getServicioNoCalificado().remove(servicio)
-                    elif len(line)==5:
-                        pasajero=PASAJERO.BuscadorDePasajeros(line[3])
-                        conductor=CONDUCTOR.BuscadorDeConductor(line[4].split()[0])
-                        CALIFICACION(line[1], line[2], pasajero)
-                        conductor.getPasajeroNoCalificado().remove(pasajero)
-                elif "COMENTARIO"==line[0]:
-                    persona=PERSONA.BuscarPersona(line[2])
-                    COMENTARIO(line[1], persona, line[3].split()[0])
+
+        for line in archivo:
+            line=line.split(',')
+            if "CALIFICACION"==line[0]:
+                if len(line)==8:
+                    servicio=SERVICIO.BuscadorDeServicio(line[4], line[5], line[6].split()[0])
+                    pasajero=PASAJERO.BuscadorDePasajeros(line[7].split()[0])
+                    CALIFICACION(line[1], line[2], line[3], servicio)
+                    pasajero.getServicioNoCalificado().remove(servicio)
+                elif len(line)==5:
+                    pasajero=PASAJERO.BuscadorDePasajeros(line[3])
+                    conductor=CONDUCTOR.BuscadorDeConductor(line[4].split()[0])
+                    CALIFICACION(line[1], line[2], pasajero)
+                    conductor.getPasajeroNoCalificado().remove(pasajero)
+            elif "COMENTARIO"==line[0]:
+                persona=PERSONA.BuscarPersona(line[2])
+                COMENTARIO(line[1], persona, line[3].split()[0])

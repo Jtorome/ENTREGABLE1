@@ -218,7 +218,7 @@ class PRINCIPAL:
         else:
             cont=1
             for servicio in SERVICIO.ServiciosDisponibles:
-                print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre(), servicio.getFechaSer()))
+                print(MENSAJE.men.get("FormatoVerServicios").format(cont, servicio.getHoraEncuentro(), servicio.getSitioEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin(), servicio.getAsientosDisponibles(), servicio.getConductorSer().getNombre(), servicio.getVehiculoSer().getModeloVehiculo(), servicio.getFechaSer()))
                 cont=cont+1
         PRINCIPAL.EscogerServicio(infousuario)
 
@@ -330,14 +330,14 @@ class PRINCIPAL:
         conductor=Servicio.getConductorSer()
         print(MENSAJE.men.get("FormatoInfoCon").format(conductor.getNombre(), conductor.getCell(), conductor.getNumeroServicios(), conductor.getAcumuladoCalificacion()))
         vehiculo=CONDUCTOR.VehiculoActivado(conductor)
-        print(MENSAJE.men.get("FormatoInfoVehi").format(vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.getTipoVehiculo()))
+        print(MENSAJE.men.get("FormatoInfoVehi").format(vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.getTipoVehiculo(), vehiculo.getModeloVehiculo()))
         PRINCIPAL.MenuInfoViaje(infousuario)
 
     @staticmethod
     def MenuInfoViaje(infousuario):
         while True:
             print(MENSAJE.men.get("MenuInfoViaje"))
-            opcion=eval(input(MENSAJE.men.get("Opcion")))
+            opcion=input(MENSAJE.men.get("Opcion"))
             lista=["1", "2"]
             if opcion in lista:
                 break
@@ -601,8 +601,11 @@ class PRINCIPAL:
                 PRINCIPAL.InfoViaje(infousuario)
             elif opcion == "3":
                 vermihistorial=PASAJERO.VerMiHistorial(infousuario)
-                for c in vermihistorial:
-                    print(c)
+                if vermihistorial == MENSAJE.men.get("HistorialVacio"):
+                    print(vermihistorial)
+                else:
+                    for c in vermihistorial:
+                        print(c)
             elif opcion == "4":
                 PRINCIPAL.CalificarServicio(infousuario)
             elif opcion == "5":

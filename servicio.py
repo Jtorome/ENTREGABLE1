@@ -222,10 +222,12 @@ class SERVICIO:
 
     @staticmethod
     def EliminarPasajero(infousuario, servicio):
+        servicio.setAsientosDisponibles(int(servicio.getAsientosDisponibles()+1))
         archivo=open("registro.txt", "r").readlines()
         contenido=list()
         servicio.getPasajeros().remove(infousuario)
         infousuario.getViajeActual().remove(servicio)
+        infousuario.getServiciosPa().remove(servicio)
         text=servicio.getInformacionSerCompleta().split(',')
         for line in archivo:
             linea=line.split(',')

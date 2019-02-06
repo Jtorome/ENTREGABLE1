@@ -126,7 +126,7 @@ class MENSAJE:
     "CerradoSesion": "Has cerrado sesion.",
     "SinServicios": "En el momento no hay servicios disponibles.",
    
-    "FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}, Fecha: {7}.\n",
+    "FormatoVerServicios": "{0}, hora de encuentro: {1}, sitio de encuentro: {2}, lugar de inicio: {3}, lugar de llegada: {4}, asientos disponibles: {5}, nombre del conductor: {6}, modelo del vehiculo: {7}, Fecha: {8}.\n",
     "InfoServicio": """ Ingrese la informacion del servicio.
     Presione 3 para cancelar.""",
     "IngresarHoraEncuentro": "Ingrese la hora de encuentro(24h y hh:mm): ",
@@ -149,7 +149,7 @@ class MENSAJE:
     "HoraYaPaso":"La hora ingresada ya paso. Por favor ingrese una hora que no haya pasado.",
     "FormatoInfoSer": "Informacion sobre el servicio.\nHora de encuentro: {0}, sitio de encuentro: {1}, lugar de inicio: {2}, lugar de llegada: {3}, asientos disponibles: {4}, Fecha: {5}.\n",
     "FormatoInfoCon": "Informacion Sobre el conductor.\nNombre: {0}, Celular: {1}, servicios hechos: {2}, Acumulado de calificacion: {3}.\n",
-    "FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}.\n",
+    "FormatoInfoVehi": "Informacion sobre el vehiculo.\nPlaca: {0}, color: {1}, tipo de vehiculo: {2}, modelo: {3}.\n",
     "HistorialVacio": "Usted no ha hecho ningun viaje.",
     "FormatoVerMiHistorial": "  Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, lugar de inicio: {3}, lugar de llegada: {4}, puntuacion: {5}.",
     "FormatoVerMiHistorialPasajero":" Su historial es.\n{0}. Fecha: {1}, hora de salida: {2}, nombre del conductor: {3}, modelo del vehiculo: {4}, placa: {5}.",
@@ -298,7 +298,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
         Enter 3 to exit.""",
     "CerradoSesion": "Make closed session. ",
     "SinServicios": "There are no services available",
-    "FormatoVerServicios": "{0}, Meeting time: {1}, Meetin place: {2}, Start place: {3}, Place of arrival: {4}, Available seats: {5}, Name of condutor: {6}.\n",
+    "FormatoVerServicios": "{0}, Meeting time: {1}, Meetin place: {2}, Start place: {3}, Place of arrival: {4}, Available seats: {5}, Name of condutor: {6}, vehicle's model: {7}, date: {8}.\n",
     "InfoServicio": """ Enter the information of service.
     Enter 3 to cancel.""",
     "IngresarHoraEncuentro": "Enter the meeting time(24h and hh:mm): ",
@@ -321,7 +321,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "HoraYaPaso":"The time entered already step. Please enter a time that has not passed {0} are {1}",
     "FormatoInfoSer": "Information about the service. \n Meeting time: {0}, meeting place: {1}, starting place: {2}, place of arrival: {3}, available seats: {4}, Date: {5} . \n",
     "FormatoInfoCon": "Information about the conductor.\n Name: {0}, Cellphone: {1}, services done: {2}, Accumulated qualification: {3}.\n",
-    "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}.\n",
+    "FormatoInfoVehi": "Information about the vehicule.\n License plate: {0}, color: {1}, Vehicle type: {2}, model: {3}.\n",
     "HistorialVacio": "You have not made any trip.",    
     "FormatoVerMiHistorial": "  Your history is.\n{0}. Date: {1}, departure time: {2}, Start place: {3}, Arrival place: {4}, Puntuation: {5}.",
     "FormatoVerMiHistorialPasajero":" Your history is.\n{0}. Date: {1}, departure time: {2}, driver's name: {3}, vehicle's model: {4}, license plate: {5}.",
