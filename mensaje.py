@@ -64,9 +64,9 @@ class MENSAJE:
             """,
 
     "MenuComentarios": """
-    1. Hacer comentario a la plataforma o reportar algo.
-    2. Ver mis comentarios.
-    3. Atras
+        1. Hacer comentario a la plataforma o reportar algo.
+        2. Ver mis comentarios.
+        3. Atras
     """,
 
     "CambiarInfo": """
@@ -85,25 +85,25 @@ class MENSAJE:
             3. Atras.""",
 
     "RevisarViaje": """
-    Ingrese 0 para salir.
-    Seleccione el viaje que quiere revisar: 
+        Ingrese 0 para salir.
+        Seleccione el viaje que quiere revisar: 
     """,
 
     "MenuInfoViaje":"""
-    1. Cancelar servicio.
-    2. Atras
-    """,
-
-    "MenuMejorCalificados": """
-    1. Pasajeros
-    2. Conductores
+        1. Cancelar servicio.
+        2. Atras
     """,
 
     "CambiarInfoVerPerfil":"""
-    1. Cambiar contrasena.
-    2. Cambiar numero de celular
-    3. Atras
+        1. Cambiar contrasena.
+        2. Cambiar numero de celular
+        3. Atras
     """,
+
+    "MenuMejorCalificados": """
+        1. Pasajeros
+        2. Conductores
+    """
             
     "Opcion":"Ingrese la opcion: ",
     "NoViaje":"No tiene ningun viaje programado.",
@@ -219,7 +219,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
             4. Qualify service
             5. Comments
             6. View profile
-            7. Log out
+            7. Better qualified
+            8. Log out
             """,
             
     "MenuConductor" :"""
@@ -265,20 +266,25 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
             3. Back.""",
 
     "RevisarViaje": """
-    Enter 0 to exit.
-    Select the trip you want to review: 
+        Enter 0 to exit.
+        Select the trip you want to review: 
     """,
 
     "MenuInfoViaje":"""
-    1. Cancel Service.
-    2. Back
+        1. Cancel Service.
+        2. Back
     """,
 
     "CambiarInfoVerPerfil":"""
-    1. Change password.
-    2. Change cell number.
-    3. Back
+        1. Change password.
+        2. Change cell number.
+        3. Back
     """,
+
+    "MenuMejorCalificados": """
+        1. Passengers
+        2. Conductors
+    """
             
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",
