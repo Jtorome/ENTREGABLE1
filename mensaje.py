@@ -356,5 +356,7 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
     "CelularInvalido":"The cell phone number is invalid",
     "CambiarVehiActi":"""You want change the active vehicle: 1. Yes
                                   2. No: """,                                    
-    "ActivacionVehi":"Which vehicle do you want to activate: "
+    "ActivacionVehi":"Which vehicle do you want to activate: ",
+    "FormatoMejorCalificadoPasajero": "{0}. Name: {1}, Average Rating: {2}.",
+    "FormatoMejorCalificadoConductor": "{0}. Name: {1}, Accumulated qualification: {2}."
     }   
