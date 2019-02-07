@@ -38,7 +38,8 @@ class MENSAJE:
             4. Calificar servicio.
             5. Comentarios.
             6. Ver perfil.
-            7. Cerrar sesion.
+            7. Mejor calificados.
+            8. Cerrar sesion.
             """,
 
     "MenuConductor" :"""
@@ -91,6 +92,11 @@ class MENSAJE:
     "MenuInfoViaje":"""
     1. Cancelar servicio.
     2. Atras
+    """,
+
+    "MenuMejorCalificados": """
+    1. Pasajeros
+    2. Conductores
     """,
 
     "CambiarInfoVerPerfil":"""
@@ -177,7 +183,9 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "CelularInvalido":"El numero de celular es invalido",
     "CambiarVehiActi":"""Desea cambiar de vehiculo activo: 1.Si
                                   2.No: """,
-    "ActivacionVehi":"Que vehiculo desea activar: "
+    "ActivacionVehi":"Que vehiculo desea activar: ",
+    "FormatoMejorCalificadoPasajero": "{0}. Nombre: {1}, calificacion promedio: {2}.",
+    "FormatoMejorCalificadoConductor": "{0}. Nombre: {1}, Acumulado calificacion: {2}."
     }
     
 

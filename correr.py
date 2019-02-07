@@ -13,6 +13,11 @@ import time
 #"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
 class CORRER:
 
+    lista=[1]
+    lista.insert(0, 5)
+    lista.insert(1, 4)
+    print(lista)
+
     """archivo=open("registro.txt", "r").readlines()
     for line in archivo:
         line=line.split(',')
@@ -82,22 +87,22 @@ class CORRER:
     if x == None:
         print("bLA")"""
 
-    infousuario=True
-    while infousuario==True:
-        print(MENSAJE.espanol.get("MensajeInicioSesion"))
-        correo=(input(MENSAJE.espanol.get("IngresarCorreo"))).lower()
-        if correo=="3":
-            break
-        contrasena=input(MENSAJE.espanol.get("IngresarContrasena"))
-        archivo=open("registro.txt", "r").readlines()
-        for line in archivo:
-            line=line.split(",")
-            print("aca")
-            if "ADMINISTRADOR" == line[0] and correo == line[1] and contrasena == line[2]:
-                infousuario=line
-                break
-    if infousuario==True:
-        print(infousuario)
+    """infousuario=True
+                while infousuario==True:
+                    print(MENSAJE.espanol.get("MensajeInicioSesion"))
+                    correo=(input(MENSAJE.espanol.get("IngresarCorreo"))).lower()
+                    if correo=="3":
+                        break
+                    contrasena=input(MENSAJE.espanol.get("IngresarContrasena"))
+                    archivo=open("registro.txt", "r").readlines()
+                    for line in archivo:
+                        line=line.split(",")
+                        print("aca")
+                        if "ADMINISTRADOR" == line[0] and correo == line[1] and contrasena == line[2]:
+                            infousuario=line
+                            break
+                if infousuario==True:
+                    print(infousuario)"""
 
     """pasajero=PASAJERO.BuscadorDePasajeros("alberto@unal.edu.co")
     persona=PERSONA.BuscarPersona("juan@unal.edu.co")

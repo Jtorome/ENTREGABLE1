@@ -528,7 +528,7 @@ class PRINCIPAL:
             if opcion in lista:
                 break
             else:
-                print(MENSAJE.men.get("OpcionIncorrecta"))
+                print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
         if opcion == "1":
             PRINCIPAL.CrearComentario(infousuario)
         elif opcion == "2":
@@ -541,6 +541,25 @@ class PRINCIPAL:
         persona=PERSONA.BuscarPersona(infousuario.getCorreo())
         for comentario in persona.getComentarios():
             print(MENSAJE.men.get("FormatoComentarios").format(infousuario.getNombre(), comentario.getFecha(), comentario.getDescripcion()))
+
+    @staticmethod
+    def MejorCalificados():
+        while True:
+            lista=["1", "2"]
+            print(MENSAJE.men.get("MenuMejorCalificados"))
+            opcion=input(MENSAJE.men.get("Opcion"))
+            if opcion in lista:
+                break
+            else:
+                print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+        if opcion == "1":
+            lista=PASAJERO.MejorCalificadosPasajero()
+            for i in lista:
+                print(i)
+        elif opcion == "2":
+            lista=CONDUCTOR.MejorCalificadosConductor()
+            for i in lista:
+                print(i)
 
     @staticmethod
     def IniciarSesion():
@@ -590,7 +609,7 @@ class PRINCIPAL:
             while True:
                 opcion=input(MENSAJE.men.get("Opcion"))
                 print("")
-                lista=["1", "2", "3", "4", "5", "6", "7"]
+                lista=["1", "2", "3", "4", "5", "6", "7", "8"]
                 if opcion in lista:
                     break
                 else:
@@ -613,6 +632,8 @@ class PRINCIPAL:
             elif opcion == "6":
                 PRINCIPAL.VerPerfil("PASAJERO", infousuario)
             elif opcion == "7":
+                PRINCIPAL.MejorCalificados()
+            elif opcion == "8":
                 break
         
     @staticmethod

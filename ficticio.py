@@ -18,7 +18,7 @@ class FICTICIO:
             line=line.split(',')
             if "PASAJERO" == line[0]:
                 if PASAJERO.BuscadorDePasajeros(line[1]) == None:
-                    PASAJERO(line[1], line[2], line[3], line[4], line[5].split()[0])
+                    PASAJERO(line[1], line[2], line[3], line[4], float(line[5].split()[0]))
             elif "CONDUCTOR" == line[0]:
                 if CONDUCTOR.BuscadorDeConductor(line[1]) == None:
                     CONDUCTOR(line[1], line[2], line[3], line[4], line[5], line[6].split()[0])
