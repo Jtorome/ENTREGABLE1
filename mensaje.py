@@ -38,7 +38,7 @@ class MENSAJE:
             4. Calificar servicio.
             5. Comentarios.
             6. Ver perfil.
-            7. Mejor calificados.
+            7. Informacion sobre viajes, conductores, pasajeros, etc
             8. Cerrar sesion.
             """,
 
@@ -52,7 +52,8 @@ class MENSAJE:
             6. Calificar pasajeros
             7. Comentarios
             8. Ver perfil
-            9. Cerrar sesion
+            9. Informacion sobre viajes, conductores, pasajeros, etc
+            10. Cerrar sesion
             """,
             
     "MenuAdmin":"""
@@ -100,10 +101,18 @@ class MENSAJE:
         3. Atras
     """,
 
+    "MenuInformacionSobre": """
+        1. Mejor calificados.
+        2. Ruta favorita.
+        3. Vehiculos preferidos.
+        4. Hora mas concurrida.
+        5. Conductores con mas viajes.
+    """,
+
     "MenuMejorCalificados": """
         1. Pasajeros
         2. Conductores
-    """
+    """,
             
     "Opcion":"Ingrese la opcion: ",
     "NoViaje":"No tiene ningun viaje programado.",
@@ -185,7 +194,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
                                   2.No: """,
     "ActivacionVehi":"Que vehiculo desea activar: ",
     "FormatoMejorCalificadoPasajero": "{0}. Nombre: {1}, calificacion promedio: {2}.",
-    "FormatoMejorCalificadoConductor": "{0}. Nombre: {1}, Acumulado calificacion: {2}."
+    "FormatoMejorCalificadoConductor": "{0}. Nombre: {1}, Acumulado calificacion: {2}.",
+    "FormatoRutaFavorita": "{0}. Lugar de inicio: {1}, Lugar de fin: {2}."
     }
     
 
@@ -284,7 +294,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "MenuMejorCalificados": """
         1. Passengers
         2. Conductors
-    """
+    """,
             
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",

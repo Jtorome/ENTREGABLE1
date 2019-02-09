@@ -179,9 +179,9 @@ class PRINCIPAL:
                     break
         else:
             HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
-        SitioEncuentro=input(MENSAJE.men.get("IngresarSitioEncuentro"))
-        LugarInicio=input(MENSAJE.men.get("IngresarLugarInicio"))
-        LugarFin=input(MENSAJE.men.get("IngresarLugarFin"))
+        SitioEncuentro=(input(MENSAJE.men.get("IngresarSitioEncuentro"))).upper()
+        LugarInicio=(input(MENSAJE.men.get("IngresarLugarInicio"))).upper()
+        LugarFin=(input(MENSAJE.men.get("IngresarLugarFin"))).upper()
         while True:
             AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
             if int(AsientosDisponibles) > MaxAsientosDis:
@@ -562,6 +562,23 @@ class PRINCIPAL:
                 print(i)
 
     @staticmethod
+    def InformacionSobre():
+        print(MENSAJE.men.get("MenuInformacionSobre"))
+        while True:
+            lista=["1", "2", "3", "4", "5"]
+            opcion=input(MENSAJE.men.get("Opcion"))
+            if opcion in lista:
+                break
+            else:
+               print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+        if opcion == "1":
+            PRINCIPAL.MejorCalificados()
+        elif opcion == "2":
+            for c in SERVICIO.RutaFavorita():
+                print(c)
+
+
+    @staticmethod
     def IniciarSesion():
         infousuario=True
         while infousuario==True:
@@ -632,7 +649,7 @@ class PRINCIPAL:
             elif opcion == "6":
                 PRINCIPAL.VerPerfil("PASAJERO", infousuario)
             elif opcion == "7":
-                PRINCIPAL.MejorCalificados()
+                PRINCIPAL.InformacionSobre()
             elif opcion == "8":
                 break
         
@@ -644,7 +661,7 @@ class PRINCIPAL:
             while True:
                 opcion=input(MENSAJE.men.get("Opcion"))
                 print("")
-                lista=["1", "2", "3", "4", "5", "6", "7", "8", "9", ]
+                lista=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
                 if opcion in lista:
                 	break
                 else:
@@ -686,6 +703,8 @@ class PRINCIPAL:
             elif opcion == "8":
                 PRINCIPAL.VerPerfil("CONDUCTOR", infousuario)
             elif opcion == "9":
+                PRINCIPAL.InformacionSobre()
+            elif opcion == "10":
                 return
                 
     @staticmethod

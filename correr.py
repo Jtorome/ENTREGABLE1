@@ -13,10 +13,13 @@ import time
 #"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
 class CORRER:
 
-    lista=[1]
+    x=["0,Blabla,hola", "3,ja,jo"]
+    print(int(x[0].split(',')[0])+1)
+
+    """lista=[1]
     lista.insert(0, 5)
     lista.insert(1, 4)
-    print(lista)
+    print(lista)"""
 
     """archivo=open("registro.txt", "r").readlines()
     for line in archivo:

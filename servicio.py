@@ -247,3 +247,32 @@ class SERVICIO:
         for servicio in SERVICIO.ListaServicios:
             if servicio.getHoraEncuentro()==HoraEncuentro and servicio.getConductorSer().getCorreo()==Correo and servicio.getFechaSer()==Fecha:
                 return servicio
+
+    @staticmethod
+    def RutaFavorita():
+        lista=[]
+        cont=[]
+        Informacion=[]
+        for servicio in SERVICIO.ListaServicios:
+            text=servicio.getLugarInicio()+","+servicio.getLugarFin()
+            if text in lista:
+                posicion=lista.index(text)
+                cont[posicion]=cont[posicion]+1
+            else:
+                lista.append(text)
+                cont.append(0)
+        contador=1
+        for i in range(1, 3):
+            Max=max(cont)
+            posicion=cont.index(Max)
+            LI=lista[posicion].split(',')[0]
+            LF=lista[posicion].split(',')[1]
+            text=MENSAJE.men.get("FormatoRutaFavorita").format(contador, LI, LF)
+            text=text.split(',')
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            cont.remove(Max)
+            contador=contador+1
+        return Informacion
+
+
