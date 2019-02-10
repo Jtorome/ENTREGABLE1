@@ -91,40 +91,20 @@ class PASAJERO(PERSONA):
 
     @staticmethod
     def MejorCalificadosPasajero():
+        lista=[]
         calificaciones=[]
+        Informacion=[]
         for pasajero in PASAJERO.listaPasajeros:
+            lista.append(pasajero.getNombre())
+            calificaciones.append(pasajero.getCalificacionPromedio())
+        for i in range(1, 4):
             if len(calificaciones) == 0:
-                calificaciones.append(pasajero)
-            elif len(calificaciones) == 1:
-                if float(calificaciones[0].getCalificacionPromedio()) >= pasajero.getCalificacionPromedio():
-                    calificaciones.append(pasajero)
-                elif float(calificaciones[0].getCalificacionPromedio()) < pasajero.getCalificacionPromedio():
-                    calificaciones.insert(0, pasajero)
-            elif len(calificaciones) == 2:
-                if float(calificaciones[0].getCalificacionPromedio()) >= pasajero.getCalificacionPromedio():
-                    if float(calificaciones[1].getCalificacionPromedio()) >= pasajero.getCalificacionPromedio():
-                        calificaciones.append(pasajero)
-                    elif float(calificaciones[1].getCalificacionPromedio()) < pasajero.getCalificacionPromedio():
-                        calificaciones.insert(1, pasajero)
-                elif float(calificaciones[0].getCalificacionPromedio()) < pasajero.getCalificacionPromedio():
-                    calificaciones.insert(0, pasajero)
-            elif len(calificaciones) == 3:
-                if float(calificaciones[0].getCalificacionPromedio()) >= float(pasajero.getCalificacionPromedio()):
-                    if float(calificaciones[1].getCalificacionPromedio()) >= float(pasajero.getCalificacionPromedio()):
-                        if float(calificaciones[2].getCalificacionPromedio()) < float(pasajero.getCalificacionPromedio()):
-                            calificaciones.insert(2, pasajero)
-                            calificaciones.remove(calificaciones[3])
-                    elif float(calificaciones[1].getCalificacionPromedio()) < pasajero.getCalificacionPromedio():
-                        calificaciones.insert(1, pasajero)
-                        calificaciones.remove(calificaciones[3])
-                elif float(calificaciones[0].getCalificacionPromedio()) < pasajero.getCalificacionPromedio():
-                    calificaciones.insert(0, pasajero)
-                    calificaciones.remove(calificaciones[3])
-        listaCalificaciones=list()
-        cont=1
-        for pas in calificaciones:
-            text=MENSAJE.men.get("FormatoMejorCalificadoPasajero").format(cont, pas.getNombre(), pas.getCalificacionPromedio())
+                return Informacion
+            Max=max(calificaciones)
+            posicion=calificaciones.index(Max)
+            text=MENSAJE.men.get("FormatoMejorCalificadoPasajero").format(i, lista[posicion], Max)
             text=text.split(',')
-            listaCalificaciones.append(','.join(text))
-            cont=cont+1
-        return listaCalificaciones
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            calificaciones.remove(Max)
+        return Informacion

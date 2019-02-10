@@ -13,8 +13,8 @@ import time
 #"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
 class CORRER:
 
-    x=["0,Blabla,hola", "3,ja,jo"]
-    print(int(x[0].split(',')[0])+1)
+    x=input().upper()
+    print(x)
 
     """lista=[1]
     lista.insert(0, 5)

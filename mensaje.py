@@ -107,6 +107,7 @@ class MENSAJE:
         3. Vehiculos preferidos.
         4. Hora mas concurrida.
         5. Conductores con mas viajes.
+        10. Atras.
     """,
 
     "MenuMejorCalificados": """
@@ -195,7 +196,14 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "ActivacionVehi":"Que vehiculo desea activar: ",
     "FormatoMejorCalificadoPasajero": "{0}. Nombre: {1}, calificacion promedio: {2}.",
     "FormatoMejorCalificadoConductor": "{0}. Nombre: {1}, Acumulado calificacion: {2}.",
-    "FormatoRutaFavorita": "{0}. Lugar de inicio: {1}, Lugar de fin: {2}."
+    "MensajeRutaFavorita": "    Las rutas favoritas son:",
+    "FormatoRutaFavorita": "{0}. Lugar de inicio: {1}, Lugar de fin: {2}.",
+    "MensajeVehiculoFavorito": "    Los modelos mas usados por pasajeros son: ",
+    "FormatoVehiculoFavorito": "        {0}. {1}.",
+    "MensajeHoraMasConcurrida": "   La hora mas concurrida es:",
+    "FormatoHoraMasConcurrida": "       {0}. Hora: {1}.",
+    "MensajeConductorMasViajes": "      Los conductores con mas viajes son:",
+    "FormatoConductorMasViajes": "          {0}. Nombre: {1}, numero de viajes: {2}."
     }
     
 

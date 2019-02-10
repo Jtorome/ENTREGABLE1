@@ -155,40 +155,40 @@ class CONDUCTOR(PERSONA):
 
     @staticmethod
     def MejorCalificadosConductor():
+        lista=[]
         calificaciones=[]
+        Informacion=[]
         for conductor in CONDUCTOR.ListaConductores:
+            lista.append(conductor.getNombre())
+            calificaciones.append(conductor.getAcumuladoCalificacion())
+        for i in range(1, 4):
             if len(calificaciones) == 0:
-                calificaciones.append(conductor)
-            elif len(calificaciones) == 1:
-                if float(calificaciones[0].getAcumuladoCalificacion()) >= conductor.getAcumuladoCalificacion():
-                    calificaciones.append(conductor)
-                elif float(calificaciones[0].getAcumuladoCalificacion()) < conductor.getAcumuladoCalificacion():
-                    calificaciones.insert(0, conductor)
-            elif len(calificaciones) == 2:
-                if float(calificaciones[0].getAcumuladoCalificacion()) >= conductor.getAcumuladoCalificacion():
-                    if float(calificaciones[1].getAcumuladoCalificacion()) >= conductor.getAcumuladoCalificacion():
-                        calificaciones.append(conductor)
-                    elif float(calificaciones[1].getAcumuladoCalificacion()) < conductor.getAcumuladoCalificacion():
-                        calificaciones.insert(1, conductor)
-                elif float(calificaciones[0].getAcumuladoCalificacion()) < conductor.getAcumuladoCalificacion():
-                    calificaciones.insert(0, conductor)
-            elif len(calificaciones) == 3:
-                if float(calificaciones[0].getAcumuladoCalificacion()) >= float(conductor.getAcumuladoCalificacion()):
-                    if float(calificaciones[1].getAcumuladoCalificacion()) >= float(conductor.getAcumuladoCalificacion()):
-                        if float(calificaciones[2].getAcumuladoCalificacion()) < float(conductor.getAcumuladoCalificacion()):
-                            calificaciones.insert(2, conductor)
-                            calificaciones.remove(calificaciones[3])
-                    elif float(calificaciones[1].getAcumuladoCalificacion()) < conductor.getAcumuladoCalificacion():
-                        calificaciones.insert(1, conductor)
-                        calificaciones.remove(calificaciones[3])
-                elif float(calificaciones[0].getAcumuladoCalificacion()) < conductor.getAcumuladoCalificacion():
-                    calificaciones.insert(0, conductor)
-                    calificaciones.remove(calificaciones[3])
-        listaCalificaciones=list()
-        cont=1
-        for pas in calificaciones:
-            text=MENSAJE.men.get("FormatoMejorCalificadoConductor").format(cont, pas.getNombre(), pas.getAcumuladoCalificacion())
+                return Informacion
+            Max=max(calificaciones)
+            posicion=calificaciones.index(Max)
+            text=MENSAJE.men.get("FormatoMejorCalificadoConductor").format(i, lista[posicion], Max)
             text=text.split(',')
-            listaCalificaciones.append(','.join(text))
-            cont=cont+1
-        return listaCalificaciones
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            calificaciones.remove(Max)
+        return Informacion
+
+    @staticmethod
+    def ConductorConMasViajes():
+        lista=[]
+        cont=[]
+        Informacion=[]
+        for conductor in CONDUCTOR.ListaConductores:
+            cont.append(int(conductor.getNumeroServicios()))
+            lista.append(conductor.getNombre())
+        for i in range(1, 4):
+            if len(cont) == 0:
+                return Informacion
+            Max=max(cont)
+            posicion=cont.index(Max)
+            text=MENSAJE.men.get("FormatoConductorMasViajes").format(i, lista[posicion], Max)
+            text=text.split(',')
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            cont.remove(Max)
+        return Informacion

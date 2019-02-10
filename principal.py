@@ -104,7 +104,7 @@ class PRINCIPAL:
                 print(MENSAJE.men.get("ErrorTipoVehi"))
             else:
                 break
-        ModeloVehiculo=input(MENSAJE.men.get("IngresarModeloVehi"))
+        ModeloVehiculo=(input(MENSAJE.men.get("IngresarModeloVehi"))).lower()
         if TipoVehiculo=="moto":
             CantidadAsientos=2
         elif TipoVehiculo=="carro":
@@ -565,7 +565,7 @@ class PRINCIPAL:
     def InformacionSobre():
         print(MENSAJE.men.get("MenuInformacionSobre"))
         while True:
-            lista=["1", "2", "3", "4", "5"]
+            lista=["1", "2", "3", "4", "5", "10"]
             opcion=input(MENSAJE.men.get("Opcion"))
             if opcion in lista:
                 break
@@ -574,9 +574,23 @@ class PRINCIPAL:
         if opcion == "1":
             PRINCIPAL.MejorCalificados()
         elif opcion == "2":
+            print(MENSAJE.men.get("MensajeRutaFavorita"))
             for c in SERVICIO.RutaFavorita():
                 print(c)
-
+        elif opcion == "3":
+            print(MENSAJE.men.get("MensajeVehiculoFavorito"))
+            for c in SERVICIO.VehiculoFavorito():
+                print(c)
+        elif opcion == "4":
+            print(MENSAJE.men.get("MensajeHoraMasConcurrida"))
+            for c in SERVICIO.HoraMasConcurrida():
+                print(c)
+        elif opcion == "5":
+            print(MENSAJE.men.get("MensajeConductorMasViajes"))
+            for c in CONDUCTOR.ConductorConMasViajes():
+                print(c)
+        elif opcion == "10":
+            return
 
     @staticmethod
     def IniciarSesion():

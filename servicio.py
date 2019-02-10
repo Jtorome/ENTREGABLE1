@@ -261,18 +261,66 @@ class SERVICIO:
             else:
                 lista.append(text)
                 cont.append(0)
-        contador=1
-        for i in range(1, 3):
+        for i in range(1, 4):
+            if len(cont) == 0:
+                return Informacion
             Max=max(cont)
             posicion=cont.index(Max)
             LI=lista[posicion].split(',')[0]
             LF=lista[posicion].split(',')[1]
-            text=MENSAJE.men.get("FormatoRutaFavorita").format(contador, LI, LF)
+            text=MENSAJE.men.get("FormatoRutaFavorita").format(i, LI, LF)
             text=text.split(',')
             Informacion.append(','.join(text))
             lista.remove(lista[posicion])
             cont.remove(Max)
-            contador=contador+1
         return Informacion
 
+    @staticmethod
+    def VehiculoFavorito():
+        lista=[]
+        cont=[]
+        Informacion=[]
+        for servicio in SERVICIO.ListaServicios:
+            text=servicio.getVehiculoSer().getModeloVehiculo()
+            if text in lista:
+                posicion=lista.index(text)
+                cont[posicion]=cont[posicion]+1
+            else:
+                lista.append(text)
+                cont.append(0)
+        for i in range(1, 4):
+            if len(cont) == 0:
+                return Informacion
+            Max=max(cont)
+            posicion=cont.index(Max)
+            text=MENSAJE.men.get("FormatoVehiculoFavorito").format(i, lista[posicion])
+            text=text.split(',')
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            cont.remove(Max)
+        return Informacion
 
+    @staticmethod
+    def HoraMasConcurrida():
+        lista=[]
+        cont=[]
+        Informacion=[]
+        for servicio in SERVICIO.ListaServicios:
+            text=servicio.getHoraEncuentro()
+            if text in lista:
+                posicion=lista.index(text)
+                cont[posicion]=cont[posicion]+1
+            else:
+                lista.append(text)
+                cont.append(0)
+        for i in range(1, 4):
+            if len(cont) == 0:
+                return Informacion
+            Max=max(cont)
+            posicion=cont.index(Max)
+            text=MENSAJE.men.get("FormatoHoraMasConcurrida").format(i, lista[posicion])
+            text=text.split(',')
+            Informacion.append(','.join(text))
+            lista.remove(lista[posicion])
+            cont.remove(Max)
+        return Informacion
