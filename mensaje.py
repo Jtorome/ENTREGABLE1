@@ -83,7 +83,8 @@ class MENSAJE:
     "MenuFormatoViajeActual":"""
             1. Cambiar informacion.
             2. Eliminar Servicio.
-            3. Atras.""",
+            3. Ver pasajeros del servicio.
+            4. Atras.""",
 
     "RevisarViaje": """
         Ingrese 0 para salir.
@@ -114,7 +115,8 @@ class MENSAJE:
         1. Pasajeros
         2. Conductores
     """,
-            
+
+    "EspacioVacio": "",
     "Opcion":"Ingrese la opcion: ",
     "NoViaje":"No tiene ningun viaje programado.",
     "NoHistorial":"No ha echo ningun viaje Intercampus.",
@@ -203,7 +205,14 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "MensajeHoraMasConcurrida": "   La hora mas concurrida es:",
     "FormatoHoraMasConcurrida": "       {0}. Hora: {1}.",
     "MensajeConductorMasViajes": "      Los conductores con mas viajes son:",
-    "FormatoConductorMasViajes": "          {0}. Nombre: {1}, numero de viajes: {2}."
+    "FormatoConductorMasViajes": "          {0}. Nombre: {1}, numero de viajes: {2}.",
+    "MensajeVerPasajero": "     Los pasajeros son:",
+    "FormatoVerPasajero": "         {0}. Nombre: {1}, calificacion promedio: {2}, servicios tomados: {3}.",
+    "DeseaEliminarPas": """       Desea eliminar un pasajero del servicio: 1. Si.
+                                                2. No.""",
+    "QuePasDeseaEliminar": "Que pasajero desea eliminar: ", 
+    "PasajeroEliminado": "      El pasajero a sido eliminado.",
+    "ServicioSinPasajeros": "   El servicio no cuenta con pasajeros."
     }
     
 

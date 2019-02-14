@@ -2,7 +2,7 @@ CLASE,Correo,Contrasena,Nombre,Celular,NumSer/CaliPro,AcumCali
 ADMINISTRADOR,jtorom@unal.edu.co,admin1,juan alberto toro mejia,1
 ADMINISTRADOR,scabrera@unal.edu.co,admin2,sergio esteban cabrera,2
 ADMINISTRADOR,esantosr@unal.edu.co,admin3,eduardo santos ruiz,3
-CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,2,4.0
+CONDUCTOR,juan@unal.edu.co,hola,juan toro,310,3,4.0
 VEHICULO,xyz123,Rojo,carro,spark,4,juan@unal.edu.co,no
 PASAJERO,juan@unal.edu.co,hola,juan toro,310,0
 SERVICIO,17:20,Volador,12,M8,4,juan@unal.edu.co,xyz123,19/01/28,4.0,alberto@unal.edu.co
@@ -13,3 +13,4 @@ CALIFICACION,4,None,alberto@unal.edu.co,juan@unal.edu.co
 COMENTARIO,Muy malo mejorar ,juan@unal.edu.co,05/11/18
 VEHICULO,qwe563,negro,moto,dt,2,juan@unal.edu.co,si
 SERVICIO,08,minas,M8,12,1,juan@unal.edu.co,qwe563,19/02/06,0
+SERVICIO,12:00,MINAS,M8,4,1,juan@unal.edu.co,qwe563,19/02/14,0,toro@unal.edu.co

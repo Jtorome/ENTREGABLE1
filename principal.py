@@ -249,17 +249,41 @@ class PRINCIPAL:
         print(MENSAJE.men.get("MenuFormatoViajeActual"))
         while True:
             opcion=input(MENSAJE.men.get("Opcion"))
-            lista=["1", "2", "3"]
+            lista=["1", "2", "3", "4"]
             if opcion in lista:
                 break
             else:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-        if opcion == "3":
-            return
+        if opcion == "1":
+            PRINCIPAL.CambioInfoSer(servicio)
         elif opcion == "2":
             print(SERVICIO.EliminarServicio(servicio))
-        elif opcion == "1":
-            PRINCIPAL.CambioInfoSer(servicio)
+        elif opcion == "3":
+            PRINCIPAL.VerPasajeros(infousuario.getServicioActual()[0])
+        elif opcion == "4":
+            return
+
+    @staticmethod
+    def VerPasajeros(ServicioActual):
+        print(MENSAJE.men.get("MensajeVerPasajero"))
+        cont=1
+        if len(ServicioActual.getPasajeros()) == 0:
+            return print(MENSAJE.men.get("ServicioSinPasajeros"))
+        for pasajero in ServicioActual.getPasajeros():
+            print(MENSAJE.men.get("FormatoVerPasajero").format(cont, pasajero.getNombre(), pasajero.getCalificacionPromedio(), len(pasajero.getServiciosPa())))
+            cont+=1
+        print(MENSAJE.men.get("EspacioVacio"))
+        while True:
+            opcion=input(MENSAJE.men.get("DeseaEliminarPas"))
+            if opcion != "1" and opcion != "2":
+                print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
+            else:
+                break
+        if opcion == "1":
+            num=int(input(MENSAJE.men.get("QuePasDeseaEliminar")))
+            print(SERVICIO.EliminarPasajeroDeServicio(ServicioActual, num))
+        elif opcion == "2":
+            return
 
     @staticmethod
     def CambioInfoSer(servicio):
@@ -610,7 +634,7 @@ class PRINCIPAL:
             Pasajero=PASAJERO.BuscadorDePasajeros(infousuario.getCorreo())
             if Pasajero!=None:
                 PRINCIPAL.InicioSesionPasajero(infousuario)
-            Conductor=CONDUCTOR.BuscadoDeConductor(infousuario.getCorreo())
+            Conductor=CONDUCTOR.BuscadorDeConductor(infousuario.getCorreo())
             if Conductor!=None:
                 PRINCIPAL.InicioSesionConductor(infousuario)
         elif len(infousuario)==2 and type(infousuario)==list:

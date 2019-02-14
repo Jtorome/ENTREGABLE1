@@ -324,3 +324,9 @@ class SERVICIO:
             lista.remove(lista[posicion])
             cont.remove(Max)
         return Informacion
+
+    @staticmethod
+    def EliminarPasajeroDeServicio(ServicioActual, num):
+        ServicioActual.getPasajeros().remove(ServicioActual.getPasajeros()[num-1])
+        ServicioActual.setAsientosDisponibles(ServicioActual.getAsientosDisponibles()+1)
+        return MENSAJE.men.get("PasajeroEliminado")
