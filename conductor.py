@@ -28,17 +28,6 @@ class CONDUCTOR(PERSONA):
     def setNumeroServicios(self):
         ser=self.getServiciosCon()
         self._NumeroServicios=len(ser)
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
-        for line in archivo:
-            line=line.split(',')
-            if "CONDUCTOR"==line[0] and line[1]==self.getCorreo():
-                line[5]=str(self._NumeroServicios)
-                contenido.append(','.join(line))
-            else:
-                contenido.append(','.join(line))
-        with open("registro.txt","w") as archivo:
-            archivo.writelines(contenido)
 
     def getNumeroServicios(self):
         return self._NumeroServicios
@@ -49,17 +38,6 @@ class CONDUCTOR(PERSONA):
         for cal in cond:
             sum=float(sum+int(cal.getCalificacionPromedioSer()))
         self._AcumuladoCalificacion=float(sum)
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
-        for line in archivo:
-            line=line.split(',')
-            if "CONDUCTOR"==line[0] and line[1]==self.getCorreo():
-                line[6]=str(self._AcumuladoCalificacion)+"\n"
-                contenido.append(','.join(line))
-            else:
-                contenido.append(','.join(line))
-        with open("registro.txt","w") as archivo:
-            archivo.writelines(contenido)
 
     def getAcumuladoCalificacion(self):
         self.setAcumuladoCalificacion()
@@ -102,20 +80,9 @@ class CONDUCTOR(PERSONA):
 
     @staticmethod
     def VerificarActivacion(Conductor):
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
         for vehiculo in Conductor.getVehiculos():
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
-                for line in archivo:
-                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[7].split()[0]:
-                        line=line.replace(",si\n",",no\n").split(',')
-                        contenido.append(','.join(line))
-                    else:
-                        line=line.split(',')
-                        contenido.append(','.join(line))
-        with open('registro.txt', 'w') as archivo:
-            archivo.writelines(contenido)
         return False
 
     @staticmethod
@@ -132,25 +99,11 @@ class CONDUCTOR(PERSONA):
 
     @staticmethod
     def CambioVehiActi(Conductor, num):
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
         for vehiculo in Conductor.getVehiculos():
-            vehiculo2=Conductor.getVehiculos()[num-1]
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
-                for line in archivo:
-                    if "VEHICULO" == line.split(',')[0] and vehiculo.getPlaca() == line.split(',')[1] and "si" == line.split(',')[7].split()[0]:
-                        line=line.replace(",si\n", ",no\n").split(',')
-                        contenido.append(','.join(line))
-                    elif "VEHICULO" == line.split(',')[0] and vehiculo2.getPlaca() == line.split(',')[1] and "no" == line.split(',')[7].split()[0]:
-                        line=line.replace(",no\n", ",si\n").split(',')
-                        contenido.append(','.join(line))
-                    else:
-                        line=line.split(',')
-                        contenido.append(','.join(line))
+        vehiculo2=Conductor.getVehiculos()[num-1]
         vehiculo2.setActivo("si")
-        with open('registro.txt', 'w') as archivo:
-            archivo.writelines(contenido)
         return
 
     @staticmethod

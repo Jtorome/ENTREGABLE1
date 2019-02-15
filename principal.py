@@ -62,17 +62,14 @@ class PRINCIPAL:
      
     @staticmethod
     def AgregarConductor():
-        archivo=open("registro.txt", "a")
         arconductor=open("Conductor.txt", "a")
         print(MENSAJE.men.get("Antes@"))
-        X=True
-        cont=0
-        while X:
-            if cont>0:
-                print(MENSAJE.men.get("CorreoInvalido"))
+        while True:
             Correo=(input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co").lower()
-            X=PERSONA.VerificarRegistro("CONDUCTOR", Correo)
-            cont=cont+1
+            if CONDUCTOR.BuscadorDeConductor(Correo) == None:
+                break
+            else:
+                print(MENSAJE.men.get("CorreoInvalido"))
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
         while True:
@@ -82,24 +79,20 @@ class PRINCIPAL:
             else:
                 break
         conductor=CONDUCTOR(Correo, Contrasena, Nombre, Cell)
-        archivo.write("CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0,0\n")
         arconductor.write(Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0,0\n")
         PRINCIPAL.AgregarVehiculo(conductor)
 
     @staticmethod
     def AgregarVehiculo(conductor):
-        archivo=open("registro.txt", "a")
         print(MENSAJE.men.get("InfoVehiculo"))
-        X=True
-        cont=0
-        while X:
-            if cont>0:
-                print(MENSAJE.men.get("PlacaInvalida"))
+        while True:
             Placa=input(MENSAJE.men.get("IngresarPlaca"))
             if Placa == "3":
                 return
-            X=VEHICULO.VerificarPlaca(Placa)
-            cont=cont+1
+            if VEHICULO.VerificarPlaca(Placa) == None:
+                break
+            else:
+                print(MENSAJE.men.get("PlacaInvalida"))
         ColorVehiculo=input(MENSAJE.men.get("IngresarColor"))
         while True:
             TipoVehiculo=(input(MENSAJE.men.get("IngresarTipoVehiculo"))).lower()
@@ -115,29 +108,24 @@ class PRINCIPAL:
         if len(conductor.getVehiculos()) == 0:
             Activo="si"
         else:
-            X=True
-            while X:
+            while True:
                 Activo=(input(MENSAJE.men.get("ActivarVehiculo"))).lower()
                 if Activo=="si":
-                    X=CONDUCTOR.VerificarActivacion(conductor)
+                    if CONDUCTOR.VerificarActivacion(conductor) == False:
+                        break
                 else:
                     break
         VEHICULO(Placa, ColorVehiculo, TipoVehiculo, ModeloVehiculo, int(CantidadAsientos), conductor, Activo)
-        archivo.write("VEHICULO,"+Placa+","+ColorVehiculo+","+TipoVehiculo+","+ModeloVehiculo+","
-                    +str(CantidadAsientos)+","+conductor.getCorreo()+","+Activo+"\n")
 
     @staticmethod
     def AgregarPasajero():
-        archivo=open("registro.txt", "a")
         print(MENSAJE.men.get("Antes@"))
-        X=True
-        cont=0
-        while X:
-            if cont>0:
-                print(MENSAJE.men.get("CorreoInvalido"))
+        while True:
             Correo=(input(MENSAJE.men.get("IngresarCorreo"))+"@unal.edu.co").lower()
-            X=PERSONA.VerificarRegistro("PASAJERO", Correo)
-            cont=cont+1
+            if PASAJERO.BuscadorDePasajeros(Correo) == None:
+                break
+            else:
+                print(MENSAJE.men.get("CorreoInvalido"))
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
         while True:
@@ -147,15 +135,14 @@ class PRINCIPAL:
             else:
                 break
         PASAJERO(Correo, Contrasena, Nombre, Cell)
-        archivo.write("PASAJERO,"+Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0\n")
 
     @staticmethod
     def ProgramarViaje(infousuario):
         SERVICIO.ActualizarSerDis()
-        vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
-        if vehiculo.getTipoVehiculo()=="moto":
+        Vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
+        if Vehiculo.getTipoVehiculo()=="moto":
             MaxAsientosDis=1
-        elif vehiculo.getTipoVehiculo()=="carro":
+        elif Vehiculo.getTipoVehiculo()=="carro":
             MaxAsientosDis=4
         for servicio in SERVICIO.ServiciosDisponibles:
             if servicio.getConductorSer() == infousuario:
@@ -193,13 +180,10 @@ class PRINCIPAL:
         while True:
             AsientosDisponibles=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
             if int(AsientosDisponibles) > MaxAsientosDis:
-                print(MENSAJE.men.get("AsientosMaximos").format(vehiculo.getTipoVehiculo(), MaxAsientosDis))
+                print(MENSAJE.men.get("AsientosMaximos").format(Vehiculo.getTipoVehiculo(), MaxAsientosDis))
             else:
                 break
-        Vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
         SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, Vehiculo, FechaSer)
-        archivo=open("registro.txt", "a")
-        archivo.write("SERVICIO,"+HoraEncuentro+","+SitioEncuentro+","+LugarInicio+","+LugarFin+","+AsientosDisponibles+","+infousuario.getCorreo()+","+Vehiculo.getPlaca()+","+FechaSer+",0\n")
 
     @staticmethod
     def CrearComentario(infousuario):
@@ -209,8 +193,6 @@ class PRINCIPAL:
             return
         Fecha=time.strftime("%d/%m/%y")
         COMENTARIO(Descripcion, persona, Fecha)
-        archivo=open("registro.txt", "a")
-        archivo.write("COMENTARIO,"+Descripcion+","+persona.getCorreo()+","+Fecha+"\n")
 
     @staticmethod
     def SalirPrincipal():
@@ -320,61 +302,31 @@ class PRINCIPAL:
     @staticmethod
     def CambioInfoSer(servicio):
         print(MENSAJE.men.get("CambiarInfo"))
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
-        for line in archivo:
-            if "SERVICIO"==line.split(',')[0] and servicio.getHoraEncuentro()==line.split(',')[1] and servicio.getFechaSer()==line.split(',')[7] and servicio.getConductorSer().getCorreo()==line.split(',')[6]:
-                while True:
-                    while True:
-                        cambio=input(MENSAJE.men.get("Opcion"))
-                        lista=["1", "2", "3", "4", "5", "6"]
-                        if cambio in lista:
-                            break
-                        else:
-                            print(MENSAJE.men.get("OpcionIncorrecta").format(cambio))
-                    if cambio == "1":
-                        HoraVieja=servicio.getHoraEncuentro()
-                        HoraNueva=input(MENSAJE.men.get("IngresarHoraEncuentro"))
-                        line=line.replace(HoraVieja, HoraNueva).split(',')
-                        servicio.setHoraEncuentro(HoraNueva)
-                        contenido.append(','.join(line))
-                        break
-                    elif cambio == "2":
-                        SitioViejo=servicio.getSitioEncuentro()
-                        SitioNuevo=input(MENSAJE.men.get("IngresarSitioEncuentro"))
-                        line=line.replace(SitioViejo, SitioNuevo).split(',')
-                        servicio.setSitioEncuentro(SitioNuevo)
-                        contenido.append(','.join(line))
-                        break
-                    elif cambio == "3":
-                        LugarViejo=servicio.getLugarInicio()
-                        LugarNuevo=input(MENSAJE.men.get("IngresarLugarInicio"))
-                        line=line.replace(LugarViejo, LugarNuevo).split(',')
-                        servicio.setLugarInicio(LugarNuevo)
-                        contenido.append(','.join(line))
-                        break
-                    elif cambio == "4":
-                        LugarViejo=servicio.getLugarFin()
-                        LugarNuevo=input(MENSAJE.men.get("IngresarLugarFin"))
-                        line=line.replace(LugarViejo, LugarNuevo).split(',')
-                        servicio.setLugarFin(input(MENSAJE.men.get("IngresarLugarFin")))
-                        contenido.append(','.join(line))
-                        break
-                    elif cambio == "5":
-                        AsientosViejo=servicio.getAsientosDisponibles()
-                        AsientosNuevo=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
-                        line=line.replace(AsientosViejo, AsientosNuevo).split(',')
-                        servicio.setAsientosDisponibles(AsientosNuevo)
-                        contenido.append(','.join(line))
-                        break
-                    elif cambio == "6":
-                        return
-            else:   
-                line=line.split(',')
-                contenido.append(','.join(line))
-        with open('registro.txt', 'w') as archivo:
-            archivo.writelines(contenido)
+        while True:
+            cambio=input(MENSAJE.men.get("Opcion"))
+            lista=["1", "2", "3", "4", "5", "6"]
+            if cambio in lista:
+                break
+            else:
+                print(MENSAJE.men.get("OpcionIncorrecta").format(cambio))
+        if cambio == "1":
+            HoraNueva=input(MENSAJE.men.get("IngresarHoraEncuentro"))
+            servicio.setHoraEncuentro(HoraNueva)
+        elif cambio == "2":
+            SitioNuevo=input(MENSAJE.men.get("IngresarSitioEncuentro"))
+            servicio.setSitioEncuentro(SitioNuevo)
+        elif cambio == "3":
+            LugarNuevo=input(MENSAJE.men.get("IngresarLugarInicio"))
+            servicio.setLugarInicio(LugarNuevo)
+        elif cambio == "4":
+            LugarNuevo=input(MENSAJE.men.get("IngresarLugarFin"))
+            servicio.setLugarFin(LugarNuevo)
+        elif cambio == "5":
+            AsientosNuevo=input(MENSAJE.men.get("IngresarAsientosDisponibles"))
+            servicio.setAsientosDisponibles(AsientosNuevo)
+        elif cambio == "6":
             return
+        return
 
     @staticmethod
     def InfoViaje(infousuario):
@@ -475,8 +427,6 @@ class PRINCIPAL:
                 break
         CALIFICACION(Calificacion, Comentario, None, servicio)
         infousuario.getServicioNoCalificado().remove(servicio)
-        archivo=open("registro.txt", "a")
-        archivo.write("CALIFICACION,"+str(Calificacion)+","+str(Comentario)+","+str(None)+","+servicio.getHoraEncuentro()+","+servicio.getConductorSer().getCorreo()+","+servicio.getFechaSer()+","+infousuario.getCorreo()+"\n")
 
     @staticmethod
     def CalificarPasajeros(infousuario):
@@ -518,8 +468,6 @@ class PRINCIPAL:
                 break
         CALIFICACION(Calificacion, Comentario, pasajero)
         infousuario.getPasajeroNoCalificado().remove(pasajero)
-        archivo=open("registro.txt", "a")
-        archivo.write("CALIFICACION,"+str(Calificacion)+","+str(Comentario)+","+pasajero.getCorreo()+","+infousuario.getCorreo()+"\n")
 
     @staticmethod
     def VerPerfil(palabra, infousuario):
@@ -530,12 +478,10 @@ class PRINCIPAL:
         while True:
             print(MENSAJE.men.get("CambiarInfoVerPerfil"))
             opcion=input(MENSAJE.men.get("Opcion"))
-            lista=["1", "2", "3"]
-            if (opcion in lista) == False:
-                print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            elif opcion == "3":
+            if opcion == "3":
                 return
-            else:
+            lista=["1", "2", "3"]
+            if opcion in lista:
                 PRINCIPAL.CambiarInfoVerPerfil(palabra, opcion, infousuario)
                 if palabra=="PASAJERO":
                     print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
@@ -543,37 +489,22 @@ class PRINCIPAL:
                 elif palabra=="CONDUCTOR":
                     print(MENSAJE.men.get("FormatoVerPerfilConductor").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getNumeroServicios(), infousuario.getAcumuladoCalificacion()))
                     return
+            else:
+                print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 
     @staticmethod
     def CambiarInfoVerPerfil(palabra, opcion, infousuario):
         if opcion == "1":
             contrasena=input(MENSAJE.men.get("IngresarNuevaContrasena"))
-            archivo=open("registro.txt","r").readlines()
-            contenido=list()
-            for line in archivo:
-                line=line.split(',')
-                if line[0]==palabra and line[1]==infousuario.getCorreo():
-                    line[2]=contrasena
-                    contenido.append(','.join(line))
-                    infousuario.setContrasena(contrasena)
-                else:
-                    contenido.append(','.join(line))
-            with open("registro.txt", "w") as archivo:
-                archivo.writelines(contenido)
+            infousuario.setContrasena(contrasena)
         elif opcion == "2":
-            cell=input(MENSAJE.men.get("IngresarNuevoCell"))
-            archivo=open("registro.txt", "r").readlines()
-            contenido=list()
-            for line in archivo:
-                line=line.split(',')
-                if line[0]==palabra and line[1]==infousuario.getCorreo():
-                    line[4]=cell
-                    contenido.append(','.join(line))
-                    infousuario.setCell(cell)
+            while True:
+                Cell=eval(input(MENSAJE.men.get("IngresarNuevoCell")))
+                if type(Cell) != int:
+                    print(MENSAJE.men.get("CelularInvalido"))
                 else:
-                    contenido.append(','.join(line))
-            with open("registro.txt", "w") as archivo:
-                archivo.writelines(contenido)
+                    break
+            infousuario.setCell(cell)
 
     @staticmethod
     def Comentarios(infousuario):
@@ -664,10 +595,10 @@ class PRINCIPAL:
 
         if type(infousuario)!=list:
             Pasajero=PASAJERO.BuscadorDePasajeros(infousuario.getCorreo())
+            Conductor=CONDUCTOR.BuscadorDeConductor(infousuario.getCorreo())
             if Pasajero!=None:
                 PRINCIPAL.InicioSesionPasajero(infousuario)
-            Conductor=CONDUCTOR.BuscadorDeConductor(infousuario.getCorreo())
-            if Conductor!=None:
+            elif Conductor!=None:
                 PRINCIPAL.InicioSesionConductor(infousuario)
         elif len(infousuario)==2 and type(infousuario)==list:
             PRINCIPAL.display_MenuVerificarCorreo()

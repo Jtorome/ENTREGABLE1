@@ -50,16 +50,6 @@ class PERSONA():
         return self._listaComentarios
 
     @staticmethod
-    def VerificarRegistro(palabra, correo):
-        archivo=open("registro.txt", "r")
-        for line in archivo:
-            line=line.split(',')
-            if palabra==line[0]:
-                if correo == line[1]:
-                    return True
-        return False
-
-    @staticmethod
     def VerificarCorreo(correo, contrasena):
         cont=0  
         if len(PERSONA.listaPersonas)==0:

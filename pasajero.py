@@ -29,17 +29,6 @@ class PASAJERO(PERSONA):
         for cal in pasa:
             sum=sum+cal.getCalificacion()
         self._CalificacionPromedio=float(sum/(len(pasa)))
-        archivo=open("registro.txt", "r").readlines()
-        contenido=list()
-        for line in archivo:
-            line=line.split(',')
-            if line[0]=="PASAJERO" and line[1]==self.getCorreo():
-                line[5]=str(self._CalificacionPromedio)+"\n"
-                contenido.append(','.join(line))
-            else:
-                contenido.append(','.join(line))
-        with open("registro.txt", "w") as archivo:
-            archivo.writelines(contenido)
 
     def getCalificacionPromedio(self):
         self.setCalificacionPromedio()

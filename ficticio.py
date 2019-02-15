@@ -19,7 +19,7 @@ class FICTICIO:
         S1juan.setPasajeros(Palberto, [1])
         S1juan.setPasajeroxAsiento(Palberto, [1])
         S2juan=SERVICIO("08:00", "MINAS", "M8", "12", 1, Cjuan, v2juan, "19/02/06", 0)
-        S3juan=SERVICIO("12:00", "MINAS", "M8", "4", 2, Cjuan, v1juan, "19/02/20", 0)
+        S3juan=SERVICIO("12:00", "MINAS", "M8", "4", 4, Cjuan, v1juan, "19/02/20", 0)
         S3juan.setPasajeros(Ptoro, [1])
         S3juan.setPasajeroxAsiento(Ptoro, [1])
         SERVICIO.ActualizarSerDis()
