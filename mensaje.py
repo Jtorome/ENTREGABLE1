@@ -12,8 +12,9 @@ class MENSAJE:
     "MenuInicial" :"""
             1. Iniciar Sesion
             2. Registrarme
-            3. Crear datos ficticios de txt
-            4. Salir
+            3. Crear datos ficticios
+            4. Crear datos ficticios de txt
+            5. Salir
             """,
             
     "MenuRegistrarme" :"""
@@ -116,6 +117,13 @@ class MENSAJE:
         2. Conductores
     """,
 
+    "MenuRazones": ["""
+        1. Maqueta
+        2. Discapacidad
+        3. Comodidad(dispuesto a propina)
+        4. Otra
+    """, "Maqueta", "Discapacidad", "Comodidad(dispuesto a propina)", "Otra"],
+
     "EspacioVacio": "",
     "Opcion":"Ingrese la opcion: ",
     "NoViaje":"No tiene ningun viaje programado.",
@@ -207,12 +215,15 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "MensajeConductorMasViajes": "      Los conductores con mas viajes son:",
     "FormatoConductorMasViajes": "          {0}. Nombre: {1}, numero de viajes: {2}.",
     "MensajeVerPasajero": "     Los pasajeros son:",
-    "FormatoVerPasajero": "         {0}. Nombre: {1}, calificacion promedio: {2}, servicios tomados: {3}.",
+    "FormatoVerPasajero": ["         {0}. Nombre: {1}, calificacion promedio: {2}, servicios tomados: {3}, asientos tomados: {4}, razon: {5}.", "         {0}. Nombre: {1}, calificacion promedio: {2}, servicios tomados: {3}, asientos tomados: {4}."],
     "DeseaEliminarPas": """       Desea eliminar un pasajero del servicio: 1. Si.
-                                                2. No.""",
+                                    2. No.""",
     "QuePasDeseaEliminar": "Que pasajero desea eliminar: ", 
     "PasajeroEliminado": "      El pasajero a sido eliminado.",
-    "ServicioSinPasajeros": "   El servicio no cuenta con pasajeros."
+    "ServicioSinPasajeros": "   El servicio no cuenta con pasajeros.",
+    "YaSeGeneraron": "Los datos ya se generaron.",
+    "ServicioEspecialSioNo": """Necesita otro asiento: 1. Si.
+                                        2. No. """
     }
     
 
@@ -220,8 +231,9 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
    "MenuInicial" :"""
             1. Log in
             2. Sign in 
-            3. Create fictional data of txt
-            4. Exit
+            3. Create fictional data
+            4. Create fictional data of txt
+            5. Exit
             """,
             
     "MenuRegistrarme" :"""

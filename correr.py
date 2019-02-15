@@ -1,4 +1,4 @@
-from persona import PERSONA
+"""from persona import PERSONA
 from pasajero import PASAJERO
 from conductor import CONDUCTOR
 from servicio import SERVICIO
@@ -7,14 +7,17 @@ from vehiculo import VEHICULO
 from comentario import COMENTARIO
 from mensaje import MENSAJE
 from principal import PRINCIPAL
+from ficticio import FICTICIO
 from datetime import datetime, date, time, timedelta
 import calendar
-import time
+import time"""
 #"SERVICIO,"+servicio.getHoraEncuentro()+","+servicio.getSitioEncuentro()+","+servicio.getLugarInicio()+","+servicio.getLugarFin()+","+str(servicio.getAsientosDisponibles())+","+(servicio.getConductorSer()).getCorreo()+","+servicio.getFechaSer()+","+str(servicio.getCalificacionPromedioSer())+"\n"
 class CORRER:
 
-    x=input().upper()
-    print(x)
+    bla={}
+    bla["ja"]=["""je""","ji"]
+    for i in bla:
+        print(bla.get("ja")[0])
 
     """lista=[1]
     lista.insert(0, 5)

@@ -1,0 +1,8 @@
+jose@unal.edu.co,josemejor,jose mejor,567,4,12.5
+manuel@unal.edu.co,manuelel,manuel croto,435,3,10
+luis@unal.edu.co,luisiss,luis lamo,123,6,6
+josue@unal.edu.co,josuee,josu e,978,1,5
+bastian@unal.edu.co,basti,bastian an,768,5,20
+cata@unal.edu.co,catali,catalina,001,0,0
+manuela@unal.edu.co,manue,maluela felix,002,1,1
+gir@unal.edu.co,gir,gir,243,0,0

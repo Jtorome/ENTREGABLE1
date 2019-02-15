@@ -14,3 +14,4 @@ COMENTARIO,Muy malo mejorar ,juan@unal.edu.co,05/11/18
 VEHICULO,qwe563,negro,moto,dt,2,juan@unal.edu.co,si
 SERVICIO,08,minas,M8,12,1,juan@unal.edu.co,qwe563,19/02/06,0
 SERVICIO,12:00,MINAS,M8,4,1,juan@unal.edu.co,qwe563,19/02/14,0,toro@unal.edu.co
+CONDUCTOR,gir@unal.edu.co,gir,gir,243,0,0

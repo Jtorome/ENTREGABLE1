@@ -20,8 +20,9 @@ class PRINCIPAL:
         self.choicesInicial={
         "1": self.IniciarSesion,
         #"2": self.Registrarme,
-        "3": FICTICIO.DatosFicticiosTxt,
-        "4": self.SalirPrincipal
+        #"3": FICTICIO.PobladoDeAplicacion,
+        #"4": FICTICIO.DatosFicticiosTxt,
+        "5": self.SalirPrincipal
         }
 
         self.choicesRegistrarme={
@@ -62,6 +63,7 @@ class PRINCIPAL:
     @staticmethod
     def AgregarConductor():
         archivo=open("registro.txt", "a")
+        arconductor=open("Conductor.txt", "a")
         print(MENSAJE.men.get("Antes@"))
         X=True
         cont=0
@@ -74,13 +76,14 @@ class PRINCIPAL:
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
         while True:
-            Cell=eval(MENSAJE.men.get("IngresarCell"))
-            if Cell != int:
+            Cell=eval(input(MENSAJE.men.get("IngresarCell")))
+            if type(Cell) != int:
                 print(MENSAJE.men.get("CelularInvalido"))
             else:
                 break
         conductor=CONDUCTOR(Correo, Contrasena, Nombre, Cell)
-        archivo.write("CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+Cell+",0,0\n")
+        archivo.write("CONDUCTOR,"+Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0,0\n")
+        arconductor.write(Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0,0\n")
         PRINCIPAL.AgregarVehiculo(conductor)
 
     @staticmethod
@@ -137,9 +140,14 @@ class PRINCIPAL:
             cont=cont+1
         Contrasena=input(MENSAJE.men.get("IngresarContrasena"))
         Nombre=(input(MENSAJE.men.get("IngresarNombre"))).lower()
-        Cell=(input(MENSAJE.men.get("IngresarCell"))).lower()
+        while True:
+            Cell=eval(input(MENSAJE.men.get("IngresarCell")))
+            if type(Cell) != int:
+                print(MENSAJE.men.get("CelularInvalido"))
+            else:
+                break
         PASAJERO(Correo, Contrasena, Nombre, Cell)
-        archivo.write("PASAJERO,"+Correo+","+Contrasena+","+Nombre+","+Cell+",0\n")
+        archivo.write("PASAJERO,"+Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0\n")
 
     @staticmethod
     def ProgramarViaje(infousuario):
@@ -235,7 +243,27 @@ class PRINCIPAL:
                 if servicio.getAsientosDisponibles() == 0:
                     print(MENSAJE.men.get("ViajeLleno"))
                     return
-                print(SERVICIO.ServicioTomado(infousuario, servicio))
+                while True:
+                    ServicioEspecial=input(MENSAJE.men.get("ServicioEspecialSioNo"))
+                    if ServicioEspecial != "1" and ServicioEspecial != "2":
+                        print(MENSAJE.men.get("OpcionIncorrecta").format(ServicioEspecial))
+                    else:
+                        break
+                if ServicioEspecial == "1":
+                    if servicio.getAsientosDisponibles() == 1:
+                        print(MENSAJE.men.get("ViajeLleno"))
+                        return
+                    while True:
+                        lista=["1", "2", "3", "4"]
+                        razon=input(MENSAJE.men.get("MenuRazones")[0])
+                        if razon in lista:
+                            razon=[2, MENSAJE.men.get("MenuRazones")[int(razon)]]
+                            break
+                        else:
+                            print(MENSAJE.men.get("OpcionIncorrecta").format(razon))
+                else:
+                    razon=[1]
+                print(SERVICIO.ServicioTomado(infousuario, servicio, razon))
                 return
 
     @staticmethod
@@ -267,10 +295,14 @@ class PRINCIPAL:
     def VerPasajeros(ServicioActual):
         print(MENSAJE.men.get("MensajeVerPasajero"))
         cont=1
+        PasajeroxAsiento=ServicioActual.getPasajeroxAsiento()
         if len(ServicioActual.getPasajeros()) == 0:
             return print(MENSAJE.men.get("ServicioSinPasajeros"))
         for pasajero in ServicioActual.getPasajeros():
-            print(MENSAJE.men.get("FormatoVerPasajero").format(cont, pasajero.getNombre(), pasajero.getCalificacionPromedio(), len(pasajero.getServiciosPa())))
+            if PasajeroxAsiento[pasajero][0] == 1:
+                print(MENSAJE.men.get("FormatoVerPasajero")[1].format(cont, pasajero.getNombre(), pasajero.getCalificacionPromedio(), len(pasajero.getServiciosPa()), 1))
+            elif PasajeroxAsiento[pasajero][0] == 2:
+                print(MENSAJE.men.get("FormatoVerPasajero")[0].format(cont, pasajero.getNombre(), pasajero.getCalificacionPromedio(), len(pasajero.getServiciosPa()), 2, PasajeroxAsiento[pasajero][1]))
             cont+=1
         print(MENSAJE.men.get("EspacioVacio"))
         while True:
@@ -803,20 +835,36 @@ class PRINCIPAL:
     def runInicial(self):
 
         PRINCIPAL.idiomaMensajes()
-
+        cont3=0
+        cont4=0
         while True:
             self.display_MenuInicial()
             opcion=input(MENSAJE.men.get("Opcion"))
+            if opcion == "3":
+                cont3+=1
+            elif opcion == "4":
+                cont4+=1
             print("")
             action=self.choicesInicial.get(opcion)
             if action:
                 action()
-            if opcion!="1" and opcion!="3" and opcion!="2" and opcion!="4" and opcion!="96":
+            elif opcion!="1" and opcion!="3" and opcion!="2" and opcion!="4" and opcion!="5" and opcion!="96":
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion=="2":
+            elif opcion == "2":
                 self.runRegistrarme()
-            elif opcion=="96":
+            elif opcion == "96":
                 self.InicioSesionAdmin()
+            elif opcion == "3":
+                if cont3 == 1:
+                    FICTICIO.PobladoDeAplicacion()
+                else:
+                    print(MENSAJE.men.get("YaSeGeneraron"))
+            elif opcion == "4":
+                if cont4 == 1:
+                    FICTICIO.DatosFicticiosTxt()
+                else:
+                    print(MENSAJE.men.get("YaSeGeneraron"))
+                
 
     def runRegistrarme(self):
 

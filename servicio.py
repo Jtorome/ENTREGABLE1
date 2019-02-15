@@ -30,6 +30,7 @@ class SERVICIO:
         self.setFechaSer(FechaSer)
         self._CalificacionPromedioSer=CalificacionPromedioSer
         self._listaPasajeros=[]
+        self._PasajeroxAsiento={}
         self._listaCalificacionesSer=[]
         SERVICIO.ServiciosDisponibles.append(self)
         SERVICIO.ListaServicios.append(self)
@@ -108,14 +109,20 @@ class SERVICIO:
     def getVehiculoSer(self):
         return self._Vehiculo
 
-    def setPasajeros(self, pasajeros):
+    def setPasajeros(self, pasajeros, razon):
         self._listaPasajeros.append(pasajeros)
         pasajeros.setServiciosPa(self)
         pasajeros.setViajeActual(self)
-        self._AsientosDisponibles=self._AsientosDisponibles-1
+        self._AsientosDisponibles=self._AsientosDisponibles-int(razon[0])
 
     def getPasajeros(self):
         return self._listaPasajeros
+
+    def setPasajeroxAsiento(self, pasajero, razon):
+        self._PasajeroxAsiento[pasajero]=razon
+
+    def getPasajeroxAsiento(self):
+        return self._PasajeroxAsiento
 
     def setCalificacionesSer(self, calificaciones):
         self._listaCalificacionesSer.append(calificaciones)
@@ -174,7 +181,7 @@ class SERVICIO:
                         servicio.getConductorSer().setPasajeroNoCalificado(pasajero)
 
     @staticmethod
-    def ServicioTomado(infousuario, servicio):
+    def ServicioTomado(infousuario, servicio, razon):
         cont=len(servicio.getPasajeros())
         for i in range(cont):
             if infousuario.getCorreo()==servicio.getPasajeros()[i].getCorreo():
@@ -196,7 +203,8 @@ class SERVICIO:
                     contenido.append(','.join(line.split(',')))
             with open('registro.txt', 'w') as archivo:
                 archivo.writelines(contenido)
-            servicio.setPasajeros(infousuario)
+            servicio.setPasajeros(infousuario, razon)
+            servicio.setPasajeroxAsiento(infousuario, razon)
             return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin())
 
     @staticmethod
