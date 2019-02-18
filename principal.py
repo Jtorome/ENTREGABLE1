@@ -597,9 +597,9 @@ class PRINCIPAL:
             Pasajero=PASAJERO.BuscadorDePasajeros(infousuario.getCorreo())
             Conductor=CONDUCTOR.BuscadorDeConductor(infousuario.getCorreo())
             if Pasajero!=None:
-                PRINCIPAL.InicioSesionPasajero(infousuario)
+                PRINCIPAL.InicioSesionPasajero(Pasajero)
             elif Conductor!=None:
-                PRINCIPAL.InicioSesionConductor(infousuario)
+                PRINCIPAL.InicioSesionConductor(Conductor)
         elif len(infousuario)==2 and type(infousuario)==list:
             PRINCIPAL.display_MenuVerificarCorreo()
             while True:

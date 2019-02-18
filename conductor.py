@@ -30,6 +30,7 @@ class CONDUCTOR(PERSONA):
         self._NumeroServicios=len(ser)
 
     def getNumeroServicios(self):
+        self.setNumeroServicios()
         return self._NumeroServicios
 
     def setAcumuladoCalificacion(self):
