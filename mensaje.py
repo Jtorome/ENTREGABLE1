@@ -348,8 +348,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",
     "NoHistorial":"You have not done any intercampus trip.",
-    "InfoVehiculo":""" Enter the vehicle information to use.
-    Select 3 to cancel""",
+    "InfoVehiculo":"" Enter the vehicle information to use.
+     Select 3 to cancel""",
     "IngresarPlaca":"Enter the number of license plate: ",
     "PlacaInvalida": "License plate already existing in the system.",
     "IngresarColor":"Enter the color of vehicle: ",
@@ -419,7 +419,7 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
     "DatosLeidos": "Data read correctly.",
     "ErrorTipoVehi": "The vehicle does not correspond with the options",
     "CelularInvalido":"The cell phone number is invalid",
-    "CambiarVehiActi":"""You want change the active vehicle: 1. Yes
+    "CambiarVehiActi":""" You want change the active vehicle: 1. Yes
                                   2. No: """,                                    
     "ActivacionVehi":"Which vehicle do you want to activate: ",
     "FormatoMejorCalificadoPasajero": "{0}. Name: {1}, Average Rating: {2}.",
