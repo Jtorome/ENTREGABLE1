@@ -304,7 +304,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "MenuFormatoViajeActual":"""
             1. Change information.
             2. Delete service.
-            3. Back.""",
+            3. View passengers of service
+            4. Back.""",
 
     "RevisarViaje": """
         Enter 0 to exit.
