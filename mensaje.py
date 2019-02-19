@@ -206,6 +206,7 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
     "ActivacionVehi":"Que vehiculo desea activar: ",
     "FormatoMejorCalificadoPasajero": "{0}. Nombre: {1}, calificacion promedio: {2}.",
     "FormatoMejorCalificadoConductor": "{0}. Nombre: {1}, Acumulado calificacion: {2}.",
+    
     "MensajeRutaFavorita": "    Las rutas favoritas son:",
     "FormatoRutaFavorita": "{0}. Lugar de inicio: {1}, Lugar de fin: {2}.",
     "MensajeVehiculoFavorito": "    Los modelos mas usados por pasajeros son: ",
@@ -272,7 +273,8 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
             6. Qualify passengers
             7. Comments
             8. View profile
-            9. Log out
+            9. Information about trips, conductors, passengers, etc
+            10. Log out
 
             """,
 
@@ -320,15 +322,32 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
         3. Back
     """,
 
+    "MenuInformacionSobre": """
+        1. Better qualified.
+        2. Favorite route.
+        3. Preferred vehicles.
+        4. Busiest time.
+        5. Drivers with more trips.
+        10. Back
+    """,
+
     "MenuMejorCalificados": """
         1. Passengers
         2. Conductors
     """,
-            
+
+    "MenuRazones": ["""
+        1. Model
+        2. Disability
+        3. Comfort (willing to tip)
+        4. Other
+    "" "," Model "," Disability "," Comfort (ready to tip) "," Other "],
+    
+    "EspacioVacio": "",        
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",
     "NoHistorial":"You have not done any intercampus trip.",
-    "InfoVehiculo":"""  Enter the vehicle information to use.
+    "InfoVehiculo":""" Enter the vehicle information to use.
     Select 3 to cancel""",
     "IngresarPlaca":"Enter the number of license plate: ",
     "PlacaInvalida": "License plate already existing in the system.",
@@ -403,5 +422,25 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
                                   2. No: """,                                    
     "ActivacionVehi":"Which vehicle do you want to activate: ",
     "FormatoMejorCalificadoPasajero": "{0}. Name: {1}, Average Rating: {2}.",
-    "FormatoMejorCalificadoConductor": "{0}. Name: {1}, Accumulated qualification: {2}."
-    }   
+    "FormatoMejorCalificadoConductor": "{0}. Name: {1}, Accumulated qualification: {2}.",
+
+    "MensajeRutaFavorita": "    The favorite routes are:",
+    "FormatoRutaFavorita": "{0}. Start place: {1}, End place: {2}.",
+    "MensajeVehiculoFavorito": "    The most used models by passengers are: ",
+    "FormatoVehiculoFavorito": "        {0}. {1}.",
+    "MensajeHoraMasConcurrida": "   The busiest time is:",
+    "FormatoHoraMasConcurrida": "       {0}. Hour: {1}.",
+    "MensajeConductorMasViajes": "      The drivers with the most trips are:",
+    "FormatoConductorMasViajes": "          {0}. Name: {1}, Number of trips: {2}.",
+    "MensajeVerPasajero": "     The passenger are:",
+    "FormatoVerPasajero": ["         {0}. Name: {1}, average mark: {2}, services taken: {3}, seats taken: {4}, reason: {5}.", "         {0}. Name: {1}, average mark: {2}, services taken: {3}, seats taken: {4}."],
+    "DeseaEliminarPas": """       Desea eliminar un pasajero del servicio: 1. Si.
+                                    2. No.""",
+    "QuePasDeseaEliminar": " What passenger do you want to eliminate: ", 
+    "PasajeroEliminado": "      The passenger has been eliminated.",
+    "ServicioSinPasajeros": "   The service does not have passengers.",
+    "YaSeGeneraron": "The data has already been generated.",
+    "ServicioEspecialSioNo": """Need another seat: 1. Yes.
+                                        2. No. """
+    }
+      
