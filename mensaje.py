@@ -342,14 +342,14 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
         2. Disability
         3. Comfort (willing to tip)
         4. Other
-    "" "," Model "," Disability "," Comfort (ready to tip) "," Other "],
+    """," Model "," Disability "," Comfort (ready to tip) "," Other "],
     
     "EspacioVacio": "",        
     "Opcion":"Select an option: ",
     "NoViaje":"You have not sheduled trip.",
     "NoHistorial":"You have not done any intercampus trip.",
-    "InfoVehiculo":"" Enter the vehicle information to use.
-     Select 3 to cancel""",
+    "InfoVehiculo": """Enter the vehicle information to use.
+    Select 3 to cancel""",
     "IngresarPlaca":"Enter the number of license plate: ",
     "PlacaInvalida": "License plate already existing in the system.",
     "IngresarColor":"Enter the color of vehicle: ",
