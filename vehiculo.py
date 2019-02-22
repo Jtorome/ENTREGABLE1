@@ -70,9 +70,3 @@ class VEHICULO:
         for vehiculo in VEHICULO.ListaVehiculos:
             if Placa == vehiculo.getPlaca():
                 return vehiculo
-
-    @staticmethod
-    def BuscadorDeVehiculo(Placa):
-        for vehiculo in VEHICULO.ListaVehiculos:
-            if Placa == vehiculo.getPlaca():
-                return vehiculo

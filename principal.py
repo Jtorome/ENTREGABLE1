@@ -732,16 +732,25 @@ class PRINCIPAL:
             while True:
                 opcion=input(MENSAJE.men.get("Opcion"))
                 print("")
-                lista=["1", "2", "3", "4"]
+                lista=["1", "2", "3", "4", "5", "6"]
                 if opcion in lista:
                     break
                 else:
                     print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
-            if opcion == "2":
-                FICTICIO.DatosFicticiosTxt()
+            if opcion == "1":
+                for c in COMENTARIO.VerTodosLosComentarios():
+                    print(c)
+            elif opcion == "2":
+                for c in PASAJERO.getListaPasajeros():
+                    print(c)
             elif opcion == "3":
-                SERVICIO.ActualizarSerDis()
+                for c in CONDUCTOR.getListaConductores():
+                    print(c)
             elif opcion == "4":
+                print(PASAJERO.EliminarPasajeroAdmin(input(MENSAJE.men.get("CorreoAEliminar"))))
+            elif opcion == "5":
+                print(CONDUCTOR.EliminarConductorAdmin(input(MENSAJE.men.get("CorreoAEliminar"))))
+            elif opcion == "6":
                 break
 
     @staticmethod

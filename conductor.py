@@ -146,3 +146,18 @@ class CONDUCTOR(PERSONA):
             lista.remove(lista[posicion])
             cont.remove(Max)
         return Informacion
+
+    @staticmethod
+    def getListaConductores():
+        Informacion=[]
+        for conductor in CONDUCTOR.ListaConductores:
+            text=(conductor.getCorreo()+", "+conductor.getNombre()).split(',')
+            Informacion.append(','.join(text))
+        return Informacion
+
+    @staticmethod
+    def EliminarConductorAdmin(correo):
+        conductor=CONDUCTOR.BuscadorDeConductor(correo)
+        CONDUCTOR.ListaConductores.remove(conductor)
+        PERSONA.listaPersonas.remove(conductor)
+        return MENSAJE.men.get("Eliminado")

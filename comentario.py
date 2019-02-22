@@ -1,5 +1,6 @@
 import time
 from persona import PERSONA
+from mensaje import MENSAJE
 class COMENTARIO:
 
     listaComentarios=[]
@@ -35,3 +36,15 @@ class COMENTARIO:
 
     def getPersona(self):
         return self._Persona
+
+    @staticmethod
+    def VerTodosLosComentarios():
+        Informacion=[]
+        for comentario in COMENTARIO.listaComentarios:
+            fecha=comentario.getFecha()
+            Nombre=comentario.getPersona().getNombre()
+            descripcion=comentario.getDescripcion()
+            text=MENSAJE.men.get("FormatoComentariosAdmin").format(fecha, Nombre, descripcion)
+            text=text.split(',')
+            Informacion.append(','.join(text))
+        return Informacion

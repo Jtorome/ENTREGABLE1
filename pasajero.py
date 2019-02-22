@@ -97,3 +97,18 @@ class PASAJERO(PERSONA):
             lista.remove(lista[posicion])
             calificaciones.remove(Max)
         return Informacion
+
+    @staticmethod
+    def getListaPasajeros():
+        Informacion=[]
+        for pasajero in PASAJERO.listaPasajeros:
+            text=(pasajero.getCorreo()+", "+pasajero.getNombre()).split(',')
+            Informacion.append(','.join(text))
+        return Informacion
+
+    @staticmethod
+    def EliminarPasajeroAdmin(correo):
+        pasajero=PASAJERO.BuscadorDePasajeros(correo)
+        PASAJERO.listaPasajeros.remove(pasajero)
+        PERSONA.listaPersonas.remove(pasajero)
+        return MENSAJE.men.get("Eliminado")
