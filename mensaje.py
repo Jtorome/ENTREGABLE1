@@ -282,13 +282,15 @@ Por favor ingrese la calificacion para el servicio de 0 a 5 siendo 0 muy malo y 
             10. Log out
 
             """,
-
+            
     "MenuAdmin":"""
-                    You are in the menu of administrators
-            1. Create fictianal data
-            2. Create fictianal data of txt
-            3. Update available service
-            4. Log out 
+                    Estas en el menu de administrador
+            1. View comments
+            2. Passengers list.
+            3. Conductors list.
+            4. Eliminate passengers.
+            5. Eliminate conductor.
+            6. Log out.
             """,
     "MenuComentarios":"""
             1. Make comments to the platafroma or report something
@@ -448,6 +450,8 @@ Please enter the rating for the service from 0 to 5 being 0 very bad and 5 very 
     "ServicioSinPasajeros": "   The service does not have passengers.",
     "YaSeGeneraron": "The data has already been generated.",
     "ServicioEspecialSioNo": """Need another seat: 1. Yes.
-                                        2. No. """
+                                        2. No. """,
+    "CorreoAEliminar": "Enter the email to delete: ",
+    "Eliminado": "      Removed"
     }
       
