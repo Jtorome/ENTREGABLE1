@@ -150,7 +150,7 @@ class PRINCIPAL:
         while True:
             while True:
                 opcion=input(MENSAJE.men.get("IngresarFecha"))
-                lista=["1", "2"]
+                lista=["1", "2", "3"]
                 if opcion in lista:
                     break
                 else:
@@ -161,6 +161,8 @@ class PRINCIPAL:
             elif opcion == "2":
                 FechaSer=(datetime.today()+timedelta(days=1)).strftime("%y/%m/%d")
                 break
+            elif opcion == "3":
+                return
         if opcion == "1":
             while True:
                 HoraEncuentro=input(MENSAJE.men.get("IngresarHoraEncuentro"))
