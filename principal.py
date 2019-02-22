@@ -82,7 +82,6 @@ class PRINCIPAL:
         arconductor.write(Correo+","+Contrasena+","+Nombre+","+str(Cell)+",0,0\n")
         PRINCIPAL.AgregarVehiculo(conductor)
 
-    @staticmethod
     def AgregarVehiculo(conductor):
         print(MENSAJE.men.get("InfoVehiculo"))
         while True:
@@ -136,7 +135,6 @@ class PRINCIPAL:
                 break
         PASAJERO(Correo, Contrasena, Nombre, Cell)
 
-    @staticmethod
     def ProgramarViaje(infousuario):
         SERVICIO.ActualizarSerDis()
         Vehiculo=CONDUCTOR.VehiculoActivado(infousuario)
@@ -185,7 +183,6 @@ class PRINCIPAL:
                 break
         SERVICIO(HoraEncuentro, SitioEncuentro, LugarInicio, LugarFin, AsientosDisponibles, infousuario, Vehiculo, FechaSer)
 
-    @staticmethod
     def CrearComentario(infousuario):
         persona=PERSONA.BuscarPersona(infousuario.getCorreo())
         Descripcion=input(MENSAJE.men.get("IngresarDescripcion"))
@@ -199,7 +196,6 @@ class PRINCIPAL:
         print(MENSAJE.men.get("salir"))
         os._exit(0)
 
-    @staticmethod
     def VerServicios(infousuario):
         SERVICIO.ActualizarSerDis()
         if len(SERVICIO.ServiciosDisponibles) == 0:
@@ -212,7 +208,6 @@ class PRINCIPAL:
                 cont=cont+1
         PRINCIPAL.EscogerServicio(infousuario)
 
-    @staticmethod
     def EscogerServicio(infousuario):
         while True:
             opcion=eval(input(MENSAJE.men.get("IngreseServicioEscogido")))
@@ -248,7 +243,6 @@ class PRINCIPAL:
                 print(SERVICIO.ServicioTomado(infousuario, servicio, razon))
                 return
 
-    @staticmethod
     def VerViajeActual(infousuario):
         SERVICIO.ActualizarSerDis()
         if len(infousuario.getServicioActual())==0:
@@ -273,7 +267,6 @@ class PRINCIPAL:
         elif opcion == "4":
             return
 
-    @staticmethod
     def VerPasajeros(ServicioActual):
         print(MENSAJE.men.get("MensajeVerPasajero"))
         cont=1
@@ -299,7 +292,6 @@ class PRINCIPAL:
         elif opcion == "2":
             return
 
-    @staticmethod
     def CambioInfoSer(servicio):
         print(MENSAJE.men.get("CambiarInfo"))
         while True:
@@ -328,7 +320,6 @@ class PRINCIPAL:
             return
         return
 
-    @staticmethod
     def InfoViaje(infousuario):
         if len(infousuario.getViajeActual())==0:
             print(MENSAJE.men.get("SinServicios"))
@@ -341,7 +332,6 @@ class PRINCIPAL:
         print(MENSAJE.men.get("FormatoInfoVehi").format(vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.getTipoVehiculo(), vehiculo.getModeloVehiculo()))
         PRINCIPAL.MenuInfoViaje(infousuario)
 
-    @staticmethod
     def MenuInfoViaje(infousuario):
         while True:
             print(MENSAJE.men.get("MenuInfoViaje"))
@@ -358,7 +348,6 @@ class PRINCIPAL:
         elif opcion == "2":
             return
 
-    @staticmethod
     def VerMiHistorial(infousuario):
         if len(CONDUCTOR.getServiciosCon(infousuario))==0:
             print(MENSAJE.men.get("HistorialVacio"))
@@ -369,7 +358,6 @@ class PRINCIPAL:
             cont=cont+1
         PRINCIPAL.RevisarServicio(infousuario)
 
-    @staticmethod
     def RevisarServicio(infousuario):
         while True:
             opcion=eval(input(MENSAJE.men.get("RevisarViaje")))
@@ -385,7 +373,6 @@ class PRINCIPAL:
             print(MENSAJE.men.get("FormatoRevisarPasajero").format(cont, pasajero.getNombre(), pasajero.getCell(), pasajero.getCalificacionPromedio()))
             cont=cont+1
 
-    @staticmethod
     def CalificarServicio(infousuario):
         SERVICIO.ActualizarSerDis()
         if len(infousuario.getServicioNoCalificado()) == 0:
@@ -469,7 +456,6 @@ class PRINCIPAL:
         CALIFICACION(Calificacion, Comentario, pasajero)
         infousuario.getPasajeroNoCalificado().remove(pasajero)
 
-    @staticmethod
     def VerPerfil(palabra, infousuario):
         if palabra=="PASAJERO":
             print(MENSAJE.men.get("FormatoVerPerfilPasajero").format(infousuario.getCorreo(), infousuario.getContrasena(), infousuario.getNombre(), infousuario.getCell(), infousuario.getCalificacionPromedio()))
@@ -492,7 +478,6 @@ class PRINCIPAL:
             else:
                 print(MENSAJE.men.get("OpcionIncorrecta").format(opcion))
 
-    @staticmethod
     def CambiarInfoVerPerfil(palabra, opcion, infousuario):
         if opcion == "1":
             contrasena=input(MENSAJE.men.get("IngresarNuevaContrasena"))
@@ -506,7 +491,6 @@ class PRINCIPAL:
                     break
             infousuario.setCell(cell)
 
-    @staticmethod
     def Comentarios(infousuario):
         print(MENSAJE.men.get("MenuComentarios"))
         while True:
@@ -523,7 +507,6 @@ class PRINCIPAL:
         elif opcion == "3":
             return
 
-    @staticmethod
     def VerHistorialComen(infousuario):
         persona=PERSONA.BuscarPersona(infousuario.getCorreo())
         for comentario in persona.getComentarios():
@@ -619,7 +602,6 @@ class PRINCIPAL:
                 return
         print(MENSAJE.men.get("CerradoSesion"))
 
-    @staticmethod
     def InicioSesionPasajero(infousuario):
 
         while True:
@@ -653,8 +635,7 @@ class PRINCIPAL:
                 PRINCIPAL.InformacionSobre()
             elif opcion == "8":
                 break
-        
-    @staticmethod
+
     def InicioSesionConductor(infousuario):
 
         while True:

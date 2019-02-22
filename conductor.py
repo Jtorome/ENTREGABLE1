@@ -68,7 +68,6 @@ class CONDUCTOR(PERSONA):
     def getPasajeroNoCalificado(self):
         return self._PasajeroNoCalificado
 
-    @staticmethod
     def VerVehiculos(Conductor):
         vehiculos=list()
         con=1
@@ -79,14 +78,12 @@ class CONDUCTOR(PERSONA):
             con=con+1
         return vehiculos
 
-    @staticmethod
     def VerificarActivacion(Conductor):
         for vehiculo in Conductor.getVehiculos():
             if vehiculo.getActivo().split()[0] == "si":
                 vehiculo.setActivo("no")
         return False
 
-    @staticmethod
     def VehiculoActivado(infousuario):
         for vehiculo in infousuario.getVehiculos():
             if vehiculo.getActivo()=="si":
@@ -98,7 +95,6 @@ class CONDUCTOR(PERSONA):
             if conductor.getCorreo()==correo:
                 return conductor
 
-    @staticmethod
     def CambioVehiActi(Conductor, num):
         for vehiculo in Conductor.getVehiculos():
             if vehiculo.getActivo().split()[0] == "si":

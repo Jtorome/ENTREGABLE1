@@ -65,7 +65,6 @@ class PASAJERO(PERSONA):
             if pasajero.getCorreo()==correo:
                 return pasajero
 
-    @staticmethod
     def VerMiHistorial(infousuario):
         if len(infousuario.getServiciosPa()) == 0:
             return  MENSAJE.men.get("HistorialVacio")

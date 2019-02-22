@@ -165,7 +165,6 @@ class SERVICIO:
                         pasajero.setServicioNoCalificado(servicio)
                         servicio.getConductorSer().setPasajeroNoCalificado(pasajero)
 
-    @staticmethod
     def ServicioTomado(infousuario, servicio, razon):
         cont=len(servicio.getPasajeros())
         for i in range(cont):
@@ -178,7 +177,6 @@ class SERVICIO:
             servicio.setPasajeroxAsiento(infousuario, razon)
             return MENSAJE.men.get("RegistradoEnSer").format(servicio.getHoraEncuentro(), servicio.getLugarInicio(), servicio.getLugarFin())
 
-    @staticmethod
     def EliminarServicio(servicio):
         SERVICIO.ServiciosDisponibles.remove(servicio)
         (servicio.getConductorSer()).getServicioActual().remove(servicio)
@@ -187,7 +185,6 @@ class SERVICIO:
             pasajero.getViajeActual().remove(servicio)
         return MENSAJE.men.get("ServicioEliminado")
 
-    @staticmethod
     def EliminarPasajero(infousuario, servicio):
         asientos=int(servicio.getPasajeroxAsiento()[infousuario][0])
         del ServicioActual.getPasajeroxAsiento()[infousuario]
