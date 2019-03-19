@@ -209,7 +209,10 @@ class SERVICIO:
             text=servicio.getLugarInicio()+","+servicio.getLugarFin()
             if text in lista:
                 posicion=lista.index(text)
-                cont[posicion]=cont[posicion]+1
+                print(posicion)
+                print(cont[posicion])
+                cont[posicion]=int(cont[posicion])+1
+
             else:
                 lista.append(text)
                 cont.append(0)
@@ -220,7 +223,7 @@ class SERVICIO:
             posicion=cont.index(Max)
             LI=lista[posicion].split(',')[0]
             LF=lista[posicion].split(',')[1]
-            text=MENSAJE.men.get("FormatoRutaFavorita").format(i, LI, LF)
+            text=MENSAJE.men.get("FormatoRutaFavorita").format(i, LI, LF, Max)
             text=text.split(',')
             Informacion.append(','.join(text))
             lista.remove(lista[posicion])
